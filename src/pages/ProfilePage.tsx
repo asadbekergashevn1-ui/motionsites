@@ -6,7 +6,8 @@ import {
 } from '@ionic/react';
 import { useState } from 'react';
 import type { ThemeMode } from '../types';
-import { useApp } from '../context/AppContext';
+import { useApp, type SyncStatus } from '../context/AppContext';
+import { useAuth } from '../context/AuthContext';
 import { fmtClock, parseClock } from '../utils/time';
 
 const THEME_OPTS: { key: ThemeMode; label: string }[] = [
@@ -15,12 +16,22 @@ const THEME_OPTS: { key: ThemeMode; label: string }[] = [
   { key: 'system', label: 'Tizim' },
 ];
 
+const SYNC_META: Record<SyncStatus, { label: string; color: string; bg: string }> = {
+  synced: { label: '✓ Sinxronlangan', color: 'var(--c-easy)', bg: 'var(--c-easy-soft)' },
+  syncing: { label: '⟳ Sinxronlanmoqda…', color: 'var(--c-medium)', bg: 'var(--c-medium-soft)' },
+  offline: { label: '⚠ Oflayn (mahalliy)', color: 'var(--c-hard)', bg: 'var(--c-hard-soft)' },
+  error: { label: '✕ Xatolik', color: 'var(--c-veryhard)', bg: 'var(--c-veryhard-soft)' },
+};
+
 export default function ProfilePage() {
-  const { state, updateSettings } = useApp();
+  const { state, updateSettings, syncStatus, hardReset } = useApp();
+  const { user, signOut } = useAuth();
   const s = state.settings;
   const [resetOpen, setResetOpen] = useState(false);
+  const [signOutOpen, setSignOutOpen] = useState(false);
 
   const initials = s.userName.trim().charAt(0).toUpperCase() || 'A';
+  const sync = SYNC_META[syncStatus];
 
   return (
     <IonPage>
@@ -37,7 +48,39 @@ export default function ProfilePage() {
             <div className="profile-avatar">{initials}</div>
             <div>
               <div className="profile-name">{s.userName}</div>
-              <div className="profile-sub">Ish Ritmi · shaxsiy rejim</div>
+              <div className="profile-sub">{user?.email}</div>
+            </div>
+          </div>
+
+          {/* Hisob va sinxronizatsiya */}
+          <div className="section-head">
+            <div className="section-title">Hisob</div>
+          </div>
+          <div className="card-surface" style={{ padding: '4px 16px' }}>
+            <div className="setting-row">
+              <div>
+                <div className="setting-label">Sinxronizatsiya</div>
+                <div className="setting-hint">Barcha qurilmalarda bir xil</div>
+              </div>
+              <span
+                className="badge sync-badge"
+                style={{ background: sync.bg, color: sync.color }}
+              >
+                {sync.label}
+              </span>
+            </div>
+            <div className="setting-row">
+              <div>
+                <div className="setting-label">Hisobdan chiqish</div>
+                <div className="setting-hint">Boshqa qurilmadagi hisobingiz saqlanadi</div>
+              </div>
+              <button
+                className="att-btn att-out"
+                style={{ flex: '0 0 auto', padding: '9px 16px' }}
+                onClick={() => setSignOutOpen(true)}
+              >
+                Chiqish
+              </button>
             </div>
           </div>
 
@@ -181,17 +224,27 @@ export default function ProfilePage() {
           isOpen={resetOpen}
           onDidDismiss={() => setResetOpen(false)}
           header="Ishonchingiz komilmi?"
-          message="Barcha ma'lumotlar o'chiriladi va ilova qayta ishga tushadi."
+          message="Barcha ma'lumotlar (barcha qurilmalarda) o'chiriladi va ilova qayta ishga tushadi."
           buttons={[
             { text: 'Bekor', role: 'cancel' },
             {
               text: "O'chirish",
               role: 'destructive',
               handler: () => {
-                localStorage.removeItem('ish-ritmi:v1');
-                window.location.reload();
+                hardReset();
               },
             },
+          ]}
+        />
+
+        <IonAlert
+          isOpen={signOutOpen}
+          onDidDismiss={() => setSignOutOpen(false)}
+          header="Hisobdan chiqasizmi?"
+          message="Ma'lumotlaringiz Supabase'da saqlanadi — keyingi safar shu email bilan kirsangiz hammasi joyida bo'ladi."
+          buttons={[
+            { text: 'Bekor', role: 'cancel' },
+            { text: 'Chiqish', role: 'destructive', handler: () => signOut() },
           ]}
         />
       </IonContent>

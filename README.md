@@ -24,8 +24,28 @@ O'zbek tilida, **yorug'** va **qorong'u** rejimlar bilan.
     sahifasidan tahrirlanadi.
 - **Tahrirlash / O'chirish** — istalgan vazifani ⋮ menyudan tahrirlang yoki
   o'chiring. **O'chirilgan vazifa** ball va progressga umuman ta'sir qilmaydi.
-- **Mahalliy saqlash** — ma'lumot telefon xotirasida (localStorage) saqlanadi,
-  backend talab qilinmaydi. Kun almashsa, davomat va kunlik vazifalar yangilanadi.
+- **Bitta hisob, barcha qurilmalarda** — Supabase Auth (email + parol) orqali
+  kiring. Telefonda kiritgan vazifa kompyuterda, planshetda — hammasida real
+  vaqtda ko'rinadi. Oflayn bo'lsangiz ham ilova mahalliy keshdan ishlayveradi,
+  internet qaytganda avtomatik sinxronlanadi.
+
+## Supabase sozlash (bir martalik)
+
+1. [supabase.com](https://supabase.com)'da loyiha oching (yoki mavjudini
+   ishlating — jadval nomi `ish_ritmi_` prefiksi bilan, boshqa loyihalar bilan
+   aralashmaydi).
+2. **SQL Editor**'ga o'ting, `supabase/schema.sql` faylini to'liq nusxalab
+   ishga tushiring.
+3. **Settings → API**'dan `Project URL` va `anon public` kalitni oling.
+4. Loyiha ildizida `.env` fayl yarating (`.env.example`dan nusxalab):
+   ```
+   VITE_SUPABASE_URL=https://xxxxxxxx.supabase.co
+   VITE_SUPABASE_ANON_KEY=eyJhbGci...
+   ```
+5. **Vercel'da deploy qilsangiz**: xuddi shu ikkita qiymatni
+   **Project Settings → Environment Variables**'ga ham qo'shing (Vite
+   o'zgaruvchilari build vaqtida kerak, `.env` fayl git'ga qo'shilmaydi),
+   so'ng **Redeploy** qiling.
 
 ## Ishga tushirish
 

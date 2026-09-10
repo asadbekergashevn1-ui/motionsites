@@ -1,7 +1,7 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import App from './App';
-import { AppProvider } from './context/AppContext';
+import { AuthProvider } from './context/AuthContext';
 
 /* Ionic yadro uslublari (majburiy) */
 import '@ionic/react/css/core.css';
@@ -26,8 +26,8 @@ const container = document.getElementById('root');
 const root = createRoot(container!);
 root.render(
   <React.StrictMode>
-    <AppProvider>
+    <AuthProvider>
       <App />
-    </AppProvider>
+    </AuthProvider>
   </React.StrictMode>
 );
