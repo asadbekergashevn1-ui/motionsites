@@ -1,0 +1,7 @@
+{
+  "name": "Ish Ritmi",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite"
+}

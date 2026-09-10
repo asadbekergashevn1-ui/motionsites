@@ -1,0 +1,470 @@
+/* ============================================================
+   Komponent uslublari
+   ============================================================ */
+
+/* ---------- Davomat paneli ---------- */
+.attendance {
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.attendance-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.attendance-shift {
+  font-size: 12px;
+  color: var(--c-text-3);
+  font-weight: 600;
+}
+.status-pill {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 6px 11px;
+  border-radius: 999px;
+  align-self: flex-start;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+.status-wait { background: var(--c-hard-soft); color: var(--c-hard); }
+.status-in { background: var(--c-easy-soft); color: var(--c-easy); }
+.status-out { background: var(--c-accent-soft); color: var(--c-accent-ink); }
+
+.attendance-btns {
+  display: flex;
+  gap: 10px;
+}
+.att-btn {
+  flex: 1;
+  border: none;
+  border-radius: 12px;
+  padding: 11px;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 13.5px;
+  color: #fff;
+  cursor: pointer;
+  transition: transform 0.16s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.15s,
+    filter 0.15s;
+}
+.att-btn:active:not(:disabled) { transform: scale(0.95); }
+.att-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+.att-in { background: var(--c-easy); }
+.att-out { background: var(--c-veryhard); }
+
+/* ---------- Kanban taxtasi ---------- */
+.board {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding: 2px 0 8px;
+  scroll-snap-type: x proximity;
+  scrollbar-width: none;
+  position: relative;
+}
+.board::-webkit-scrollbar { display: none; }
+
+.column {
+  flex: 0 0 auto;
+  width: 78vw;
+  max-width: 300px;
+  background: var(--c-surface-2);
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius);
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  scroll-snap-align: start;
+  transition: outline 0.15s ease, background 0.2s ease;
+}
+.column.drag-over {
+  outline: 2px dashed var(--c-accent);
+  outline-offset: -2px;
+  background: var(--c-accent-soft);
+}
+.column-head {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 2px 4px 6px;
+}
+.column-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--c-text);
+}
+.column-count {
+  margin-left: auto;
+  font-size: 11px;
+  color: var(--c-text-3);
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-radius: 999px;
+  padding: 1px 8px;
+}
+.column-sub {
+  font-size: 11px;
+  color: var(--c-text-3);
+  padding-left: 17px;
+}
+.column-body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 40px;
+}
+.column-empty {
+  font-size: 12px;
+  color: var(--c-text-3);
+  text-align: center;
+  padding: 14px 4px;
+  border: 1.5px dashed var(--c-border);
+  border-radius: var(--radius-sm);
+}
+.add-task-btn {
+  border: 1.5px dashed var(--c-border);
+  background: transparent;
+  color: var(--c-text-3);
+  border-radius: var(--radius-sm);
+  padding: 10px;
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: var(--font-body);
+  margin-top: auto;
+  transition: border-color 0.2s, color 0.2s, background 0.2s, transform 0.15s;
+}
+.add-task-btn:hover {
+  border-color: var(--c-accent);
+  color: var(--c-accent-ink);
+  background: var(--c-accent-soft);
+}
+.add-task-btn:active { transform: scale(0.97); }
+
+/* ---------- Vazifa kartasi ---------- */
+.task-card {
+  background: var(--c-surface);
+  border-radius: var(--radius-sm);
+  padding: 12px;
+  box-shadow: var(--shadow-sm);
+  border-left: 4px solid var(--card-color, var(--c-accent));
+  touch-action: pan-y;
+  user-select: none;
+  transition: opacity 0.25s ease, transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.2s ease;
+}
+.task-card.dragging { opacity: 0.35; transform: scale(0.97); }
+.task-card.completed { opacity: 0.58; }
+.task-card.completed .task-title { text-decoration: line-through; }
+
+.task-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  align-items: flex-start;
+}
+.task-title {
+  font-size: 13.5px;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--c-text);
+}
+.task-points { flex-shrink: 0; }
+
+.task-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+.task-time { font-size: 11.5px; color: var(--c-text-3); }
+.task-actions { display: flex; align-items: center; gap: 8px; }
+
+.kebab {
+  background: transparent;
+  border: none;
+  color: var(--c-text-3);
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 2px 6px;
+  border-radius: 8px;
+  font-weight: 700;
+}
+.kebab:hover { background: var(--c-surface-2); color: var(--c-text); }
+
+.checkbox {
+  width: 24px;
+  height: 24px;
+  border-radius: 7px;
+  border: 2px solid var(--c-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background: var(--c-surface);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 900;
+  padding: 0;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.checkbox:active { transform: scale(0.88); }
+.checkbox.checked {
+  background: var(--c-easy);
+  border-color: var(--c-easy);
+  animation: popIn 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.day-stepper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.step-btn {
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+  border: 1px solid var(--c-border);
+  background: var(--c-surface-2);
+  color: var(--c-text);
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.step-btn:active { transform: scale(0.9); }
+
+/* ---------- Sudralayotgan "ghost" ---------- */
+.drag-ghost {
+  position: fixed;
+  z-index: 1000;
+  transform: translate(-50%, -50%) rotate(-2deg);
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  box-shadow: var(--shadow);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--c-text);
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  max-width: 240px;
+}
+
+/* ---------- Bugungi reja ---------- */
+.plan-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--c-border);
+  font-size: 13px;
+}
+.plan-row:last-child { border-bottom: none; }
+.plan-time { font-size: 11.5px; color: var(--c-text-3); min-width: 92px; }
+.plan-bar { width: 5px; height: 22px; border-radius: 3px; flex-shrink: 0; }
+.plan-title { flex: 1; color: var(--c-text); }
+.plan-lunch { color: var(--c-text-3); font-style: italic; }
+
+/* ---------- Davom etayotgan loyihalar ---------- */
+.ongoing-item { margin-bottom: 14px; }
+.ongoing-item:last-child { margin-bottom: 0; }
+.ongoing-title {
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: var(--c-text);
+}
+.ongoing-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: var(--c-text-3);
+  margin-top: 5px;
+}
+
+/* ---------- Streak grafigi ---------- */
+.streak-chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+  height: 100px;
+  margin-top: 8px;
+  position: relative;
+}
+.streak-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  height: 100%;
+  gap: 6px;
+}
+.streak-bar-wrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 100%;
+}
+.streak-bar {
+  width: 100%;
+  max-width: 26px;
+  border-radius: 6px 6px 3px 3px;
+  background: var(--c-border);
+  transition: height 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.streak-bar.today { background: var(--c-accent); }
+.streak-day { font-size: 10px; color: var(--c-text-3); }
+.threshold-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  border-top: 1.5px dashed var(--c-text-3);
+  opacity: 0.5;
+}
+.streak-note {
+  margin-top: 16px;
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 600;
+}
+.streak-note-sub {
+  font-size: 11.5px;
+  font-weight: 500;
+  opacity: 0.85;
+  margin-top: 3px;
+}
+.note-good { background: var(--c-easy-soft); color: var(--c-easy); }
+.note-bad { background: var(--c-veryhard-soft); color: var(--c-veryhard); }
+
+/* ---------- FAB (yangi vazifa) ---------- */
+.fab-add {
+  --background: var(--c-accent);
+  --background-activated: var(--c-accent-2);
+  --box-shadow: var(--shadow-fab);
+  --border-radius: 18px;
+}
+
+/* ---------- Modal ---------- */
+.modal-header ion-toolbar {
+  --background: var(--c-surface);
+  --color: var(--c-text);
+  --border-color: var(--c-border);
+}
+.modal-header ion-title {
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 16px;
+}
+.modal-body { --background: var(--c-surface); }
+.submit-btn {
+  --background: var(--c-accent);
+  --background-activated: var(--c-accent-2);
+  --border-radius: 13px;
+  --box-shadow: none;
+  font-weight: 700;
+  height: 48px;
+}
+
+/* ---------- Statistika grid ---------- */
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.stats-grid .stat-hero { grid-column: 1 / -1; }
+
+/* ---------- Profil ---------- */
+.profile-hero {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px;
+}
+.profile-avatar {
+  width: 58px;
+  height: 58px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, var(--c-accent) 0%, var(--c-accent-2) 100%);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-head);
+  font-weight: 800;
+  font-size: 24px;
+  flex-shrink: 0;
+}
+.profile-name { font-size: 18px; font-weight: 800; color: var(--c-text); }
+.profile-sub { font-size: 12.5px; color: var(--c-text-2); margin-top: 2px; }
+
+.setting-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--c-border);
+}
+.setting-row:last-child { border-bottom: none; }
+.setting-label { font-size: 14px; color: var(--c-text); font-weight: 500; }
+.setting-hint { font-size: 11.5px; color: var(--c-text-3); margin-top: 2px; }
+
+.theme-toggle {
+  display: flex;
+  gap: 6px;
+  background: var(--c-surface-2);
+  border: 1px solid var(--c-border);
+  border-radius: 12px;
+  padding: 4px;
+}
+.theme-opt {
+  border: none;
+  background: transparent;
+  color: var(--c-text-2);
+  font-size: 12.5px;
+  font-weight: 600;
+  padding: 7px 12px;
+  border-radius: 9px;
+  cursor: pointer;
+  font-family: var(--font-body);
+}
+.theme-opt.active {
+  background: var(--c-accent);
+  color: #fff;
+}
+
+/* ---------- Tab bar ---------- */
+ion-tab-bar {
+  --border: 1px solid var(--c-border);
+  height: 62px;
+  padding-bottom: 4px;
+}
+ion-tab-button {
+  --color: var(--c-text-3);
+  --color-selected: var(--c-accent);
+}
+ion-tab-button ion-icon { font-size: 22px; }
+ion-tab-button ion-label { font-size: 11px; font-weight: 600; }
+
+/* Sarlavha toolbar */
+.app-toolbar {
+  --background: var(--c-bg);
+  --border-width: 0;
+  --color: var(--c-text);
+}

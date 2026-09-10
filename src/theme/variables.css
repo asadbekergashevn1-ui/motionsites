@@ -1,0 +1,139 @@
+/* ============================================================
+   Ish Ritmi — dizayn tizimi
+   Prototipdagi ranglar + Ionic mavzu o'zgaruvchilari
+   Light (standart) va Dark rejimlar
+   ============================================================ */
+
+:root {
+  /* Yordamchi ranglar (design tokens) — LIGHT */
+  --c-bg: #f3f1fb;
+  --c-surface: #ffffff;
+  --c-surface-2: #f8f7fd;
+  --c-border: #e7e3f5;
+  --c-text: #1e1b2e;
+  --c-text-2: #6b6785;
+  --c-text-3: #a29fc0;
+
+  --c-accent: #6c5ce7;
+  --c-accent-2: #8a7bf0;
+  --c-accent-ink: #4b3fd1;
+  --c-accent-soft: #ede9fc;
+
+  --c-easy: #22c55e;
+  --c-easy-soft: #e4f8ec;
+  --c-medium: #3e8ede;
+  --c-medium-soft: #e4effb;
+  --c-hard: #f2a03d;
+  --c-hard-soft: #fbedda;
+  --c-veryhard: #e4604f;
+  --c-veryhard-soft: #fbe3df;
+
+  --c-good: #22c55e;
+  --c-danger: #e4604f;
+
+  --shadow: 0 12px 28px rgba(108, 92, 231, 0.14);
+  --shadow-sm: 0 4px 12px rgba(108, 92, 231, 0.1);
+  --shadow-fab: 0 10px 24px rgba(108, 92, 231, 0.4);
+
+  --radius: 24px;
+  --radius-md: 18px;
+  --radius-sm: 13px;
+
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-head: 'Manrope', -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* ---- Ionic tizim o'zgaruvchilari ---- */
+  --ion-background-color: var(--c-bg);
+  --ion-background-color-rgb: 243, 241, 251;
+  --ion-text-color: var(--c-text);
+  --ion-text-color-rgb: 30, 27, 46;
+  --ion-font-family: var(--font-body);
+
+  --ion-color-primary: #6c5ce7;
+  --ion-color-primary-rgb: 108, 92, 231;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-contrast-rgb: 255, 255, 255;
+  --ion-color-primary-shade: #5f51cb;
+  --ion-color-primary-tint: #7b6ce9;
+
+  --ion-toolbar-background: var(--c-bg);
+  --ion-tab-bar-background: var(--c-surface);
+  --ion-tab-bar-color: var(--c-text-3);
+  --ion-tab-bar-color-selected: var(--c-accent);
+  --ion-item-background: transparent;
+}
+
+/* ============ DARK — tizim sozlamasiga qarab ============ */
+@media (prefers-color-scheme: dark) {
+  :root:not(.theme-light) {
+    --c-bg: #161327;
+    --c-surface: #211d36;
+    --c-surface-2: #282342;
+    --c-border: #37305a;
+    --c-text: #f1effb;
+    --c-text-2: #afacc9;
+    --c-text-3: #7b7796;
+
+    --c-accent: #9c8ff4;
+    --c-accent-2: #7c6ee8;
+    --c-accent-ink: #d9d4ff;
+    --c-accent-soft: #2c2650;
+
+    --c-easy-soft: #1d3327;
+    --c-medium-soft: #1e2e42;
+    --c-hard-soft: #3a2e1d;
+    --c-veryhard-soft: #3b2422;
+
+    --shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+    --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.28);
+    --shadow-fab: 0 10px 24px rgba(0, 0, 0, 0.45);
+
+    --ion-background-color: #161327;
+    --ion-background-color-rgb: 22, 19, 39;
+    --ion-text-color: #f1effb;
+    --ion-text-color-rgb: 241, 239, 251;
+    --ion-toolbar-background: #161327;
+    --ion-tab-bar-background: #211d36;
+  }
+}
+
+/* ============ DARK — foydalanuvchi tanlovi (majburiy) ============ */
+:root.theme-dark {
+  --c-bg: #161327;
+  --c-surface: #211d36;
+  --c-surface-2: #282342;
+  --c-border: #37305a;
+  --c-text: #f1effb;
+  --c-text-2: #afacc9;
+  --c-text-3: #7b7796;
+
+  --c-accent: #9c8ff4;
+  --c-accent-2: #7c6ee8;
+  --c-accent-ink: #d9d4ff;
+  --c-accent-soft: #2c2650;
+
+  --c-easy-soft: #1d3327;
+  --c-medium-soft: #1e2e42;
+  --c-hard-soft: #3a2e1d;
+  --c-veryhard-soft: #3b2422;
+
+  --shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.28);
+  --shadow-fab: 0 10px 24px rgba(0, 0, 0, 0.45);
+
+  --ion-background-color: #161327;
+  --ion-background-color-rgb: 22, 19, 39;
+  --ion-text-color: #f1effb;
+  --ion-text-color-rgb: 241, 239, 251;
+  --ion-toolbar-background: #161327;
+  --ion-tab-bar-background: #211d36;
+}
+
+/* ============ LIGHT — foydalanuvchi tanlovi (majburiy) ============ */
+:root.theme-light {
+  --ion-background-color: #f3f1fb;
+  --ion-background-color-rgb: 243, 241, 251;
+  --ion-text-color: #1e1b2e;
+  --ion-text-color-rgb: 30, 27, 46;
+}

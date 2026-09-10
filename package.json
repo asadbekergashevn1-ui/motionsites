@@ -1,0 +1,40 @@
+{
+  "name": "ish-ritmi",
+  "version": "1.0.0",
+  "description": "Ish Ritmi — shaxsiy vazifa va ball boshqaruv ilovasi (Ionic React)",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "lint": "eslint src --ext .ts,.tsx",
+    "cap:sync": "cap sync",
+    "cap:android": "cap add android && cap sync android",
+    "cap:ios": "cap add ios && cap sync ios"
+  },
+  "dependencies": {
+    "@capacitor/app": "^6.0.2",
+    "@capacitor/core": "^6.2.0",
+    "@capacitor/haptics": "^6.0.2",
+    "@capacitor/keyboard": "^6.0.3",
+    "@capacitor/status-bar": "^6.0.2",
+    "@ionic/react": "^8.4.1",
+    "@ionic/react-router": "^8.4.1",
+    "ionicons": "^7.4.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router": "^5.3.4",
+    "react-router-dom": "^5.3.4"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^6.2.0",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@types/react-router": "^5.1.20",
+    "@types/react-router-dom": "^5.3.3",
+    "@vitejs/plugin-react": "^4.3.4",
+    "typescript": "~5.6.3",
+    "vite": "^5.4.11"
+  }
+}
