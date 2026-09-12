@@ -12,8 +12,8 @@ import PlanList from '../components/PlanList';
 import OngoingList from '../components/OngoingList';
 
 function CircularProgress({ percent }: { percent: number }) {
-  const r = 70;
-  const stroke = 10;
+  const r = 90;
+  const stroke = 12;
   const circumference = 2 * Math.PI * r;
   const offset = circumference - (percent / 100) * circumference;
   const size = (r + stroke) * 2;
@@ -71,14 +71,14 @@ function DifficultyProgress({ tasks }: { tasks: ReturnType<typeof dailyTasks> })
     <div className="difficulty-progress-list">
       {categories.map((d) => {
         const filtered = tasks.filter((t) => t.difficulty === d);
-        if (filtered.length === 0) return null;
+        const total = filtered.length;
         const done = filtered.filter((t) => t.completed).length;
-        const pct = Math.round((done / filtered.length) * 100);
+        const pct = total > 0 ? Math.round((done / total) * 100) : 0;
         return (
           <div key={d} className="diff-progress-row">
             <div className="diff-progress-header">
               <span className="diff-progress-label">{DIFFICULTIES[d].label}</span>
-              <span className="diff-progress-pct">{done}/{filtered.length}</span>
+              <span className="diff-progress-pct">{done}/{total}</span>
             </div>
             <div className="diff-progress-track">
               <div
