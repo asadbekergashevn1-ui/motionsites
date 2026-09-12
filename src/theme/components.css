@@ -496,7 +496,21 @@
     width: 100%;
   }
   .color-stats-grid {
-    grid-template-columns: 1fr;
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    padding-bottom: 4px;
+    margin-left: -18px;
+    margin-right: -18px;
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+  .color-stats-grid::-webkit-scrollbar { display: none; }
+  .color-stats-grid > .stat-card {
+    flex: 0 0 75vw;
+    scroll-snap-align: start;
   }
 }
 
