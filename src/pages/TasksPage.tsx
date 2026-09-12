@@ -57,7 +57,7 @@ export default function TasksPage() {
   return (
     <IonPage>
       <IonContent>
-        <div className="page-pad">
+        <div className="page-pad page-enter">
           <div style={{ paddingTop: 8, marginBottom: 6 }}>
             <div className="section-title" style={{ fontSize: 22, fontWeight: 800 }}>
               Vazifalar taxtasi

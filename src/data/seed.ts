@@ -1,5 +1,5 @@
 import type { DayRecord, PersistedState } from '../types';
-import { currentWeekDates, isoDate, todayWeekIndex } from '../utils/time';
+import { currentWeekDates, isoDate, todayWeekIndex, getWeekStartDate } from '../utils/time';
 
 let seq = 0;
 function uid(): string {
@@ -7,32 +7,46 @@ function uid(): string {
   return `t${Date.now().toString(36)}${seq}`;
 }
 
-/** Shu haftaning bugungacha bo'lgan kunlariga namunaviy ballar */
 function seedHistory(): DayRecord[] {
   const week = currentWeekDates();
   const todayIdx = todayWeekIndex();
-  const samples = [120, 145, 98, 160, 135, 110, 90];
+  const samples = [
+    { net: 120, tasks: { total: 6, done: 4 }, prod: 72 },
+    { net: 145, tasks: { total: 5, done: 4 }, prod: 85 },
+    { net: 98, tasks: { total: 7, done: 3 }, prod: 58 },
+    { net: 160, tasks: { total: 6, done: 5 }, prod: 91 },
+    { net: 135, tasks: { total: 4, done: 3 }, prod: 78 },
+    { net: 110, tasks: { total: 5, done: 3 }, prod: 65 },
+    { net: 90, tasks: { total: 4, done: 2 }, prod: 52 },
+  ];
   const history: DayRecord[] = [];
   for (let i = 0; i < todayIdx; i++) {
-    history.push({ date: week[i], netPoints: samples[i] });
+    history.push({
+      date: week[i],
+      netPoints: samples[i].net,
+      tasks: samples[i].tasks,
+      productivity: samples[i].prod,
+    });
   }
   return history;
 }
 
-/** Ilova birinchi marta ochilganda namunaviy ma'lumot */
 export function createSeedState(): PersistedState {
   const today = isoDate();
   return {
     version: 1,
     lastActiveDate: today,
+    weeklyRewardPending: false,
+    lastWeekResetDate: getWeekStartDate(),
     settings: {
-      userName: 'Asadbek',
-      shiftStart: 9 * 60, // 09:00
-      shiftEnd: 18 * 60, // 18:00
+      userName: 'Ergashev Asadbek',
+      shiftStart: 9 * 60,
+      shiftEnd: 18 * 60,
       dailyThreshold: 130,
-      weeklyReward: '🎮 Yakshanba: 3 soat kompyuter o\'ynash huquqi',
-      weeklyPenalty: "💸 -35 000 so'm jarima",
+      weeklyReward: '3 soat kompyuter o\'ynash huquqi',
+      weeklyPenalty: "-35 000 so'm jarima",
       theme: 'system',
+      motivationalQuote: 'Har bir katta muvaffaqiyat kichik qadamdan boshlanadi.',
     },
     attendance: { checkIn: 9 * 60 + 14, checkOut: null },
     history: seedHistory(),

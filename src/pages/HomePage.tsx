@@ -1,11 +1,8 @@
-import {
-  IonContent,
-  IonPage,
-} from '@ionic/react';
+import { IonContent, IonPage } from '@ionic/react';
 import { useApp } from '../context/AppContext';
 import { dailyTasks, computePoints, computeProductivity } from '../utils/points';
 import { useWeekInfo } from '../components/StreakChart';
-import { formatLongDate } from '../utils/time';
+import DashboardHeader from '../components/DashboardHeader';
 import StatCard from '../components/StatCard';
 import AttendanceBar from '../components/AttendanceBar';
 import OverloadBanner from '../components/OverloadBanner';
@@ -29,50 +26,22 @@ export default function HomePage() {
   return (
     <IonPage>
       <IonContent>
-        <div className="page-pad">
-          {/* Salomlashuv */}
-          <div style={{ paddingTop: 8, marginBottom: 16 }}>
-            <div className="greeting-name">
-              Salom, {state.settings.userName} 👋
-            </div>
-            <div className="greeting-date">{formatLongDate(new Date())}</div>
-          </div>
+        <div className="page-pad page-enter">
+          <DashboardHeader />
 
-          {/* Davomat */}
           <AttendanceBar />
 
-          {/* Ogohlantirish */}
           <div style={{ marginTop: 14 }}>
             <OverloadBanner />
           </div>
 
-          {/* Statistika kartalari */}
           <div className="stats-grid" style={{ marginTop: 14 }}>
-            <StatCard
-              hero
-              label="Bugungi ball"
-              value={p.net}
-              sub={pointsSub}
-            />
-            <StatCard
-              label="Unumdorlik"
-              value={`${productivity}%`}
-              sub="real vaqtda"
-            />
-            <StatCard
-              label="Vazifalar"
-              value={`${doneCount}/${daily.length}`}
-              sub="bugun bajarilgan"
-            />
-            <StatCard
-              label="Haftalik o'rtacha"
-              value={week.average}
-              sub="ball / kun"
-              subTone={week.isGood ? 'pos' : 'neg'}
-            />
+            <StatCard hero label="Bugungi ball" value={p.net} sub={pointsSub} />
+            <StatCard label="Unumdorlik" value={`${productivity}%`} sub="real vaqtda" />
+            <StatCard label="Vazifalar" value={`${doneCount}/${daily.length}`} sub="bugun bajarilgan" />
+            <StatCard label="Haftalik o'rtacha" value={week.average} sub="ball / kun" subTone={week.isGood ? 'pos' : 'neg'} />
           </div>
 
-          {/* Bugungi reja */}
           <div className="section-head">
             <div>
               <div className="section-title">Bugungi reja</div>
@@ -83,7 +52,6 @@ export default function HomePage() {
             <PlanList />
           </div>
 
-          {/* Davom etayotgan loyihalar */}
           <div className="section-head">
             <div className="section-title">Davom etayotgan loyihalar</div>
             <span className="section-sub">asosiy maqsadlar</span>

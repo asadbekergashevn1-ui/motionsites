@@ -36,7 +36,7 @@ export default function ProfilePage() {
   return (
     <IonPage>
       <IonContent>
-        <div className="page-pad">
+        <div className="page-pad page-enter">
           <div style={{ paddingTop: 8, marginBottom: 12 }}>
             <div className="section-title" style={{ fontSize: 22, fontWeight: 800 }}>
               Profil

@@ -14,8 +14,8 @@ import type {
   Task,
 } from '../types';
 import { createSeedState, uid } from '../data/seed';
-import { computePoints } from '../utils/points';
-import { isoDate } from '../utils/time';
+import { computePoints, computeProductivity, dailyTasks } from '../utils/points';
+import { isoDate, getWeekStartDate } from '../utils/time';
 import { supabase } from '../lib/supabase';
 import { useAuth } from './AuthContext';
 
@@ -25,7 +25,6 @@ const PUSH_DEBOUNCE_MS = 700;
 
 export type SyncStatus = 'syncing' | 'synced' | 'offline' | 'error';
 
-// ---------- Action turlari ----------
 type Action =
   | { type: 'ADD_TASK'; payload: Omit<Task, 'id' | 'createdAt' | 'completed'> }
   | { type: 'UPDATE_TASK'; payload: { id: string; patch: Partial<Task> } }
@@ -38,9 +37,10 @@ type Action =
   | { type: 'RESET_ATTENDANCE' }
   | { type: 'UPDATE_SETTINGS'; payload: Partial<Settings> }
   | { type: 'ROLLOVER'; payload: { today: string } }
+  | { type: 'ACCEPT_WEEKLY_REWARD' }
+  | { type: 'WEEKLY_RESET'; payload: { weekStart: string } }
   | { type: 'REPLACE'; payload: PersistedState };
 
-// ---------- Mahalliy kesh (qurilma oflayn bo'lsa ham ishlashi uchun) ----------
 function storageKey(userId: string): string {
   return STORAGE_PREFIX + userId;
 }
@@ -50,9 +50,23 @@ function loadLocal(userId: string): PersistedState | null {
     const raw = localStorage.getItem(storageKey(userId));
     if (!raw) return null;
     const parsed = JSON.parse(raw) as PersistedState;
-    if (parsed && parsed.version === 1 && Array.isArray(parsed.tasks)) return parsed;
+    if (parsed && parsed.version === 1 && Array.isArray(parsed.tasks)) {
+      if (!parsed.settings.motivationalQuote) {
+        parsed.settings.motivationalQuote = 'Har bir katta muvaffaqiyat kichik qadamdan boshlanadi.';
+      }
+      if (parsed.weeklyRewardPending === undefined) parsed.weeklyRewardPending = false;
+      if (!parsed.lastWeekResetDate) parsed.lastWeekResetDate = getWeekStartDate();
+      if (parsed.history?.length > 0 && typeof parsed.history[0].tasks === 'undefined') {
+        parsed.history = parsed.history.map(h => ({
+          ...h,
+          tasks: (h as any).tasks ?? { total: 0, done: 0 },
+          productivity: (h as any).productivity ?? 0,
+        }));
+      }
+      return parsed;
+    }
   } catch {
-    /* buzilgan kesh — e'tiborsiz qoldiramiz */
+    /* corrupted cache */
   }
   return null;
 }
@@ -61,20 +75,35 @@ function saveLocal(userId: string, state: PersistedState) {
   try {
     localStorage.setItem(storageKey(userId), JSON.stringify(state));
   } catch {
-    /* saqlash imkonsiz — jim o'tkazamiz */
+    /* storage full */
   }
 }
 
-/** Bugungi sof ballni tarixga yozib qo'yish (upsert) — hafta grafigi uchun */
 function syncTodayHistory(state: PersistedState): PersistedState {
   const today = isoDate();
-  const net = computePoints(state.tasks, state.attendance, state.settings).net;
-  const history = state.history.filter((h) => h.date !== today);
-  history.push({ date: today, netPoints: net });
+  const p = computePoints(state.tasks, state.attendance, state.settings);
+  const daily = dailyTasks(state.tasks);
+  const doneCount = daily.filter(t => t.completed).length;
+  const productivity = computeProductivity(state.tasks, p);
+
+  const history = state.history
+    .filter((h) => h.date !== today)
+    .filter(h => {
+      const d = new Date(h.date);
+      const now = new Date();
+      const diff = (now.getTime() - d.getTime()) / (1000 * 60 * 60 * 24);
+      return diff <= 8;
+    });
+
+  history.push({
+    date: today,
+    netPoints: p.net,
+    tasks: { total: daily.length, done: doneCount },
+    productivity,
+  });
   return { ...state, history };
 }
 
-// ---------- Reducer ----------
 function reducer(state: PersistedState, action: Action): PersistedState {
   switch (action.type) {
     case 'ADD_TASK': {
@@ -94,8 +123,6 @@ function reducer(state: PersistedState, action: Action): PersistedState {
         ),
       };
     case 'DELETE_TASK':
-      // O'chirilgan vazifa massivdan butunlay chiqadi —
-      // ballga ham, progressga ham ta'sir qilmaydi.
       return {
         ...state,
         tasks: state.tasks.filter((t) => t.id !== action.payload.id),
@@ -147,8 +174,6 @@ function reducer(state: PersistedState, action: Action): PersistedState {
     case 'UPDATE_SETTINGS':
       return { ...state, settings: { ...state.settings, ...action.payload } };
     case 'ROLLOVER':
-      // Yangi kun: davomatni tozalaymiz, kunlik vazifalar "bajarilmagan"
-      // holatiga qaytadi. Ko'p kunlik loyihalar (judaqiyin) saqlanadi.
       return {
         ...state,
         lastActiveDate: action.payload.today,
@@ -157,6 +182,21 @@ function reducer(state: PersistedState, action: Action): PersistedState {
           t.difficulty === 'judaqiyin' ? t : { ...t, completed: false }
         ),
       };
+    case 'ACCEPT_WEEKLY_REWARD':
+      return {
+        ...state,
+        weeklyRewardPending: false,
+      };
+    case 'WEEKLY_RESET': {
+      return {
+        ...state,
+        weeklyRewardPending: false,
+        lastWeekResetDate: action.payload.weekStart,
+        history: [],
+        tasks: state.tasks.filter(t => t.difficulty === 'judaqiyin'),
+        attendance: { checkIn: null, checkOut: null },
+      };
+    }
     case 'REPLACE':
       return action.payload;
     default:
@@ -164,10 +204,8 @@ function reducer(state: PersistedState, action: Action): PersistedState {
   }
 }
 
-// ---------- Context ----------
 interface AppContextValue {
   state: PersistedState;
-  /** Boshqa qurilmalar bilan sinxronizatsiya holati */
   syncStatus: SyncStatus;
   addTask: (payload: Omit<Task, 'id' | 'createdAt' | 'completed'>) => void;
   updateTask: (id: string, patch: Partial<Task>) => void;
@@ -179,16 +217,12 @@ interface AppContextValue {
   checkOut: (minutes: number) => void;
   resetAttendance: () => void;
   updateSettings: (patch: Partial<Settings>) => void;
-  /** Hammasini o'chirib, boshidan (namunaviy holat) boshlash */
+  acceptWeeklyReward: () => void;
   hardReset: () => Promise<void>;
 }
 
 const AppContext = createContext<AppContextValue | null>(null);
 
-/**
- * AppProvider faqat foydalanuvchi tizimga kirgandan keyin (App.tsx'da)
- * render qilinadi — shuning uchun useAuth().user har doim mavjud.
- */
 export function AppProvider({ children }: { children: React.ReactNode }) {
   const { user } = useAuth();
   const userId = user!.id;
@@ -200,14 +234,10 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
   );
   const [syncStatus, setSyncStatus] = useState<SyncStatus>('syncing');
 
-  // Oxirgi Supabase bilan "tenglashtirilgan" holat — halqa (echo) hosil
-  // bo'lmasligi uchun: agar keladigan/ketayotgan JSON shu bilan bir xil
-  // bo'lsa, hech narsa qilmaymiz.
   const lastSyncedJson = useRef<string>('');
   const pushTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const initializedRef = useRef(false);
 
-  // ---- 1) Dastlabki yuklash: Supabase'dan holatni olish ----
   useEffect(() => {
     let cancelled = false;
     initializedRef.current = false;
@@ -223,7 +253,6 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
       if (cancelled) return;
 
       if (error) {
-        // Tarmoq yo'q yoki jadval hali sozlanmagan — mahalliy keshda davom etamiz
         const fallback = loadLocal(userId) ?? createSeedState();
         dispatch({ type: 'REPLACE', payload: fallback });
         lastSyncedJson.current = '';
@@ -234,12 +263,15 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
 
       if (data?.data) {
         const remote = data.data as PersistedState;
+        if (!remote.settings.motivationalQuote) {
+          remote.settings.motivationalQuote = 'Har bir katta muvaffaqiyat kichik qadamdan boshlanadi.';
+        }
+        if (remote.weeklyRewardPending === undefined) remote.weeklyRewardPending = false;
+        if (!remote.lastWeekResetDate) remote.lastWeekResetDate = getWeekStartDate();
         lastSyncedJson.current = JSON.stringify(remote);
         dispatch({ type: 'REPLACE', payload: remote });
         saveLocal(userId, remote);
       } else {
-        // Birinchi marta kirilmoqda: shu qurilmadagi eski keshni (masalan,
-        // telefonda avval kiritilgan vazifalarni) Supabase'ga yuklaymiz.
         const seedFrom = loadLocal(userId) ?? createSeedState();
         lastSyncedJson.current = JSON.stringify(seedFrom);
         dispatch({ type: 'REPLACE', payload: seedFrom });
@@ -255,17 +287,40 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     };
   }, [userId]);
 
-  // ---- 2) Kun almashganini tekshirish (dastlabki yuklashdan keyin) ----
   useEffect(() => {
     if (!initializedRef.current) return;
     const today = isoDate();
     if (state.lastActiveDate !== today) {
       dispatch({ type: 'ROLLOVER', payload: { today } });
     }
+    const currentWeekStart = getWeekStartDate();
+    if (state.lastWeekResetDate && state.lastWeekResetDate !== currentWeekStart) {
+      if (state.history.length > 0) {
+        dispatch({ type: 'REPLACE', payload: { ...state, weeklyRewardPending: true } });
+      }
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [state.lastActiveDate]);
 
-  // ---- 3) Realtime: boshqa qurilmadagi o'zgarishlarni tinglash ----
+  useEffect(() => {
+    if (!initializedRef.current) return;
+    const checkRollover = () => {
+      const now = new Date();
+      if (now.getHours() >= 21) {
+        const today = isoDate();
+        if (state.lastActiveDate === today) {
+          const tomorrow = new Date(now);
+          tomorrow.setDate(tomorrow.getDate() + 1);
+          dispatch({ type: 'ROLLOVER', payload: { today: isoDate(tomorrow) } });
+        }
+      }
+    };
+    const interval = setInterval(checkRollover, 60000);
+    checkRollover();
+    return () => clearInterval(interval);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [state.lastActiveDate]);
+
   useEffect(() => {
     const channel = supabase
       .channel(`app_state_${userId}`)
@@ -281,7 +336,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
           const remote = (payload.new as { data?: PersistedState } | null)?.data;
           if (!remote) return;
           const json = JSON.stringify(remote);
-          if (json === lastSyncedJson.current) return; // o'zimiz yozgan o'zgarish
+          if (json === lastSyncedJson.current) return;
           lastSyncedJson.current = json;
           dispatch({ type: 'REPLACE', payload: remote });
           saveLocal(userId, remote);
@@ -294,7 +349,6 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     };
   }, [userId]);
 
-  // ---- 4) Har o'zgarishda: mahalliy saqlash + Supabase'ga yuborish ----
   useEffect(() => {
     if (!initializedRef.current) return;
     const synced = syncTodayHistory(state);
@@ -338,17 +392,24 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
       resetAttendance: () => dispatch({ type: 'RESET_ATTENDANCE' }),
       updateSettings: (patch) =>
         dispatch({ type: 'UPDATE_SETTINGS', payload: patch }),
+      acceptWeeklyReward: () => {
+        dispatch({ type: 'ACCEPT_WEEKLY_REWARD' });
+        const currentWeekStart = getWeekStartDate();
+        setTimeout(() => {
+          dispatch({ type: 'WEEKLY_RESET', payload: { weekStart: currentWeekStart } });
+        }, 800);
+      },
       hardReset: async () => {
         const fresh = createSeedState();
         try {
           await supabase.from(TABLE).upsert({ user_id: userId, data: fresh });
         } catch {
-          /* oflayn bo'lsa ham mahalliyni tozalaymiz */
+          /* offline */
         }
         try {
           localStorage.removeItem(storageKey(userId));
         } catch {
-          /* jim o'tkazamiz */
+          /* ignore */
         }
         window.location.reload();
       },
