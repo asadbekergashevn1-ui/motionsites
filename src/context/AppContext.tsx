@@ -237,11 +237,17 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
   const lastSyncedJson = useRef<string>('');
   const pushTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const initializedRef = useRef(false);
+  const stateRef = useRef(state);
+
+  useEffect(() => {
+    stateRef.current = state;
+  }, [state]);
 
   useEffect(() => {
     let cancelled = false;
     initializedRef.current = false;
     setSyncStatus('syncing');
+    const localAtFetchStart = stateRef.current;
 
     (async () => {
       const { data, error } = await supabase
@@ -252,9 +258,15 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
 
       if (cancelled) return;
 
+      // Foydalanuvchi ma'lumot yuklanayotgan paytda vazifa qo'shgan/o'zgartirgan
+      // bo'lsa, uni serverdagi eski nusxa bilan bosib qo'ymaslik kerak.
+      const editedDuringLoad = stateRef.current !== localAtFetchStart;
+
       if (error) {
-        const fallback = loadLocal(userId) ?? createSeedState();
-        dispatch({ type: 'REPLACE', payload: fallback });
+        if (!editedDuringLoad) {
+          const fallback = loadLocal(userId) ?? createSeedState();
+          dispatch({ type: 'REPLACE', payload: fallback });
+        }
         lastSyncedJson.current = '';
         setSyncStatus('offline');
         initializedRef.current = true;
@@ -268,10 +280,19 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
         }
         if (remote.weeklyRewardPending === undefined) remote.weeklyRewardPending = false;
         if (!remote.lastWeekResetDate) remote.lastWeekResetDate = getWeekStartDate();
+        if (remote.history?.length > 0 && typeof remote.history[0].tasks === 'undefined') {
+          remote.history = remote.history.map((h) => ({
+            ...h,
+            tasks: (h as unknown as { tasks?: { total: number; done: number } }).tasks ?? { total: 0, done: 0 },
+            productivity: (h as unknown as { productivity?: number }).productivity ?? 0,
+          }));
+        }
         lastSyncedJson.current = JSON.stringify(remote);
-        dispatch({ type: 'REPLACE', payload: remote });
+        if (!editedDuringLoad) {
+          dispatch({ type: 'REPLACE', payload: remote });
+        }
         saveLocal(userId, remote);
-      } else {
+      } else if (!editedDuringLoad) {
         const seedFrom = loadLocal(userId) ?? createSeedState();
         lastSyncedJson.current = JSON.stringify(seedFrom);
         dispatch({ type: 'REPLACE', payload: seedFrom });

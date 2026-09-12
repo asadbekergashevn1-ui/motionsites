@@ -45,7 +45,7 @@ export function createSeedState(): PersistedState {
       dailyThreshold: 130,
       weeklyReward: '3 soat kompyuter o\'ynash huquqi',
       weeklyPenalty: "-35 000 so'm jarima",
-      theme: 'system',
+      theme: 'light',
       motivationalQuote: 'Har bir katta muvaffaqiyat kichik qadamdan boshlanadi.',
     },
     attendance: { checkIn: 9 * 60 + 14, checkOut: null },

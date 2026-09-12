@@ -65,7 +65,7 @@ export default function WeekSlider({ selectedDate, onSelect }: WeekSliderProps) 
         const isActive = date === selectedDate;
         const isFuture = i > todayIdx;
         const record = findDayRecord(date);
-        const hasDone = record && record.tasks.done > 0;
+        const hasDone = !!record?.tasks && record.tasks.done > 0;
 
         return (
           <button
