@@ -57,7 +57,7 @@ ion-content {
 .stat-card {
   border-radius: var(--radius);
   padding: 16px 18px;
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
   position: relative;
   overflow: hidden;
   min-height: 108px;
@@ -65,12 +65,28 @@ ion-content {
   flex-direction: column;
   justify-content: space-between;
 }
-.stat-hero {
-  background: linear-gradient(135deg, var(--c-accent) 0%, var(--c-accent-2) 100%);
+.stat-colorful {
   color: #fff;
 }
-.stat-hero .stat-label {
-  color: rgba(255, 255, 255, 0.85);
+.stat-colorful .stat-label {
+  color: rgba(255,255,255,0.85);
+}
+.stat-colorful .stat-sub {
+  color: rgba(255,255,255,0.75);
+}
+.stat-colorful .stat-sub.neg,
+.stat-colorful .stat-sub.pos {
+  color: rgba(255,255,255,0.9);
+}
+.stat-icon-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+  color: #fff;
 }
 .stat-plain {
   background: var(--c-surface);

@@ -52,15 +52,16 @@ export default function StatsPage() {
 
           <WeekSlider selectedDate={selectedDate} onSelect={setSelectedDate} />
 
-          <div className="stats-grid" style={{ marginTop: 16 }}>
+          <div className="color-stats-grid" style={{ marginTop: 16 }}>
             <StatCard
-              hero
+              color="pink"
+              icon="star"
               label={isToday ? 'Bugungi ball' : 'Tanlangan kun'}
               value={displayPoints}
               sub={`${displayTasks.done} ta vazifa bajarilgan`}
             />
-            <StatCard label="Unumdorlik" value={`${displayProductivity}%`} sub={isToday ? 'bugun' : selectedDate} />
-            <StatCard label="Eng yaxshi kun" value={best} sub="shu hafta" subTone="pos" />
+            <StatCard color="blue" icon="zap" label="Unumdorlik" value={`${displayProductivity}%`} sub={isToday ? 'bugun' : selectedDate} />
+            <StatCard color="purple" icon="trend" label="Eng yaxshi kun" value={best} sub="shu hafta" subTone="pos" />
           </div>
 
           <div className="section-head">
