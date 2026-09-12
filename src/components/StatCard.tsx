@@ -12,7 +12,7 @@ interface Props {
 const COLOR_MAP = {
   pink: { bg: 'linear-gradient(135deg, #ff6b9d 0%, #c44569 100%)', iconBg: 'rgba(255,255,255,0.22)' },
   blue: { bg: 'linear-gradient(135deg, #4facfe 0%, #2f80ed 100%)', iconBg: 'rgba(255,255,255,0.22)' },
-  yellow: { bg: 'linear-gradient(135deg, #f7b733 0%, #e08914 100%)', iconBg: 'rgba(255,255,255,0.22)' },
+  yellow: { bg: 'linear-gradient(135deg, #F4CA7A 0%, #e0a84a 100%)', iconBg: 'rgba(255,255,255,0.22)' },
   purple: { bg: 'linear-gradient(135deg, #a18cd1 0%, #6c5ce7 100%)', iconBg: 'rgba(255,255,255,0.22)' },
 };
 
