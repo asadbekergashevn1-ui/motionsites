@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useApp } from '../context/AppContext';
 import { formatLongDate, formatTime } from '../utils/time';
+import { computePoints, computeProductivity } from '../utils/points';
 
 export default function DashboardHeader() {
   const { state, updateSettings } = useApp();
@@ -15,6 +16,9 @@ export default function DashboardHeader() {
 
   const firstName = state.settings.userName.split(' ').pop() || state.settings.userName;
 
+  const p = computePoints(state.tasks, state.attendance, state.settings);
+  const productivity = computeProductivity(state.tasks, p);
+
   const saveQuote = () => {
     if (quoteText.trim()) {
       updateSettings({ motivationalQuote: quoteText.trim() });
@@ -24,11 +28,14 @@ export default function DashboardHeader() {
 
   return (
     <div className="dash-header">
+      <div className="dash-header-blob dash-blob-1" />
+      <div className="dash-header-blob dash-blob-2" />
+
       <div className="dash-header-content">
         <div className="dash-header-text">
           <div className="dash-date">{formatLongDate(now)} · {formatTime(now)}</div>
           <h1 className="dash-greeting">
-            Salom {firstName}, <br />bugun nima qilamiz?
+            Salom {firstName},<br />bugun nima qilamiz?
           </h1>
           {editingQuote ? (
             <div className="dash-quote-edit">
@@ -52,7 +59,19 @@ export default function DashboardHeader() {
               "{state.settings.motivationalQuote}"
             </p>
           )}
+
+          <div className="dash-pill-row">
+            <div className="dash-pill">
+              <span className="dash-pill-label">Bugungi ball</span>
+              <span className="dash-pill-value">{p.net}</span>
+            </div>
+            <div className="dash-pill">
+              <span className="dash-pill-label">Unumdorlik</span>
+              <span className="dash-pill-value">{productivity}%</span>
+            </div>
+          </div>
         </div>
+
         <div className="dash-header-img">
           <img src="/images/calendar-clock.png" alt="" />
         </div>

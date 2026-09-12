@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Redirect, Route, Switch } from 'react-router-dom';
+import { Redirect, Route } from 'react-router-dom';
 import { IonApp, IonRouterOutlet, IonSpinner, setupIonicReact } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import { useAuth } from './context/AuthContext';
@@ -40,15 +40,13 @@ function AuthedApp() {
           </button>
 
           <IonRouterOutlet animated={false}>
-            <Switch>
-              <Route exact path="/asosiy" component={HomePage} />
-              <Route exact path="/vazifalar" component={TasksPage} />
-              <Route exact path="/statistika" component={StatsPage} />
-              <Route exact path="/profil" component={ProfilePage} />
-              <Route exact path="/">
-                <Redirect to="/asosiy" />
-              </Route>
-            </Switch>
+            <Route exact path="/asosiy" component={HomePage} />
+            <Route exact path="/vazifalar" component={TasksPage} />
+            <Route exact path="/statistika" component={StatsPage} />
+            <Route exact path="/profil" component={ProfilePage} />
+            <Route exact path="/">
+              <Redirect to="/asosiy" />
+            </Route>
           </IonRouterOutlet>
         </main>
       </div>
