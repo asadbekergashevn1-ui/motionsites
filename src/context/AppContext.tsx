@@ -321,7 +321,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [state.lastActiveDate]);
+  }, [state.lastActiveDate, syncStatus]);
 
   useEffect(() => {
     if (!initializedRef.current) return;
