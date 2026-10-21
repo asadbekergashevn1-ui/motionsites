@@ -1,0 +1,32 @@
+name: Deploy to home server
+
+on:
+  push:
+    branches:
+      - claude/stoic-goodall-cae4ji
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-motionsites
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: [self-hosted, motionsites]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Publish to serve directory
+        run: |
+          mkdir -p "$HOME/apps/motionsites/dist"
+          rsync -a --delete dist/ "$HOME/apps/motionsites/dist/"
+
+      - name: Reload app (pm2)
+        run: pm2 reload motionsites --update-env || pm2 serve "$HOME/apps/motionsites/dist" 3000 --spa --name motionsites
