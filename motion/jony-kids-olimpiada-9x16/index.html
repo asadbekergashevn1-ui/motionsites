@@ -1,0 +1,285 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Jony Kids v3</title>
+<style>html,body{margin:0;background:#111}canvas{display:block;height:100vh;width:auto}</style></head>
+<body><canvas id="c" width="1080" height="1920"></canvas>
+<script>
+// JONY KIDS OLIMPIADASI v3 — minimal kinetic typography + 3D sprite accents, 9:16, white + cyan
+const W = 1080, H = 1920, DUR = 20;
+const COL = { bg: '#ffffff', bg2: '#f3f9fc', ink: '#0f1f2a', gray: '#7d8b94', cyan: '#00aeef', cyanD: '#0090c8', cyanL: '#e2f5fd' };
+const cv = document.getElementById('c'), out = cv.getContext('2d');
+const mk = () => { const c = document.createElement('canvas'); c.width = W; c.height = H; return c; };
+const scr = mk(), sx = scr.getContext('2d'), sB = mk(), sbx = sB.getContext('2d');
+
+// ---------- math ----------
+const clamp = (v, a = 0, b = 1) => Math.max(a, Math.min(b, v));
+const lerp = (a, b, t) => a + (b - a) * t;
+const seg = (t, a, b) => clamp((t - a) / (b - a));
+const eOut = t => 1 - Math.pow(1 - t, 3), eOut5 = t => 1 - Math.pow(1 - t, 5), eIn = t => t * t * t;
+const eIO = t => t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+const eIO5 = t => t < .5 ? 16 * t ** 5 : 1 - Math.pow(-2 * t + 2, 5) / 2;
+const eBack = (t, s = 1.4) => 1 + (s + 1) * Math.pow(t - 1, 3) + s * Math.pow(t - 1, 2);
+const spring = (t, w = 14, z = .45) => t <= 0 ? 0 : 1 - Math.exp(-z * w * t) * Math.cos(w * Math.sqrt(1 - z * z) * t);
+function keyAt(keys, t) {
+  const n = keys.length, d = keys[0].length - 1;
+  if (t <= keys[0][0]) return keys[0].slice(1); if (t >= keys[n - 1][0]) return keys[n - 1].slice(1);
+  let i = 0; while (keys[i + 1][0] < t) i++;
+  const k0 = keys[i], k1 = keys[i + 1], h = k1[0] - k0[0], u = (t - k0[0]) / h;
+  const tan = (j, c) => (j === 0 || j === n - 1) ? 0 : (keys[j + 1][c] - keys[j - 1][c]) / (keys[j + 1][0] - keys[j - 1][0]);
+  const a = 2 * u ** 3 - 3 * u ** 2 + 1, b = u ** 3 - 2 * u ** 2 + u, c = -2 * u ** 3 + 3 * u ** 2, e = u ** 3 - u ** 2;
+  const r = []; for (let q = 1; q <= d; q++) r.push(a * k0[q] + b * h * tan(i, q) + c * k1[q] + e * h * tan(i + 1, q)); return r;
+}
+
+// ---------- assets ----------
+const SPR = {}; const NS = 72;
+function loadImg(src) { return new Promise((res, rej) => { const i = new Image(); i.onload = () => res(i); i.onerror = rej; i.src = src; }); }
+async function loadAll() {
+  const ff = [['IDB', 'fonts/InterDisplay-Bold.otf', '700'], ['IDX', 'fonts/InterDisplay-ExtraBold.otf', '800'], ['IDM', 'fonts/InterDisplay-Medium.otf', '500'], ['ISI', 'fonts/InstrumentSerif-Italic.ttf', '400']];
+  for (const [n, u, w] of ff) { const f = new FontFace(n, `url(${u})`, { weight: w }); await f.load(); document.fonts.add(f); }
+  const ps = [];
+  for (const n of ['qm', 'medal', 'gift', 'bike', 'ball', 'phone']) { SPR[n] = []; for (let k = 0; k < NS; k++) ps.push(loadImg(`sprites/${n}_${String(k).padStart(2, '0')}.png`).then(i => SPR[n][k] = i)); }
+  await Promise.all(ps);
+}
+// turntable sprite: angle in turns
+function sprite(ctx, name, x, y, size, turn, o = {}) {
+  const fr = SPR[name][((Math.round(turn * NS) % NS) + NS) % NS];
+  ctx.save(); ctx.translate(x, y); if (o.rot) ctx.rotate(o.rot); ctx.scale(o.sx || 1, o.sy || 1); if (o.alpha != null) ctx.globalAlpha *= o.alpha;
+  if (o.shadow !== false) { // soft contact shadow
+    ctx.save(); ctx.globalAlpha *= .2 * (o.shAlpha ?? 1); ctx.translate(0, size * .46 + (o.shY || 0)); ctx.scale(1, .16); const g2 = ctx.createRadialGradient(0, 0, 0, 0, 0, size * .38); g2.addColorStop(0, o.shCol || 'rgb(0,70,110)'); g2.addColorStop(1, 'rgba(0,70,110,0)'); ctx.fillStyle = g2; ctx.fillRect(-size * .4, -size * .4, size * .8, size * .8); ctx.restore();
+  }
+  ctx.drawImage(fr, -size / 2, -size / 2, size, size); ctx.restore();
+}
+
+// ---------- type ----------
+const fontStr = (f, s) => ({ IDB: `700 ${s}px IDB`, IDX: `800 ${s}px IDX`, IDM: `500 ${s}px IDM`, ISI: `400 ${s}px ISI` })[f];
+const mC = {};
+function mw(ctx, s, f, sz, ls = 0) { const k = f + sz + ls + s; if (!(k in mC)) { ctx.font = fontStr(f, sz); ctx.letterSpacing = ls + 'px'; mC[k] = ctx.measureText(s).width; ctx.letterSpacing = '0px'; } return mC[k]; }
+// draw text with per-glyph animation fn(i,n) -> {dx,dy,a,s,blur,rot}
+function text(ctx, s, x, y, f, sz, color, o = {}) {
+  ctx.save(); ctx.font = fontStr(f, sz); ctx.textBaseline = 'alphabetic'; ctx.fillStyle = color;
+  const ls = o.ls || 0, tw = mw(ctx, s, f, sz, ls); let x0 = o.align === 'left' ? x : o.align === 'right' ? x - tw : x - tw / 2;
+  if (!o.anim) { ctx.letterSpacing = ls + 'px'; ctx.globalAlpha *= (o.a ?? 1); if (o.blur > .5) ctx.filter = `blur(${o.blur.toFixed(1)}px)`; ctx.fillText(s, x0, y); ctx.restore(); return tw; }
+  const n = s.length;
+  for (let i = 0; i < n; i++) {
+    const ch = s[i]; const px = x0 + mw(ctx, s.slice(0, i), f, sz, ls) + (i ? ls * 0 : 0); const cw = mw(ctx, ch, f, sz, 0);
+    if (ch === ' ') continue; const A = o.anim(i, n); if ((A.a ?? 1) <= .003) continue;
+    ctx.save(); ctx.translate(px + cw / 2 + (A.dx || 0), y + (A.dy || 0)); if (A.rot) ctx.rotate(A.rot); if (A.s != null) ctx.scale(A.s, A.s);
+    ctx.globalAlpha *= (A.a ?? 1); if (A.blur > .6) ctx.filter = `blur(${A.blur.toFixed(1)}px)`; if (A.color) ctx.fillStyle = A.color;
+    ctx.fillText(ch, -cw / 2, 0); ctx.restore();
+  }
+  ctx.restore(); return tw;
+}
+// word-by-word reveal helper (rise + unblur)
+const riseAnim = (t, t0, step = .035, dur = .45, dist = 60) => (i) => { const u = clamp((t - t0 - i * step) / dur); const e = eOut5(u); return { dy: (1 - e) * dist, a: clamp(u * 2.2), blur: (1 - e) * 14 }; };
+function pill(ctx, x, y, w, h, fill, stroke, lw = 3) { ctx.beginPath(); ctx.roundRect(x - w / 2, y - h / 2, w, h, h / 2); if (fill) { ctx.fillStyle = fill; ctx.fill(); } if (stroke) { ctx.lineWidth = lw; ctx.strokeStyle = stroke; ctx.stroke(); } }
+
+// ---------- camera (per scene: zoom, rot, x, y) with parallax layers ----------
+function withCam(ctx, cam, p, fn, cx = W / 2, cy = H / 2) {
+  const [z, r, x, y] = cam; ctx.save(); ctx.translate(cx, cy); ctx.rotate(r * p); const zz = 1 + (z - 1) * p; ctx.scale(zz, zz); ctx.translate(-cx - x * p, -cy - y * p); fn(ctx); ctx.restore();
+}
+function arcs(ctx, t, seed, col = COL.cyan, alpha = .35) { // thin decorative circles
+  const L = [[-120, 260, 300], [W + 60, 1500, 360], [W - 80, 120, 170], [80, H - 140, 220]];
+  ctx.save(); ctx.strokeStyle = col; ctx.globalAlpha *= alpha; ctx.lineWidth = 3;
+  L.forEach(([x, y, r], i) => { ctx.beginPath(); ctx.arc(x + Math.sin(t * .6 + i + seed) * 14, y + Math.cos(t * .5 + i) * 14, r, 0, 7); ctx.stroke(); });
+  ctx.restore();
+}
+function glow(ctx, x, y, r, col, a) { const g = ctx.createRadialGradient(x, y, 0, x, y, r); g.addColorStop(0, col.replace('A', a)); g.addColorStop(1, col.replace('A', 0)); ctx.fillStyle = g; ctx.fillRect(x - r, y - r, r * 2, r * 2); }
+
+// ================= SCENES =================
+// S1 HOOK 0 - 3.5 ------------------------------------------------------
+const CAM1 = [[0, 1.0, 0, 0, 0], [3.0, 1.09, -.02, -10, 20], [3.5, 1.16, -.025, -10, 20]];
+function S1(ctx, t) {
+  ctx.fillStyle = COL.bg; ctx.fillRect(0, 0, W, H);
+  const cam = keyAt(CAM1, t);
+  withCam(ctx, cam, .35, c => arcs(c, t, 0));
+  withCam(ctx, cam, .6, c => { glow(c, W / 2, 1380, 620, 'rgba(0,174,239,A)', .16 * clamp(t * 2)); });
+  // 3D question mark rising behind type
+  withCam(ctx, cam, .75, c => {
+    const u = spring(t - .9, 7, .55); const y = lerp(2100, 1430, u) + Math.sin(t * 1.6) * 10;
+    if (t > .9) sprite(c, 'qm', W / 2 + 60, y, 860 * (.85 + .15 * clamp(u)), .1 + t * .22, { alpha: clamp((t - .9) * 3), rot: .12, shY: 40 });
+    // small floating ? particles
+    for (let k = 0; k < 6; k++) { const a = k / 6 * Math.PI * 2 + t * .4; const px = W / 2 + Math.cos(a) * (360 + k * 12), py = 1380 + Math.sin(a) * 260 + k * 8; const e = clamp((t - .5 - k * .08) * 3);
+      if (e > 0) text(c, '?', px, py, 'IDB', 34 + (k % 3) * 8, COL.cyan, { a: e * .55 }); }
+  });
+  withCam(ctx, cam, 1, c => {
+    // "Bilimingizni" — zoom-blur arrival
+    const u = eOut5(seg(t, 0, .7)); const s = lerp(2.4, 1, u), b = (1 - u) * 34;
+    c.save(); c.translate(W / 2, 560); c.scale(s, s); text(c, 'Bilimingizni', 0, 0, 'IDB', 132, COL.ink, { blur: b, a: clamp(t * 4) }); c.restore();
+    // highlight pill sweep behind "sinang!" at 2.0, then expands to full screen (transition)
+    const pw = 760, ph = 250, px = W / 2, py = 770;
+    const sw = eIO(seg(t, 1.85, 2.25));
+    const ex = eIO5(seg(t, 3.0, 3.5));
+    if (sw > 0) {
+      const x0 = px - pw / 2, w = pw * sw; c.save(); c.fillStyle = COL.cyan;
+      const L = lerp(x0, -200, ex), T = lerp(py - ph / 2, -300, ex), R = lerp(x0 + w, W + 200, ex), B = lerp(py + ph / 2, H + 300, ex);
+      c.beginPath(); c.roundRect(L, T, R - L, B - T, lerp(ph / 2, 0, ex)); c.fill(); c.restore();
+    }
+    // "sinang!" italic serif, letters typed with blur; colour flips to white over the pill
+    const tA = (i) => { const u = clamp((t - .75 - i * .07) / .4); const e = eOut5(u); return { dy: (1 - e) * 40, a: clamp(u * 2.5), blur: (1 - e) * 18, color: t > 1.9 + i * .05 ? '#ffffff' : COL.cyan, s: lerp(1.25, 1, e) }; };
+    c.save(); c.globalAlpha = 1 - seg(t, 3.0, 3.25); text(c, 'sinang!', W / 2, py + 75, 'ISI', 240, COL.cyan, { anim: tA }); c.restore();
+    // small supporting line
+    c.save(); c.globalAlpha = 1 - seg(t, 2.9, 3.1); text(c, 'ajoyib sovg‘alarni yutib oling', W / 2, 1010, 'IDM', 44, COL.gray, { anim: riseAnim(t, 2.3, .012, .5, 30) }); c.restore();
+  });
+}
+// S2 OLIMPIADA 3.5 - 7.5 (cyan) -----------------------------------------
+const CAM2 = [[3.5, 1.12, .015, 0, 0], [5.5, 1.04, .01, 0, -10], [7.0, 1.0, 0, 10, -20], [7.5, 1.0, 0, 10, -20]];
+function S2(ctx, t) {
+  ctx.fillStyle = COL.cyan; ctx.fillRect(0, 0, W, H);
+  const cam = keyAt(CAM2, t);
+  withCam(ctx, cam, .3, c => { arcs(c, t, 2, '#ffffff', .25); glow(c, W / 2, 1250, 700, 'rgba(255,255,255,A)', .18); });
+  // ripples around medal
+  withCam(ctx, cam, .6, c => { for (let k = 0; k < 3; k++) { const ph = ((t - 4.2) * .5 + k / 3) % 1; if (t < 4.2) break; c.save(); c.strokeStyle = '#fff'; c.globalAlpha = (1 - ph) * .35; c.lineWidth = 3; c.beginPath(); c.arc(W / 2, 1150, 330 + ph * 380, 0, 7); c.stroke(); c.restore(); } });
+  withCam(ctx, cam, .85, c => {
+    // medal hangs on a line: drops in + damped swing
+    const u = t - 3.58; if (u > 0) {
+      const drop = spring(u, 8, .5); const ang = Math.sin(u * 4.2) * Math.exp(-u * 1.3) * .22;
+      c.save(); c.translate(W / 2, -60); c.rotate(ang);
+      c.strokeStyle = 'rgba(255,255,255,.85)'; c.lineWidth = 4; c.beginPath(); c.moveTo(0, 0); c.lineTo(0, lerp(-200, 900, drop)); c.stroke();
+      sprite(c, 'medal', 0, lerp(-600, 1210, drop), 780, .05 + Math.sin(u * 1.1) * .09 + eIO(seg(t, 4.6, 5.4)), { shCol: 'rgb(0,60,100)', shAlpha: 1.3, shY: 30 });
+      c.restore();
+    }
+  });
+  withCam(ctx, cam, 1, c => {
+    text(c, 'JONY KIDS', W / 2, 400, 'IDB', 46, '#ffffff', { ls: 16, anim: (i) => { const v = clamp((t - 3.52 - i * .03) / .4); return { a: v, dy: (1 - eOut(v)) * -24 }; } });
+    // OLIMPIADASI: letters rise through a mask
+    c.save(); c.beginPath(); c.rect(0, 430, W, 200); c.clip();
+    const sz = 148; text(c, 'OLIMPIADASI', W / 2, 590, 'IDX', sz, '#ffffff', { ls: -2, anim: (i) => { const v = clamp((t - 3.72 - i * .04) / .5); const e = eOut5(v); return { dy: (1 - e) * 170, a: 1 }; } });
+    c.restore();
+    const lines = [['bilim va salohiyatingizni', 1640], ['namoyon qiling', 1700]];
+    lines.forEach(([s, y], k) => text(c, s, W / 2, y, 'IDM', 46, 'rgba(255,255,255,.92)', { anim: riseAnim(t, 5.0 + k * .25, .015, .5, 26) }));
+  });
+}
+// S3 SOVG‘ALAR 7.5 - 11.2 (white) ----------------------------------------
+const CAM3 = [[7.5, 1.0, .02, 0, 0], [9.5, 1.06, -.005, 0, 10], [11.2, 1.11, -.014, 0, 24]];
+function S3(ctx, t) {
+  ctx.fillStyle = COL.bg; ctx.fillRect(0, 0, W, H);
+  const cam = keyAt(CAM3, t); const giftY = 1060; { const zt = eIn(seg(t, 10.7, 11.2)); cam[0] *= 1 + zt * 6.2; cam[3] += zt * 300; }
+  const zcx = W / 2, zcy = giftY + 40; // zoom centre = the gift
+  const wc = (p, fn) => withCam(ctx, cam, p, fn, zcx, zcy);
+  wc(.35, c => { arcs(c, t, 4); glow(c, W / 2, giftY, 560, 'rgba(0,174,239,A)', .13); });
+  // connector lines + pills (infographic build)
+  wc(.8, c => {
+    const tags = [['har bir ishtirokchiga', 300, 1560, 8.75, false], ['maxsus sovg‘a', W - 270, 1660, 9.1, true]];
+    tags.forEach(([s, x, y, td, filled], k) => {
+      const v = seg(t, td, td + .35); if (v <= 0) return;
+      c.save(); c.strokeStyle = COL.ink; c.globalAlpha = .55; c.lineWidth = 3; c.beginPath(); const ax = W / 2 + (k ? 150 : -150), ay = giftY + 230;
+      c.moveTo(ax, ay); const bx = lerp(ax, x, eOut(v)), by = lerp(ay, y - 40, eOut(v)); c.lineTo(bx, by); c.stroke();
+      c.fillStyle = COL.ink; c.beginPath(); c.arc(ax, ay, 7, 0, 7); c.fill(); c.restore();
+      const pv = spring(t - td - .25, 14, .5); if (pv <= 0) return;
+      const w = mw(c, s, 'IDB', 46) + 80; c.save(); c.translate(x, y); c.scale(pv, pv);
+      pill(c, 0, 0, w, 96, filled ? COL.cyan : '#fff', filled ? null : COL.ink, 3); text(c, s, 0, 16, 'IDB', 46, filled ? '#fff' : COL.ink); c.restore();
+    });
+  });
+  wc(.9, c => {
+    const u = t - 7.75; if (u > 0) { const d = clamp(u / .38); const land = u - .38; const sq = land > 0 ? 1 - .1 * Math.sin(land * 22) * Math.exp(-land * 8) : 1;
+      sprite(c, 'gift', W / 2, lerp(-300, giftY, eIn(d)) + (1 - sq) * 120, 820, .08 + t * .12, { sx: 1 / Math.sqrt(sq), sy: sq, shY: 10 }); }
+  });
+  wc(1, c => {
+    text(c, 'Barcha ishtirokchilarga', W / 2, 360, 'IDM', 52, COL.gray, { anim: riseAnim(t, 7.65, .014, .5, 30) });
+    // SOVG‘ALAR! bold with outline box drawing around (like "Born" box)
+    const sz = 168, y = 560; const tw = mw(c, 'SOVG‘ALAR!', 'IDX', sz, -3);
+    text(c, 'SOVG‘ALAR!', W / 2, y, 'IDX', sz, COL.ink, { ls: -3, anim: (i) => { const v = clamp((t - 7.95 - i * .035) / .45); const e = eOut5(v); return { dy: (1 - e) * 90, a: clamp(v * 3), blur: (1 - e) * 16 }; } });
+    const bv = eIO(seg(t, 8.55, 9.0)); if (bv > 0) { // cyan underline bar sweeping
+      c.save(); c.fillStyle = COL.cyan; c.fillRect(W / 2 - tw / 2, y + 30, tw * bv, 16); c.restore(); }
+    text(c, 'har bir ishtirokchini maxsus sovg‘alar kutmoqda', W / 2, 1830, 'IDM', 36, COL.gray, { anim: riseAnim(t, 9.5, .008, .5, 20) });
+  });
+  // zoom-through flash
+  const f = seg(t, 10.85, 11.2); if (f > 0) { ctx.fillStyle = `rgba(255,255,255,${eIn(f)})`; ctx.fillRect(0, 0, W, H); }
+}
+// S4 MUKOFOTLAR 11.2 - 15.65 (pale) --------------------------------------
+const CARDS = [{ n: 'bike', a: 'Velosiped', b: '', t0: 11.2 }, { n: 'ball', a: 'Koptok', b: '', t0: 12.65 }, { n: 'phone', a: 'iPhone 17', b: 'Pro Max', t0: 14.1 }];
+function S4(ctx, t) {
+  ctx.fillStyle = COL.bg2; ctx.fillRect(0, 0, W, H);
+  const zin = eOut5(seg(t, 11.2, 11.75)); // continue the zoom-through
+  const cam = [lerp(1.35, 1, zin) + (t - 11.2) * .012, Math.sin(t * .5) * .008, 0, 0];
+  withCam(ctx, cam, .3, c => arcs(c, t, 7, COL.cyan, .3));
+  withCam(ctx, cam, 1, c => {
+    text(c, 'KATTA MUKOFOTLAR', W / 2, 300, 'IDB', 44, COL.cyan, { ls: 10, anim: (i) => { const v = clamp((t - 11.3 - i * .02) / .4); return { a: v, dy: (1 - eOut(v)) * 20 }; } });
+    // progress ring with index
+    const k = t < 12.65 ? 0 : t < 14.1 ? 1 : 2; const rp = (t - CARDS[k].t0) / 1.45;
+    c.save(); c.translate(W / 2, 470); c.lineWidth = 7; c.strokeStyle = COL.cyanL; c.beginPath(); c.arc(0, 0, 58, 0, 7); c.stroke();
+    c.strokeStyle = COL.cyan; c.lineCap = 'round'; c.beginPath(); c.arc(0, 0, 58, -Math.PI / 2, -Math.PI / 2 + Math.PI * 2 * ((k + clamp(rp)) / 3)); c.stroke(); c.restore();
+    text(c, '0' + (k + 1), W / 2, 470 + 18, 'IDB', 50, COL.ink);
+  });
+  // vertical carousel: each card enters from below, exits upward (motion blur from subframes)
+  CARDS.forEach((cd, i) => {
+    const tin = cd.t0, tout = i < 2 ? CARDS[i + 1].t0 : 99;
+    const vin = i === 0 ? 1 : eIO5(seg(t, tin - .02, tin + .38)), vout = eIO5(seg(t, tout - .02, tout + .38));
+    if (vin <= 0 || vout >= 1) return; const oy = (1 - vin) * 1300 - vout * 1300;
+    withCam(ctx, cam, 1, c => { c.save(); c.beginPath(); c.rect(-200, 560, W + 400, H); c.clip(); c.translate(0, oy);
+      const local = t - tin; const sway = (1 - vin) * .25 - vout * .25;
+      const pop = i === 0 ? spring(t - 11.35, 10, .5) : 1;
+      const turn = cd.n === 'ball' ? local * .35 + sway : (cd.n === 'bike' ? .5 : 0) + Math.sin(local * 1.4) * .06 + sway * .4;
+      if (pop > 0) sprite(c, cd.n, W / 2, 1060, ({ bike: 900, ball: 760, phone: 980 })[cd.n] * pop, turn, { shY: cd.n === 'ball' ? -20 : 10 });
+      const ty = 1530;
+      if (cd.b) { const w1 = mw(c, cd.a + ' ', 'IDX', 100, -2), w2 = mw(c, cd.b, 'ISI', 118); const x0 = W / 2 - (w1 + w2) / 2;
+        text(c, cd.a, x0, ty, 'IDX', 100, COL.ink, { align: 'left', ls: -2, anim: riseAnim(t, tin + .3, .03, .45, 70) });
+        text(c, cd.b, x0 + w1, ty, 'ISI', 118, COL.cyan, { align: 'left', anim: riseAnim(t, tin + .55, .04, .45, 70) });
+      } else text(c, cd.a, W / 2, ty, 'IDX', 132, COL.ink, { ls: -2, anim: riseAnim(t, tin + .3, .035, .45, 70) });
+      c.restore(); });
+  });
+  // circle wipe (cyan) from the phone, then white circle reveals S5
+  const w1 = eIO5(seg(t, 15.25, 15.62)); if (w1 > 0) { ctx.fillStyle = COL.cyan; ctx.beginPath(); ctx.arc(W / 2, 1060, w1 * 1250, 0, 7); ctx.fill(); }
+}
+// S5 PRICE + CTA 15.62 - 20 (white) ------------------------------------
+const CAM5 = [[15.62, 1.06, -.01, 0, 0], [17.5, 1.02, 0, 0, 0], [20, 1.0, .004, 0, -10]];
+function S5(ctx, t) {
+  ctx.fillStyle = COL.cyan; ctx.fillRect(0, 0, W, H);
+  const rv = eIO5(seg(t, 15.62, 16.05)); ctx.save(); ctx.fillStyle = COL.bg; ctx.beginPath(); ctx.arc(W / 2, 1060, rv * 1250, 0, 7); ctx.fill(); ctx.clip();
+  const cam = keyAt(CAM5, t);
+  withCam(ctx, cam, .35, c => { arcs(c, t, 9); glow(c, W / 2, 820, 600, 'rgba(0,174,239,A)', .1); });
+  withCam(ctx, cam, 1, c => {
+    text(c, 'Qatnashish narxi', W / 2, 520, 'IDM', 52, COL.gray, { anim: riseAnim(t, 15.9, .015, .5, 30) });
+    text(c, 'atigi', W / 2, 660, 'ISI', 150, COL.cyan, { anim: riseAnim(t, 16.1, .05, .5, 50) });
+    // counter 0 -> 25 000
+    const cu = eOut5(seg(t, 16.3, 17.25)); const val = Math.round(cu * 25) * 1000; const s = (val >= 1000 ? Math.floor(val / 1000) + ' 000' : '0');
+    const ca = clamp((t - 16.3) * 5); const blur = (1 - seg(t, 16.3, 17.25)) * 8 * (t < 17.25 ? 1 : 0);
+    text(c, s, W / 2, 930, 'IDX', 230, COL.ink, { ls: -2, a: ca, blur });
+    text(c, 'so‘m', W / 2, 1070, 'IDB', 92, COL.ink, { anim: riseAnim(t, 17.15, .05, .45, 40) });
+    // hand-drawn oval stroke around the price
+    const ov = eIO(seg(t, 17.35, 17.95)); if (ov > 0) { c.save(); c.strokeStyle = COL.cyan; c.lineWidth = 9; c.lineCap = 'round'; c.beginPath();
+      const N = 80; for (let k = 0; k <= N * ov; k++) { const a = -2.6 + k / N * Math.PI * 2.08; const x = W / 2 + Math.cos(a) * 470 + Math.sin(a * 3) * 6, y = 930 + Math.sin(a) * 205 + Math.cos(a * 2) * 8; k ? c.lineTo(x, y) : c.moveTo(x, y); } c.stroke(); c.restore(); }
+    // CTA pill
+    const bu = spring(t - 17.9, 11, .5); if (bu > 0) {
+      const press = t > 18.65 && t < 18.85 ? 1 - .06 * Math.sin(seg(t, 18.65, 18.85) * Math.PI) : 1;
+      c.save(); c.translate(W / 2, 1420 + (1 - clamp(bu)) * 160); c.scale(press, press); c.globalAlpha = clamp((t - 17.9) * 4);
+      c.save(); c.shadowColor = 'rgba(0,120,170,.28)'; c.shadowBlur = 50; c.shadowOffsetY = 22; pill(c, 0, 0, 900, 170, COL.cyan); c.restore();
+      text(c, 'Hoziroq ro‘yxatdan o‘ting!', 0, 20, 'IDB', 56, '#fff', { anim: riseAnim(t, 18.05, .01, .4, 24) });
+      const rp = seg(t, 18.68, 19.3); if (rp > 0 && rp < 1) { c.strokeStyle = COL.cyan; c.globalAlpha = 1 - rp; c.lineWidth = 4; c.beginPath(); c.roundRect(-450 - rp * 60, -85 - rp * 60, 900 + rp * 120, 170 + rp * 120, 85 + rp * 60); c.stroke(); }
+      c.restore();
+    }
+    // cursor taps
+    const cuv = seg(t, 18.15, 18.6); if (cuv > 0) { const e = eOut5(cuv); const tap = t > 18.6 && t < 18.85 ? Math.sin(seg(t, 18.6, 18.85) * Math.PI) : 0;
+      const x = lerp(W + 120, W / 2 + 250, e), y = lerp(1730, 1450, e); c.save(); c.translate(x, y); c.scale(1 - tap * .12, 1 - tap * .12); c.rotate(-.25);
+      c.fillStyle = COL.ink; c.strokeStyle = '#fff'; c.lineWidth = 6; c.beginPath(); c.moveTo(0, 0); c.lineTo(0, 92); c.lineTo(24, 70); c.lineTo(44, 112); c.lineTo(60, 104); c.lineTo(40, 64); c.lineTo(72, 64); c.closePath(); c.stroke(); c.fill(); c.restore(); }
+    // sign-off
+    text(c, 'JONY KIDS OLIMPIADASI', W / 2, 1760, 'IDB', 38, COL.ink, { ls: 8, anim: (i) => { const v = clamp((t - 19.0 - i * .015) / .4); return { a: v * .85, dy: (1 - eOut(v)) * 16 }; } });
+  });
+  ctx.restore();
+}
+
+// ---------- compose ----------
+function drawFrame(ctx, t) {
+  ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.globalAlpha = 1; ctx.filter = 'none';
+  if (t < 3.5) S1(ctx, t);
+  else if (t < 7.0) S2(ctx, t);
+  else if (t < 7.5) { // whip pan S2 -> S3 (left)
+    const u = eIO5(seg(t, 7.0, 7.5)); ctx.save(); ctx.translate(-W * 1.05 * u, 0); S2(ctx, t); ctx.restore();
+    ctx.save(); ctx.translate(W * 1.05 * (1 - u), 0); S3(ctx, 7.5 + (t - 7.5) * 0); ctx.restore();
+  }
+  else if (t < 11.2) S3(ctx, t);
+  else if (t < 15.62) S4(ctx, t);
+  else S5(ctx, t);
+}
+// adaptive motion blur: more samples during fast transitions
+function samplesAt(t) { const fast = [[2.95, 3.55], [6.95, 7.55], [10.7, 11.8], [12.6, 13.1], [14.05, 14.55], [15.2, 16.1], [0, .7]]; return fast.some(([a, b]) => t >= a && t <= b) ? 7 : 3; }
+window.renderFrame = (i, fps = 60, K = 0) => {
+  const t0 = i / fps; K = K || samplesAt(t0);
+  for (let k = 0; k < K; k++) {
+    const t = Math.min(DUR - 1e-4, Math.max(0, t0 + (K === 1 ? 0 : (k / (K - 1) - .5) * .5 / fps)));
+    sx.setTransform(1, 0, 0, 1, 0, 0); drawFrame(sx, t);
+    out.globalAlpha = 1 / (k + 1); out.drawImage(scr, 0, 0);
+  }
+  out.globalAlpha = 1;
+};
+window.ready = loadAll().then(() => 'ok').catch(e => 'ERR ' + e);
+</script></body></html>
