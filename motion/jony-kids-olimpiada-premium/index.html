@@ -1,0 +1,316 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Jony Kids Premium</title>
+<style>html,body{margin:0;background:#111}canvas{display:block;height:100vh;width:auto}</style></head>
+<body><canvas id="c" width="1080" height="1920"></canvas>
+<script>
+// JONY KIDS OLIMPIADASI v5 — premium 2.5D art direction (vizavi-motion + premium-visual-art-director). 9:16
+// Visual system: one key light (upper-left), dimensional panels with real thickness, contact shadows + AO,
+// satin-ceramic white surfaces, glossy cyan accents, 3D hero objects (240-angle turntables).
+const W = 1080, H = 1920, DUR = 20;
+const C = { ink: '#0d1d28', gray: '#76858f', cyan: '#00aeef', cyanD: '#0083bb', cyanDD: '#006a99', cyanL: '#dcf3fc', cyanM: '#8fdcf8', white: '#ffffff', paper: '#f7fbfd', side: '#d7e6ee', sideC: '#007fb5' };
+const cv = document.getElementById('c'), out = cv.getContext('2d');
+const scr = document.createElement('canvas'); scr.width = W; scr.height = H; const sx = scr.getContext('2d');
+
+// ---------- math ----------
+const clamp = (v, a = 0, b = 1) => Math.max(a, Math.min(b, v));
+const lerp = (a, b, t) => a + (b - a) * t;
+const seg = (t, a, b) => clamp((t - a) / (b - a));
+const eOut = t => 1 - Math.pow(1 - t, 3), eOut5 = t => 1 - Math.pow(1 - t, 5), eIn = t => t * t * t;
+const eIO = t => t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+const eIO5 = t => t < .5 ? 16 * t ** 5 : 1 - Math.pow(-2 * t + 2, 5) / 2;
+const spring = (t, w = 14, z = .45) => t <= 0 ? 0 : 1 - Math.exp(-z * w * t) * Math.cos(w * Math.sqrt(1 - z * z) * t);
+function keyAt(keys, t) {
+  const n = keys.length, d = keys[0].length - 1;
+  if (t <= keys[0][0]) return keys[0].slice(1); if (t >= keys[n - 1][0]) return keys[n - 1].slice(1);
+  let i = 0; while (keys[i + 1][0] < t) i++;
+  const k0 = keys[i], k1 = keys[i + 1], h = k1[0] - k0[0], u = (t - k0[0]) / h;
+  const tan = (j, c) => (j === 0 || j === n - 1) ? 0 : (keys[j + 1][c] - keys[j - 1][c]) / (keys[j + 1][0] - keys[j - 1][0]);
+  const a = 2 * u ** 3 - 3 * u ** 2 + 1, b = u ** 3 - 2 * u ** 2 + u, c = -2 * u ** 3 + 3 * u ** 2, e = u ** 3 - u ** 2;
+  const r = []; for (let q = 1; q <= d; q++) r.push(a * k0[q] + b * h * tan(i, q) + c * k1[q] + e * h * tan(i + 1, q)); return r;
+}
+
+// ---------- assets ----------
+const SPR = {}, NS = 240;
+const loadImg = src => new Promise((res, rej) => { const i = new Image(); i.onload = () => res(i); i.onerror = rej; i.src = src; });
+async function loadAll() {
+  for (const [n, u, w] of [['IDB', 'fonts/InterDisplay-Bold.otf', '700'], ['IDX', 'fonts/InterDisplay-ExtraBold.otf', '800'], ['IDM', 'fonts/InterDisplay-Medium.otf', '500'], ['ISI', 'fonts/InstrumentSerif-Italic.ttf', '400']]) { const f = new FontFace(n, `url(${u})`, { weight: w }); await f.load(); document.fonts.add(f); }
+  const ps = []; for (const n of ['qm', 'medal', 'gift', 'bike', 'ball', 'phone']) { SPR[n] = []; for (let k = 0; k < NS; k++) ps.push(loadImg(`sprites/${n}_${String(k).padStart(3, '0')}.webp`).then(i => SPR[n][k] = i)); }
+  await Promise.all(ps);
+}
+// 3D hero object (turntable with sub-angle interpolation) + contact shadow and AO on the surface below it
+function hero(ctx, name, x, y, size, turn, o = {}) {
+  const md = k => SPR[name][((k % NS) + NS) % NS], f = turn * NS, i0 = Math.floor(f), fr = f - i0;
+  ctx.save(); ctx.translate(x, y);
+  if (o.floorY != null) { const fy = o.floorY - y, sw = (o.shW || .62) * size; // contact shadow + AO
+    ctx.save(); ctx.translate(size * .04, fy); ctx.scale(1, .2); let g = ctx.createRadialGradient(0, 0, 0, 0, 0, sw / 2);
+    g.addColorStop(0, `rgba(0,45,70,${.30 * (o.shA ?? 1)})`); g.addColorStop(1, 'rgba(0,45,70,0)'); ctx.fillStyle = g; ctx.fillRect(-sw, -sw, sw * 2, sw * 2);
+    g = ctx.createRadialGradient(0, 0, 0, 0, 0, sw * .22); g.addColorStop(0, `rgba(0,30,50,${.35 * (o.shA ?? 1)})`); g.addColorStop(1, 'rgba(0,30,50,0)'); ctx.fillStyle = g; ctx.fillRect(-sw, -sw, sw * 2, sw * 2); ctx.restore(); }
+  if (o.rot) ctx.rotate(o.rot); ctx.scale(o.sx || 1, o.sy || 1); if (o.alpha != null) ctx.globalAlpha *= o.alpha;
+  ctx.drawImage(md(i0), -size / 2, -size / 2, size, size); if (fr > .02) { ctx.globalAlpha *= fr; ctx.drawImage(md(i0 + 1), -size / 2, -size / 2, size, size); }
+  ctx.restore();
+}
+
+// ---------- type ----------
+const fontStr = (f, s) => ({ IDB: `700 ${s}px IDB`, IDX: `800 ${s}px IDX`, IDM: `500 ${s}px IDM`, ISI: `400 ${s}px ISI` })[f];
+const mC = {};
+function mw(ctx, s, f, sz, ls = 0) { const k = f + sz + '|' + ls + s; if (!(k in mC)) { ctx.font = fontStr(f, sz); ctx.letterSpacing = ls + 'px'; mC[k] = ctx.measureText(s).width; ctx.letterSpacing = '0px'; } return mC[k]; }
+function text(ctx, s, x, y, f, sz, color, o = {}) {
+  ctx.save(); ctx.font = fontStr(f, sz); ctx.textBaseline = 'alphabetic'; ctx.fillStyle = color;
+  const ls = o.ls || 0, tw = mw(ctx, s, f, sz, ls); const x0 = o.align === 'left' ? x : o.align === 'right' ? x - tw : x - tw / 2;
+  if (!o.anim) { ctx.letterSpacing = ls + 'px'; ctx.globalAlpha *= (o.a ?? 1); if (o.blur > .5) ctx.filter = `blur(${o.blur.toFixed(1)}px)`; ctx.fillText(s, x0, y); ctx.restore(); return tw; }
+  for (let i = 0; i < s.length; i++) {
+    const ch = s[i]; if (ch === ' ') continue; const px = x0 + mw(ctx, s.slice(0, i), f, sz, ls), cw = mw(ctx, ch, f, sz, 0);
+    const A = o.anim(i, s.length); if ((A.a ?? 1) <= .003) continue;
+    ctx.save(); ctx.translate(px + cw / 2 + (A.dx || 0), y + (A.dy || 0)); if (A.rot) ctx.rotate(A.rot); if (A.s != null) ctx.scale(A.s, A.s);
+    ctx.globalAlpha *= (A.a ?? 1); if (A.blur > .6) ctx.filter = `blur(${A.blur.toFixed(1)}px)`; if (A.color) ctx.fillStyle = A.color; ctx.fillText(ch, -cw / 2, 0); ctx.restore();
+  }
+  ctx.restore(); return tw;
+}
+const riseAnim = (t, t0, step = .035, dur = .45, dist = 60) => (i) => { const u = clamp((t - t0 - i * step) / dur); const e = eOut5(u); return { dy: (1 - e) * dist, a: clamp(u * 2.2), blur: (1 - e) * 14 }; };
+
+// ---------- 2.5D camera / planes ----------
+function plane(ctx, cam, d, fn, o = {}) {
+  const [cx, cy, z, r] = cam; ctx.save(); ctx.translate(W / 2, H / 2); ctx.rotate(r * d); const zz = 1 + (z - 1) * d; ctx.scale(zz, zz); ctx.translate(-W / 2 - cx * d, -H / 2 - cy * d);
+  if (o.blur && zz < 1.6) ctx.filter = `blur(${o.blur}px)`; fn(ctx, d); ctx.restore();
+}
+
+// ---------- dimensional components (shared visual system) ----------
+// extruded slab: path fn draws the face outline; thickness is visible on the lower-right (light from upper-left)
+function slab(ctx, path, { th = 26, face = C.white, side = C.side, rim = 'rgba(255,255,255,.9)', shadow = .22, grad = null, rule = 'nonzero' } = {}) {
+  ctx.save();
+  // cast shadow on the surface behind (soft, offset away from the key light)
+  if (shadow) { ctx.save(); ctx.shadowColor = `rgba(0,45,70,${shadow})`; ctx.shadowBlur = 60; ctx.shadowOffsetX = 18; ctx.shadowOffsetY = 34; ctx.translate(th * .25, th); path(ctx); ctx.fillStyle = side; ctx.fill(rule); ctx.restore(); }
+  // thickness (stacked side copies)
+  const n = Math.max(4, Math.round(th / 3)); for (let i = n; i >= 1; i--) { ctx.save(); ctx.translate(th * .25 * i / n, th * i / n); path(ctx); ctx.fillStyle = side; ctx.fill(rule); ctx.restore(); }
+  path(ctx); ctx.fillStyle = grad ? grad(ctx) : face; ctx.fill(rule);
+  if (rim) { ctx.save(); path(ctx); ctx.clip(); ctx.translate(2.5, 3); path(ctx); ctx.lineWidth = 5; ctx.strokeStyle = rim; ctx.globalCompositeOperation = 'source-atop'; ctx.restore(); ctx.save(); path(ctx); ctx.lineWidth = 2; ctx.strokeStyle = rim; ctx.stroke(); ctx.restore(); }
+  ctx.restore();
+}
+const rrPath = (x, y, w, h, r) => c => { c.beginPath(); c.roundRect(x, y, w, h, r); };
+const polyPath = pts => c => { c.beginPath(); pts.forEach((p, i) => i ? c.lineTo(p[0], p[1]) : c.moveTo(p[0], p[1])); c.closePath(); };
+// cylinder podium (ellipse top, lit side)
+function podium(ctx, cx, topY, rx, ry, h, { top = C.white, sideA = '#eef5f9', sideB = '#c9dbe5', band = C.cyan, shadow = .3 } = {}) {
+  ctx.save();
+  if (shadow) { ctx.save(); ctx.translate(cx + rx * .12, topY + h + ry * .2); ctx.scale(1, .22); const g = ctx.createRadialGradient(0, 0, rx * .5, 0, 0, rx * 1.5); g.addColorStop(0, `rgba(0,45,70,${shadow})`); g.addColorStop(1, 'rgba(0,45,70,0)'); ctx.fillStyle = g; ctx.fillRect(-rx * 2, -rx * 2, rx * 4, rx * 4); ctx.restore(); }
+  const g = ctx.createLinearGradient(cx - rx, 0, cx + rx, 0); g.addColorStop(0, sideA); g.addColorStop(.35, '#ffffff'); g.addColorStop(1, sideB);
+  ctx.fillStyle = g; ctx.beginPath(); ctx.moveTo(cx - rx, topY); ctx.lineTo(cx - rx, topY + h); ctx.ellipse(cx, topY + h, rx, ry, 0, Math.PI, 0, true); ctx.lineTo(cx + rx, topY); ctx.closePath(); ctx.fill();
+  if (band) { ctx.strokeStyle = band; ctx.lineWidth = 6; ctx.beginPath(); ctx.ellipse(cx, topY + Math.min(18, h * .25), rx, ry, 0, 0, Math.PI); ctx.stroke(); }
+  const tg = ctx.createLinearGradient(cx - rx, topY - ry, cx + rx, topY + ry); tg.addColorStop(0, '#ffffff'); tg.addColorStop(1, '#e6f0f5');
+  ctx.fillStyle = top === C.white ? tg : top; ctx.beginPath(); ctx.ellipse(cx, topY, rx, ry, 0, 0, 7); ctx.fill();
+  ctx.strokeStyle = 'rgba(255,255,255,.95)'; ctx.lineWidth = 2; ctx.beginPath(); ctx.ellipse(cx, topY, rx, ry, 0, Math.PI, Math.PI * 1.9); ctx.stroke();
+  ctx.restore();
+}
+// bevelled sculpted ring (torus look)
+function torus(ctx, cx, cy, r, w, { a = 1, light = '#ffffff', dark = C.cyanD, sy = .92, shadow = .25 } = {}) {
+  ctx.save(); ctx.globalAlpha *= a; ctx.translate(cx, cy); ctx.scale(1, sy);
+  if (shadow) { ctx.save(); ctx.shadowColor = `rgba(0,40,70,${shadow})`; ctx.shadowBlur = 40; ctx.shadowOffsetX = 14; ctx.shadowOffsetY = 26; ctx.strokeStyle = dark; ctx.lineWidth = w; ctx.beginPath(); ctx.arc(0, 0, r, 0, 7); ctx.stroke(); ctx.restore(); }
+  const g = ctx.createLinearGradient(-r, -r, r, r); g.addColorStop(0, light); g.addColorStop(.5, C.cyanM); g.addColorStop(1, dark);
+  ctx.strokeStyle = g; ctx.lineWidth = w; ctx.beginPath(); ctx.arc(0, 0, r, 0, 7); ctx.stroke();
+  ctx.strokeStyle = 'rgba(255,255,255,.7)'; ctx.lineWidth = w * .12; ctx.beginPath(); ctx.arc(-w * .08, -w * .1, r - w * .18, Math.PI * .95, Math.PI * 1.7); ctx.stroke();
+  ctx.strokeStyle = 'rgba(0,40,70,.25)'; ctx.lineWidth = w * .14; ctx.beginPath(); ctx.arc(w * .06, w * .08, r + w * .26, Math.PI * -.05, Math.PI * .7); ctx.stroke();
+  ctx.restore();
+}
+// thick arch portal with visible inner wall
+function arch(ctx, cx, baseY, w, h, th, { glow = 1 } = {}) {
+  const outerW = w + th * 2, outerH = h + th, r = outerW / 2;
+  const outer = c => { c.beginPath(); c.moveTo(cx - outerW / 2, baseY); c.lineTo(cx - outerW / 2, baseY - outerH + r); c.arc(cx, baseY - outerH + r, r, Math.PI, 0); c.lineTo(cx + outerW / 2, baseY); c.closePath(); };
+  const hole = (c, dx = 0, dy = 0) => { const ri = w / 2; c.beginPath(); c.moveTo(cx - w / 2 + dx, baseY + dy); c.lineTo(cx - w / 2 + dx, baseY - h + ri + dy); c.arc(cx + dx, baseY - h + ri + dy, ri, Math.PI, 0); c.lineTo(cx + w / 2 + dx, baseY + dy); c.closePath(); };
+  // portal body (extruded)
+  slab(ctx, c => { outer(c); }, { th: 34, face: '#fbfdfe', side: C.side, shadow: .28 });
+  // opening: glow inside
+  ctx.save(); hole(ctx); ctx.clip();
+  const g = ctx.createLinearGradient(0, baseY - h, 0, baseY); g.addColorStop(0, '#bdeeff'); g.addColorStop(.6, '#e9fbff'); g.addColorStop(1, '#ffffff'); ctx.fillStyle = g; ctx.fillRect(cx - w, baseY - h - 10, w * 2, h + 20);
+  const rg = ctx.createRadialGradient(cx, baseY - h * .4, 0, cx, baseY - h * .4, w); rg.addColorStop(0, `rgba(255,255,255,${.9 * glow})`); rg.addColorStop(1, 'rgba(255,255,255,0)'); ctx.fillStyle = rg; ctx.fillRect(cx - w, baseY - h, w * 2, h);
+  // inner wall (depth of the opening, seen on the left/top because the key light is upper-left and camera is slightly right)
+  ctx.save(); hole(ctx); ctx.lineWidth = th * 1.1; ctx.strokeStyle = 'rgba(0,120,170,.18)'; ctx.translate(th * .3, th * .1); hole(ctx); ctx.restore();
+  ctx.fillStyle = 'rgba(0,100,150,.14)'; ctx.beginPath(); ctx.rect(cx - w / 2, baseY - h, th * .9, h); ctx.fill();
+  ctx.restore();
+  ctx.save(); hole(ctx); ctx.lineWidth = 3; ctx.strokeStyle = C.cyan; ctx.stroke(); ctx.restore();
+}
+// studio cyclorama: wall gradient + floor with soft horizon
+function studio(ctx, horizonY, wallTop = '#eef8fc', wallBot = '#ffffff', floor = '#f4f9fb') {
+  const g = ctx.createLinearGradient(0, 0, 0, horizonY); g.addColorStop(0, wallTop); g.addColorStop(1, wallBot); ctx.fillStyle = g; ctx.fillRect(-400, -400, W + 800, horizonY + 400);
+  const f = ctx.createLinearGradient(0, horizonY, 0, H + 400); f.addColorStop(0, wallBot); f.addColorStop(.25, floor); f.addColorStop(1, '#e6f1f6'); ctx.fillStyle = f; ctx.fillRect(-400, horizonY, W + 800, H + 800);
+}
+function vignette(ctx, a = .18, col = '0,40,70') { const g = ctx.createRadialGradient(W / 2, H * .46, H * .35, W / 2, H / 2, H * .85); g.addColorStop(0, `rgba(${col},0)`); g.addColorStop(1, `rgba(${col},${a})`); ctx.fillStyle = g; ctx.fillRect(0, 0, W, H); }
+
+// ================= SCENES (timings match the score) =================
+// S1 0–3.5 — Archetype A: layered architectural planes; hero = 3D "?" on a ceramic plinth
+const CAM1 = [[0, 0, 0, 1.0, 0], [1.8, -14, 10, 1.04, -.008], [3.0, -24, 24, 1.08, -.014], [3.5, -26, 28, 1.12, -.016]];
+function S1(ctx, t) {
+  const cam = keyAt(CAM1, t);
+  plane(ctx, cam, .15, c => studio(c, 1500, '#e8f6fc', '#fbfeff'));
+  // big diagonal planes (one diagonal force vector toward the hero)
+  plane(ctx, cam, .35, c => { const e = eOut5(seg(t, 0, 1.0));
+    slab(c, polyPath([[W * .38 + (1 - e) * 300, -200], [W + 300, -200], [W + 300, 900], [W * .78 + (1 - e) * 300, 1160]]), { th: 40, face: C.cyanL, side: '#bfe3f2', shadow: .18 }); });
+  plane(ctx, cam, .55, c => { const e = eOut5(seg(t, .15, 1.1));
+    slab(c, polyPath([[-300, 1120 + (1 - e) * 200], [W * .62, 1260 + (1 - e) * 200], [W * .5, 2300], [-300, 2300]]), { th: 46, face: '#ffffff', side: C.side, shadow: .22 }); });
+  // plinth + hero
+  plane(ctx, cam, 1, c => {
+    const u = spring(t - .7, 8, .55); const py = lerp(2200, 1520, u);
+    podium(c, W / 2 + 40, py, 230, 52, 180);
+    const hu = spring(t - .95, 9, .5); if (t > .9) hero(c, 'qm', W / 2 + 40, lerp(py - 1200, py - 290, hu) + Math.sin(t * 1.6) * 8, 720, Math.sin(t * .9) * .05 - .02, { floorY: py, shW: .5, shA: hu });
+    // headline
+    const z = eOut5(seg(t, 0, .7)); c.save(); c.translate(W / 2, 470); c.scale(lerp(2.4, 1, z), lerp(2.4, 1, z)); text(c, 'Bilimingizni', 0, 0, 'IDB', 132, C.ink, { blur: (1 - z) * 34, a: clamp(t * 4) }); c.restore();
+    const pw = 760, ph = 240, px = W / 2, py2 = 680, sw = eIO(seg(t, 1.85, 2.25)), ex = eIO5(seg(t, 3.0, 3.5));
+    if (sw > 0) { const x0 = px - pw / 2, L = lerp(x0, -300, ex), T = lerp(py2 - ph / 2, -400, ex), R = lerp(x0 + pw * sw, W + 300, ex), B = lerp(py2 + ph / 2, H + 400, ex);
+      slab(c, rrPath(L, T, R - L, B - T, lerp(ph / 2, 0, ex)), { th: lerp(18, 0, ex), face: C.cyan, side: C.sideC, shadow: .25 * (1 - ex), rim: 'rgba(255,255,255,.35)' }); }
+    c.save(); c.globalAlpha = 1 - seg(t, 3.0, 3.25);
+    text(c, 'sinang!', W / 2, py2 + 72, 'ISI', 236, C.cyan, { anim: (i) => { const u = clamp((t - .75 - i * .07) / .4), e = eOut5(u); return { dy: (1 - e) * 40, a: clamp(u * 2.5), blur: (1 - e) * 18, color: t > 1.9 + i * .05 ? '#fff' : C.cyan, s: lerp(1.25, 1, e) }; } });
+    text(c, 'ajoyib sovg‘alarni yutib oling', W / 2, 905, 'IDM', 44, C.gray, { anim: riseAnim(t, 2.3, .012, .5, 30) }); c.restore();
+  });
+  // foreground accent slab (cropped on purpose, blurred = near plane)
+  plane(ctx, cam, 1.5, c => { const e = eOut5(seg(t, .3, 1.2)); slab(c, rrPath(-160 - (1 - e) * 300, 1700, 420, 120, 60), { th: 30, face: C.cyan, side: C.sideC, shadow: .2 }); }, { blur: 6 });
+  vignette(ctx, .12);
+}
+// S2 3.5–7.5 — Archetype B/D: sculpted rings chamber in cyan; hero = medal under a studio light sweep
+const CAM2 = [[3.5, 0, -20, 1.1, .012], [5.5, 10, 0, 1.04, .006], [7.5, 20, 10, 1.0, 0]];
+function S2(ctx, t) {
+  const cam = keyAt(CAM2, t), cyM = 1180;
+  plane(ctx, cam, .1, c => { const g = c.createRadialGradient(W / 2, cyM - 80, 80, W / 2, cyM, 1400); g.addColorStop(0, '#36c4f5'); g.addColorStop(.55, C.cyan); g.addColorStop(1, C.cyanDD); c.fillStyle = g; c.fillRect(-400, -400, W + 800, H + 800); });
+  // concentric sculpted rings at three depths (chamber)
+  const rings = [[.3, 640, 120, .15], [.55, 470, 70, .35], [.8, 335, 40, .55]];
+  rings.forEach(([d, r, w, a0], k) => plane(ctx, cam, d, c => { const e = eOut5(seg(t, 3.6 + k * .12, 4.4 + k * .12)); torus(c, W / 2, cyM, r * lerp(1.4, 1, e), w, { a: e, sy: .9 + k * .03, dark: C.cyanDD, light: k === 2 ? '#ffffff' : '#9fe4fb' }); }));
+  // studio light sweep (soft band) across the chamber
+  plane(ctx, cam, .6, c => { const p = ((t - 3.5) / 4) * 1.6 - .3; c.save(); c.globalCompositeOperation = 'soft-light'; const g = c.createLinearGradient(W * p - 300, 0, W * p + 300, H); g.addColorStop(0, 'rgba(255,255,255,0)'); g.addColorStop(.5, 'rgba(255,255,255,.55)'); g.addColorStop(1, 'rgba(255,255,255,0)'); c.fillStyle = g; c.fillRect(-300, -300, W + 600, H + 600); c.restore(); });
+  plane(ctx, cam, 1, c => {
+    const u = t - 3.58; if (u > 0) { const drop = spring(u, 8, .5), ang = Math.sin(u * 4.2) * Math.exp(-u * 1.3) * .16;
+      c.save(); c.translate(W / 2, -60); c.rotate(ang); c.strokeStyle = 'rgba(255,255,255,.9)'; c.lineWidth = 4; c.beginPath(); c.moveTo(0, 0); c.lineTo(0, lerp(-200, cyM - 340 + 60, drop)); c.stroke();
+      hero(c, 'medal', 0, lerp(-600, cyM + 60, drop), 820, .02 + Math.sin(u * 1.1) * .06 + eIO(seg(t, 4.6, 5.4))); c.restore(); }
+    text(c, 'JONY KIDS', W / 2, 330, 'IDB', 46, '#ffffff', { ls: 16, anim: (i) => { const v = clamp((t - 3.52 - i * .03) / .4); return { a: v, dy: (1 - eOut(v)) * -24 }; } });
+    c.save(); c.beginPath(); c.rect(0, 360, W, 200); c.clip();
+    text(c, 'OLIMPIADASI', W / 2, 520, 'IDX', 148, '#ffffff', { ls: -2, anim: (i) => { const v = clamp((t - 3.72 - i * .04) / .5); return { dy: (1 - eOut5(v)) * 170 }; } }); c.restore();
+    [['bilim va salohiyatingizni', 1720], ['namoyon qiling', 1780]].forEach(([s, y], k) => text(c, s, W / 2, y, 'IDM', 46, 'rgba(255,255,255,.95)', { anim: riseAnim(t, 5.0 + k * .25, .015, .5, 26) }));
+  });
+  vignette(ctx, .22, '0,40,80');
+}
+// S3 7.5–11.2 — Archetype C + D: arch portal with a stepped podium; hero = gift + two companions at depth
+const CAM3 = [[7.5, 0, 0, 1.0, .01], [9.5, 0, 10, 1.05, -.004], [11.2, 0, 20, 1.08, -.01]];
+const ARCH = { x: W / 2, base: 1330, w: 560, h: 820, th: 70 };
+function S3(ctx, t) {
+  const cam = keyAt(CAM3, t); { const zt = eIn(seg(t, 10.7, 11.2)); cam[2] *= 1 + zt * 7; cam[1] += zt * (760 - H / 2); }
+  plane(ctx, cam, .15, c => studio(c, 1330, '#e7f5fb', '#fafdfe'));
+  plane(ctx, cam, .45, c => { // side architectural fins (repeat S1's slab language)
+    const e = eOut5(seg(t, 7.5, 8.3)); slab(c, polyPath([[-320 + (1 - e) * -200, 260], [140, 380], [140, 1330], [-320 + (1 - e) * -200, 1330]]), { th: 36, face: C.cyanL, side: '#bfe3f2', shadow: .16 });
+    slab(c, polyPath([[W + 320 - (1 - e) * -200, 200], [W - 150, 330], [W - 150, 1330], [W + 320 - (1 - e) * -200, 1330]]), { th: 36, face: '#ffffff', side: C.side, shadow: .16 }); });
+  plane(ctx, cam, .75, c => { const e = eOut5(seg(t, 7.6, 8.4)); c.save(); c.translate(0, (1 - e) * 120); c.globalAlpha = e; arch(c, ARCH.x, ARCH.base, ARCH.w, ARCH.h, ARCH.th, { glow: .6 + .4 * Math.sin(t * 2) ** 2 }); c.restore(); });
+  plane(ctx, cam, 1, c => {
+    // stepped podium (two tiers)
+    const r1 = eOut5(seg(t, 7.7, 8.25)), r2 = eOut5(seg(t, 7.85, 8.4));
+    podium(c, W / 2, lerp(1900, 1520, r1), 430, 86, 160, { shadow: .32 }); podium(c, W / 2, lerp(1900, 1400, r2), 270, 56, 120, { shadow: .25 });
+    // companions on the lower tier
+    for (const [dx, td, s, tn] of [[-300, 8.75, 380, .63], [300, 8.95, 340, .38]]) { const u = spring(t - td, 10, .5); if (t > td) hero(c, 'gift', W / 2 + dx, 1520 - 120 * u + 0 - s * .22 + (1 - clamp(u)) * 300, s * clamp(u * 1.2), tn + t * .05, { floorY: 1530, shW: .62, shA: clamp(u) }); }
+    // main gift lands on top
+    const u = t - 7.75; if (u > 0) { const d = clamp(u / .4), land = u - .4, sq = land > 0 ? 1 - .08 * Math.sin(land * 22) * Math.exp(-land * 8) : 1;
+      hero(c, 'gift', W / 2, lerp(-400, 1400 - 250, eIn(d)) + (1 - sq) * 100, 620, .07 + t * .06, { floorY: 1405, shW: .6, sx: 1 / Math.sqrt(sq), sy: sq, shA: d }); }
+    text(c, 'Barcha ishtirokchilarga', W / 2, 250, 'IDM', 52, C.gray, { anim: riseAnim(t, 7.65, .014, .5, 30) });
+    const sz = 168, y = 430, tw = mw(c, 'SOVG‘ALAR!', 'IDX', sz, -3);
+    text(c, 'SOVG‘ALAR!', W / 2, y, 'IDX', sz, C.ink, { ls: -3, anim: (i) => { const v = clamp((t - 7.95 - i * .035) / .45), e = eOut5(v); return { dy: (1 - e) * 90, a: clamp(v * 3), blur: (1 - e) * 16 }; } });
+    const bv = eIO(seg(t, 8.55, 9.0)); if (bv > 0) { c.fillStyle = C.cyan; c.fillRect(W / 2 - tw / 2, y + 30, tw * bv, 14); }
+    text(c, 'har bir ishtirokchini maxsus sovg‘alar kutmoqda', W / 2, 1840, 'IDM', 36, C.gray, { anim: riseAnim(t, 9.5, .008, .5, 20) });
+  });
+  vignette(ctx, .1);
+  const f = seg(t, 10.9, 11.2); if (f > 0) { ctx.fillStyle = `rgba(232,250,255,${eIn(f)})`; ctx.fillRect(0, 0, W, H); }
+}
+// S4 11.2–15.62 — Archetype E: floating exhibit; each prize gets its own variant of one exhibit system
+const PRIZE = [{ n: 'bike', a: 'Velosiped', b: '', t0: 11.2 }, { n: 'ball', a: 'Koptok', b: '', t0: 12.65 }, { n: 'phone', a: 'iPhone 17', b: 'Pro Max', t0: 14.1 }];
+function exhibit(c, k, t, local) {
+  c.translate(0, -170);
+  if (k === 0) { // bike: long low capsule podium + sculpted ribbon backdrop
+    c.save(); c.globalAlpha *= .95; const rib = c2 => { c2.beginPath(); c2.moveTo(-200, 1180); c2.bezierCurveTo(250, 820, 650, 1240, W + 200, 860); c2.lineTo(W + 200, 1010); c2.bezierCurveTo(650, 1380, 250, 960, -200, 1330); c2.closePath(); };
+    slab(c, rib, { th: 30, face: C.cyanL, side: '#b9e1f1', shadow: .14 }); c.restore();
+    podium(c, W / 2, 1420, 420, 70, 110, { shadow: .32 });
+    hero(c, 'bike', W / 2, 1420 - 300, 900, .5 + Math.sin(local * 1.2) * .03, { floorY: 1425, shW: .78 });
+  }
+  if (k === 1) { // ball: tall round pedestal + spotlight cone and light pool
+    c.save(); c.globalCompositeOperation = 'screen'; const g = c.createLinearGradient(0, 600, 0, 1430); g.addColorStop(0, 'rgba(160,225,250,0)'); g.addColorStop(1, 'rgba(160,225,250,.55)'); c.fillStyle = g; c.beginPath(); c.moveTo(W / 2 - 60, 600); c.lineTo(W / 2 + 60, 600); c.lineTo(W / 2 + 330, 1430); c.lineTo(W / 2 - 330, 1430); c.fill(); c.restore();
+    podium(c, W / 2, 1330, 250, 54, 200, { shadow: .3 });
+    const b = Math.abs(Math.sin(local * 4.2)) * Math.exp(-local * 1.4) * 160; hero(c, 'ball', W / 2, 1330 - 245 - b, 600, local * .4, { floorY: 1335, shW: .7, shA: 1 - b / 200 });
+  }
+  if (k === 2) { // phone: slim plinth + suspended frosted frame
+    slab(c, rrPath(W / 2 - 260, 640, 520, 760, 70), { th: 22, face: 'rgba(255,255,255,.55)', side: 'rgba(200,225,236,.6)', shadow: .12, rim: 'rgba(255,255,255,1)' });
+    c.save(); c.strokeStyle = C.cyan; c.lineWidth = 3; c.beginPath(); c.roundRect(W / 2 - 230, 670, 460, 700, 56); c.stroke(); c.restore();
+    slab(c, rrPath(W / 2 - 170, 1370, 340, 60, 20), { th: 60, face: '#ffffff', side: C.side, shadow: .3 });
+    hero(c, 'phone', W / 2, 1370 - 330, 760, Math.sin(local * 1.3) * .045 + .0, { floorY: 1372, shW: .45 });
+  }
+}
+function S4(ctx, t) {
+  const zin = eOut5(seg(t, 11.2, 11.75)); const cam = [Math.sin(t * .6) * 16, Math.cos(t * .5) * 10, lerp(1.35, 1, zin) + (t - 11.2) * .01, Math.sin(t * .5) * .007];
+  plane(ctx, cam, .15, c => studio(c, 1440, '#e6f5fb', '#fbfeff'));
+  plane(ctx, cam, 1, c => {
+    text(c, 'KATTA MUKOFOTLAR', W / 2, 250, 'IDB', 44, C.cyan, { ls: 10, anim: (i) => { const v = clamp((t - 11.3 - i * .02) / .4); return { a: v, dy: (1 - eOut(v)) * 20 }; } });
+    const k = t < 12.65 ? 0 : t < 14.1 ? 1 : 2, rp = (t - PRIZE[k].t0) / 1.45;
+    c.save(); c.translate(W / 2, 410); c.lineWidth = 7; c.strokeStyle = C.cyanL; c.beginPath(); c.arc(0, 0, 56, 0, 7); c.stroke(); c.strokeStyle = C.cyan; c.lineCap = 'round'; c.beginPath(); c.arc(0, 0, 56, -Math.PI / 2, -Math.PI / 2 + Math.PI * 2 * ((k + clamp(rp)) / 3)); c.stroke(); c.restore();
+    text(c, '0' + (k + 1), W / 2, 428, 'IDB', 48, C.ink);
+  });
+  PRIZE.forEach((p, i) => {
+    const tout = i < 2 ? PRIZE[i + 1].t0 : 99, vin = i === 0 ? 1 : eIO5(seg(t, p.t0 - .02, p.t0 + .38)), vout = eIO5(seg(t, tout - .02, tout + .38));
+    if (vin <= 0 || vout >= 1) return; const oy = (1 - vin) * 1500 - vout * 1500, local = t - p.t0;
+    plane(ctx, cam, 1, c => { c.save(); c.beginPath(); c.rect(-300, 500, W + 600, H); c.clip(); c.translate(0, oy);
+      const pop = i === 0 ? spring(t - 11.3, 9, .5) : 1; c.translate(W / 2, 1300); c.scale(pop, pop); c.translate(-W / 2, -1300); exhibit(c, i, t, local); c.restore(); });
+    plane(ctx, cam, 1.05, c => { c.save(); c.beginPath(); c.rect(-300, 500, W + 600, H); c.clip(); c.translate(0, oy * 1.05); const ty = 1700;
+      if (p.b) { const w1 = mw(c, p.a + ' ', 'IDX', 100, -2), w2 = mw(c, p.b, 'ISI', 118), x0 = W / 2 - (w1 + w2) / 2;
+        text(c, p.a, x0, ty, 'IDX', 100, C.ink, { align: 'left', ls: -2, anim: riseAnim(t, p.t0 + .3, .03, .45, 70) }); text(c, p.b, x0 + w1, ty, 'ISI', 118, C.cyan, { align: 'left', anim: riseAnim(t, p.t0 + .55, .04, .45, 70) });
+      } else text(c, p.a, W / 2, ty, 'IDX', 128, C.ink, { ls: -2, anim: riseAnim(t, p.t0 + .3, .035, .45, 70) }); c.restore(); });
+  });
+  vignette(ctx, .1);
+  const w1 = eIO5(seg(t, 15.25, 15.62)); if (w1 > 0) { ctx.fillStyle = C.cyan; ctx.beginPath(); ctx.arc(W / 2, 1100, w1 * 1300, 0, 7); ctx.fill(); }
+}
+// S5 15.62–20 — Archetype A (bookend): architectural frame for the offer; dimensional CTA
+const CAM5 = [[15.62, 0, 20, 1.06, -.01], [17.5, 0, 0, 1.02, 0], [20, 6, -10, 1.0, .004]];
+function S5(ctx, t) {
+  ctx.fillStyle = C.cyan; ctx.fillRect(0, 0, W, H);
+  const rv = eIO5(seg(t, 15.62, 16.05)); ctx.save(); ctx.beginPath(); ctx.arc(W / 2, 1100, rv * 1300, 0, 7); ctx.clip();
+  const cam = keyAt(CAM5, t);
+  plane(ctx, cam, .15, c => studio(c, 1500, '#e8f6fc', '#fbfeff'));
+  plane(ctx, cam, .35, c => { const e = eOut5(seg(t, 15.7, 16.5));
+    slab(c, polyPath([[-300, -200], [W * .55 - (1 - e) * 300, -200], [W * .2 - (1 - e) * 300, 760], [-300, 900]]), { th: 40, face: C.cyanL, side: '#bfe3f2', shadow: .16 });
+    slab(c, polyPath([[W + 300, 1250], [W * .5 + (1 - e) * 300, 1500], [W * .62 + (1 - e) * 300, 2300], [W + 300, 2300]]), { th: 40, face: '#ffffff', side: C.side, shadow: .2 }); });
+  // architectural frame (thick rounded portal) holding the price
+  plane(ctx, cam, .8, c => { const e = eOut5(seg(t, 15.8, 16.5)); c.save(); c.translate(0, (1 - e) * 160); c.globalAlpha = e;
+    const fr = c2 => { c2.beginPath(); c2.roundRect(110, 470, W - 220, 780, 120); c2.roundRect(170, 530, W - 340, 660, 80); };
+    slab(c, c2 => { fr(c2); }, { th: 34, face: '#ffffff', side: C.side, shadow: .26, rule: 'evenodd' });
+    c.fillStyle = 'rgba(255,255,255,.75)'; c.beginPath(); c.roundRect(170, 530, W - 340, 660, 80); c.fill();
+    c.strokeStyle = C.cyan; c.lineWidth = 3; c.beginPath(); c.roundRect(170, 530, W - 340, 660, 80); c.stroke(); c.restore(); });
+  plane(ctx, cam, 1, c => {
+    text(c, 'Qatnashish narxi', W / 2, 640, 'IDM', 50, C.gray, { anim: riseAnim(t, 16.0, .015, .5, 30) });
+    text(c, 'atigi', W / 2, 770, 'ISI', 140, C.cyan, { anim: riseAnim(t, 16.15, .05, .5, 50) });
+    const cu = eOut5(seg(t, 16.3, 17.25)), val = Math.round(cu * 25), s = val ? val + ' 000' : '0';
+    text(c, s, W / 2, 990, 'IDX', 220, C.ink, { ls: -2, a: clamp((t - 16.3) * 5), blur: t < 17.25 ? (1 - seg(t, 16.3, 17.25)) * 8 : 0 });
+    text(c, 'so‘m', W / 2, 1105, 'IDB', 84, C.ink, { anim: riseAnim(t, 17.15, .05, .45, 40) });
+    const ov = eIO(seg(t, 17.35, 17.95)); if (ov > 0) { c.save(); c.strokeStyle = C.cyan; c.lineWidth = 9; c.lineCap = 'round'; c.beginPath(); const N = 80;
+      for (let k = 0; k <= N * ov; k++) { const a = -2.6 + k / N * Math.PI * 2.08, x = W / 2 + Math.cos(a) * 400 + Math.sin(a * 3) * 6, y = 980 + Math.sin(a) * 175 + Math.cos(a * 2) * 8; k ? c.lineTo(x, y) : c.moveTo(x, y); } c.stroke(); c.restore(); }
+  });
+  plane(ctx, cam, 1.12, c => {
+    const bu = spring(t - 17.9, 11, .5); if (bu > 0) { const press = t > 18.65 && t < 18.85 ? Math.sin(seg(t, 18.65, 18.85) * Math.PI) : 0;
+      c.save(); c.translate(0, 1440 + (1 - clamp(bu)) * 180 + press * 14); c.globalAlpha = clamp((t - 17.9) * 4);
+      slab(c, rrPath(W / 2 - 450, -85, 900, 170, 85), { th: lerp(26, 8, press), face: C.cyan, side: C.sideC, shadow: .3 * (1 - press * .6), rim: 'rgba(255,255,255,.45)' });
+      text(c, 'Hoziroq ro‘yxatdan o‘ting!', W / 2, 20, 'IDB', 56, '#fff', { anim: riseAnim(t, 18.05, .01, .4, 24) });
+      const rp = seg(t, 18.68, 19.3); if (rp > 0 && rp < 1) { c.strokeStyle = C.cyan; c.globalAlpha = 1 - rp; c.lineWidth = 4; c.beginPath(); c.roundRect(W / 2 - 450 - rp * 60, -85 - rp * 60, 900 + rp * 120, 170 + rp * 120, 85 + rp * 60); c.stroke(); }
+      c.restore(); }
+    const cuv = seg(t, 18.15, 18.6); if (cuv > 0) { const e = eOut5(cuv), tap = t > 18.6 && t < 18.85 ? Math.sin(seg(t, 18.6, 18.85) * Math.PI) : 0;
+      c.save(); c.translate(lerp(W + 120, W / 2 + 250, e), lerp(1760, 1470, e)); c.rotate(-.25); c.scale(1 - tap * .12, 1 - tap * .12);
+      c.fillStyle = C.ink; c.strokeStyle = '#fff'; c.lineWidth = 6; c.shadowColor = 'rgba(0,40,60,.3)'; c.shadowBlur = 24; c.shadowOffsetY = 12; c.beginPath(); c.moveTo(0, 0); c.lineTo(0, 92); c.lineTo(24, 70); c.lineTo(44, 112); c.lineTo(60, 104); c.lineTo(40, 64); c.lineTo(72, 64); c.closePath(); c.fill(); c.shadowColor = 'transparent'; c.stroke(); c.fill(); c.restore(); }
+    text(c, 'JONY KIDS OLIMPIADASI', W / 2, 1780, 'IDB', 38, C.ink, { ls: 8, anim: (i) => { const v = clamp((t - 19.0 - i * .015) / .4); return { a: v * .85, dy: (1 - eOut(v)) * 16 }; } });
+  });
+  vignette(ctx, .1); ctx.restore();
+}
+
+// ---------- compose ----------
+function drawFrame(ctx, t) {
+  ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.globalAlpha = 1; ctx.filter = 'none';
+  if (t < 3.5) S1(ctx, t);
+  else if (t < 7.0) S2(ctx, t);
+  else if (t < 7.5) { const u = eIO5(seg(t, 7.0, 7.5)); ctx.save(); ctx.translate(-W * 1.05 * u, 0); S2(ctx, t); ctx.restore(); ctx.save(); ctx.translate(W * 1.05 * (1 - u), 0); S3(ctx, 7.5); ctx.restore(); }
+  else if (t < 11.2) S3(ctx, t);
+  else if (t < 15.62) S4(ctx, t);
+  else S5(ctx, t);
+}
+function samplesAt(t) { const fast = [[0, .7], [2.95, 3.55], [6.95, 7.55], [10.7, 11.8], [12.6, 13.1], [14.05, 14.55], [15.2, 16.1]]; return fast.some(([a, b]) => t >= a && t <= b) ? 7 : 3; }
+window.renderFrame = (i, fps = 60, K = 0) => {
+  const t0 = i / fps; K = K || samplesAt(t0);
+  for (let k = 0; k < K; k++) { const t = Math.min(DUR - 1e-4, Math.max(0, t0 + (K === 1 ? 0 : (k / (K - 1) - .5) * .5 / fps))); drawFrame(sx, t); out.globalAlpha = 1 / (k + 1); out.drawImage(scr, 0, 0); }
+  out.globalAlpha = 1;
+};
+window.ready = loadAll().then(() => 'ok').catch(e => 'ERR ' + e);
+</script></body></html>
