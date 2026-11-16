@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Red Flags</title>
+<style>
+  :root{ --navy:#1B2A41; --amber:#E09F3E; --green:#4A7C59; --red:#C0453A;
+         --muted:#7A8599; --line:#DDE1E8; --wash:#F6F7F9; }
+  @page{ size:A4; margin:0; }
+  html,body{overflow:hidden}
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{ width:794px; height:1123px; background:#fff; color:var(--navy);
+        font-family:"Inter","Inter Display",sans-serif; -webkit-font-smoothing:antialiased;
+        padding:38px 46px 24px; display:flex; flex-direction:column; }
+  .hdr{ display:flex; justify-content:space-between; font-size:9px; font-weight:700;
+        letter-spacing:.14em; color:var(--muted); padding-bottom:8px; border-bottom:1.5px solid var(--navy); }
+  h1{ font-size:40px; font-weight:800; letter-spacing:-.022em; margin-top:12px; line-height:1; }
+  .sub{ font-size:17px; font-weight:600; color:var(--amber); margin-top:7px; }
+  .lead{ font-size:11.6px; line-height:1.5; margin-top:13px; color:var(--navy); }
+  .lead b{ font-weight:800; }
+
+  .blk{ border-radius:9px; margin-top:12px; overflow:hidden; border:1.5px solid; }
+  .bh{ padding:9px 14px; font-size:11px; font-weight:800; letter-spacing:.12em; color:#fff;
+       display:flex; justify-content:space-between; align-items:center; }
+  .bh small{ font-size:9px; font-weight:700; letter-spacing:.07em; opacity:.92; }
+  .bb{ padding:10px 14px 11px; }
+  .li{ display:flex; gap:10px; font-size:11.6px; line-height:1.45; padding:3.5px 0; }
+  .dot{ width:5px; height:5px; border-radius:50%; margin-top:6px; flex:none; }
+  .two{ display:grid; grid-template-columns:1fr 1fr; gap:0 22px; }
+
+  .r{ border-color:var(--red);} .r .bh{ background:var(--red);} .r .dot{ background:var(--red);}
+  .a{ border-color:var(--amber);} .a .bh{ background:var(--amber);} .a .dot{ background:var(--amber);}
+  .g{ border-color:var(--green);} .g .bh{ background:var(--green);} .g .dot{ background:var(--green);}
+
+  .hyd{ margin-top:12px; background:var(--navy); color:#fff; border-radius:9px; padding:12px 15px;
+        font-size:11.6px; line-height:1.5; }
+  .hyd b{ color:var(--amber); font-weight:800; }
+
+
+  .scriptblk{ margin-top:13px; }
+  .shdr{ display:flex; justify-content:space-between; font-size:9px; font-weight:800;
+         letter-spacing:.13em; color:var(--muted); margin-bottom:8px; }
+  .sgrid{ display:grid; grid-template-columns:1.15fr 1fr; gap:14px; }
+  .sbox{ border:1.5px solid var(--navy); border-radius:9px; padding:12px 14px; background:var(--wash); }
+  .sline{ font-size:12px; line-height:2.1; font-weight:600; }
+  .sbox .ln{ border-bottom:1.5px solid var(--navy); display:inline-block; height:14px; }
+  .w50{ width:50px;} .w70{ width:70px;} .w80{ width:80px;} .w90{ width:90px;} .w150{ width:150px;}
+  .sask{ border:1.5px solid var(--line); border-radius:9px; padding:11px 13px; }
+  .askt{ font-size:8.8px; font-weight:800; letter-spacing:.11em; color:var(--muted); margin-bottom:6px; }
+  .aski{ font-size:10.6px; line-height:1.55; }
+  .askn{ font-size:9.6px; font-style:italic; color:var(--muted); margin-top:8px;
+         padding-top:7px; border-top:1px solid var(--line); line-height:1.45; }
+  .cutwrap{ margin-top:auto; }
+  .cut{ border-top:2px dashed var(--line); position:relative; margin-bottom:11px; }
+  .cut span{ position:absolute; top:-7px; left:50%; transform:translateX(-50%); background:#fff;
+             padding:0 10px; font-size:8.4px; font-weight:800; letter-spacing:.13em; color:var(--muted); }
+  .card{ border:2px solid var(--navy); border-radius:10px; padding:12px 15px; }
+  .ctop{ display:flex; justify-content:space-between; align-items:baseline; margin-bottom:8px; }
+  .ctit{ font-size:13px; font-weight:800; letter-spacing:-.01em; }
+  .csub{ font-size:8.6px; font-weight:700; letter-spacing:.1em; color:var(--muted); }
+  .ccols{ display:grid; grid-template-columns:1fr 1fr; gap:0 20px; }
+  .cl2{ font-size:8.8px; font-weight:800; letter-spacing:.1em; margin-bottom:4px; }
+  .cl2.rr{ color:var(--red);} .cl2.aa{ color:var(--amber);}
+  .ci{ font-size:10.2px; line-height:1.42; padding:1.5px 0; }
+  .cph{ margin-top:9px; padding-top:8px; border-top:1px solid var(--line);
+        font-size:10.2px; font-weight:700; display:flex; gap:9px; align-items:center; }
+  .cph .ln{ border-bottom:1.5px solid var(--navy); flex:1; height:15px; }
+  .fn{ font-size:8.4px; color:var(--muted); line-height:1.5; font-style:italic; text-align:center; margin-top:8px; }
+</style></head><body>
+
+<div class="hdr"><span>GLP-1 LOW APPETITE PROTEIN PLAN</span><span>PAGE 5</span></div>
+<h1>Red Flags</h1>
+<div class="sub">Stop reading the plan. Make the call.</div>
+<div class="lead">Most of what this medication does to you is uncomfortable and ordinary. A few things are not.
+  This page exists so you can tell them apart in <b>ten seconds</b>, without searching the internet at two in the morning.</div>
+
+<div class="blk r">
+  <div class="bh"><span>GET HELP NOW</span><small>EMERGENCY CARE</small></div>
+  <div class="bb">
+    <div class="li"><span class="dot"></span><span>Severe stomach pain that <b>spreads through to your back</b>, with or without vomiting.</span></div>
+    <div class="li"><span class="dot"></span><span>Sharp pain under the <b>right ribs</b> together with fever, chills, or yellowing of the skin or eyes.</span></div>
+    <div class="li"><span class="dot"></span><span>Vomiting you cannot stop, with dizziness, confusion, or a racing heart.</span></div>
+  </div>
+</div>
+
+<div class="blk a">
+  <div class="bh"><span>CALL YOUR CLINICIAN TODAY</span><small>DON'T WAIT FOR THE NEXT APPOINTMENT</small></div>
+  <div class="bb two">
+    <div>
+      <div class="li"><span class="dot"></span><span>Nothing stays down for <b>24 hours or more</b>.</span></div>
+      <div class="li"><span class="dot"></span><span>Much <b>less urine</b> than usual, or very dark urine.</span></div>
+      <div class="li"><span class="dot"></span><span>No bowel movement for <b>3 days</b>, with discomfort.</span></div>
+    </div>
+    <div>
+      <div class="li"><span class="dot"></span><span>Pain in the upper right belly <b>after meals</b>.</span></div>
+      <div class="li"><span class="dot"></span><span>Mood sliding, or any thought of <b>harming yourself</b>.</span></div>
+      <div class="li"><span class="dot"></span><span>Side effects still <b>severe</b> after the first few weeks.</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="blk g">
+  <div class="bh"><span>EXPECTED &mdash; NOT A REASON TO PANIC</span><small>THIS IS THE MEDICATION WORKING</small></div>
+  <div class="bb two">
+    <div>
+      <div class="li"><span class="dot"></span><span>Feeling full after a few bites.</span></div>
+      <div class="li"><span class="dot"></span><span>Mild nausea for a week or two after a dose step.</span></div>
+      <div class="li"><span class="dot"></span><span>Burping, or mild reflux.</span></div>
+    </div>
+    <div>
+      <div class="li"><span class="dot"></span><span>Much less interest in food than before.</span></div>
+      <div class="li"><span class="dot"></span><span>Constipation that settles with fluids and fibre.</span></div>
+      <div class="li"><span class="dot"></span><span>Food you used to love suddenly not appealing.</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="hyd">
+  <b>One thing is never optional: fluids.</b> Vomiting or diarrhoea can dry you out quickly enough to injure your
+  kidneys &mdash; and that can happen whether or not you have ever had kidney trouble. If you cannot drink, that is
+  itself a reason to ring someone, even when nothing else on this page applies.
+</div>
+
+
+<div class="scriptblk">
+  <div class="shdr"><span>WHAT TO SAY WHEN YOU RING</span><span>FILL THIS IN BEFORE YOU DIAL</span></div>
+  <div class="sgrid">
+    <div class="sbox">
+      <div class="sline">&ldquo;I'm on <span class="ln w90"></span> at <span class="ln w50"></span> mg.</div>
+      <div class="sline">I stepped up to this dose on <span class="ln w80"></span>.</div>
+      <div class="sline">Since then I've had <span class="ln w150"></span></div>
+      <div class="sline">for <span class="ln w70"></span>.</div>
+      <div class="sline">I can keep down about <span class="ln w70"></span> of fluid a day.</div>
+      <div class="sline">My last bowel movement was <span class="ln w80"></span>.&rdquo;</div>
+    </div>
+    <div class="sask">
+      <div class="askt">THEY WILL PROBABLY ASK</div>
+      <div class="aski">&middot; How much are you drinking, and can you keep it down?</div>
+      <div class="aski">&middot; How much urine, and what colour?</div>
+      <div class="aski">&middot; Any pain &mdash; where exactly, and does it move?</div>
+      <div class="aski">&middot; Any fever?</div>
+      <div class="aski">&middot; How much weight in how many weeks?</div>
+      <div class="askn">Having the answers ready is the difference between a five-minute call and a wasted one.</div>
+    </div>
+  </div>
+</div>
+
+<div class="cutwrap">
+  <div class="cut"><span>CUT HERE &mdash; KEEP THIS ON THE FRIDGE</span></div>
+  <div class="card">
+    <div class="ctop"><span class="ctit">GLP-1 &mdash; When to make the call</span>
+      <span class="csub">KEEP WHERE YOU CAN SEE IT</span></div>
+    <div class="ccols">
+      <div>
+        <div class="cl2 rr">999 / 911 &mdash; GO NOW</div>
+        <div class="ci">· Severe belly pain spreading to the back</div>
+        <div class="ci">· Right-rib pain + fever, chills or yellowing</div>
+        <div class="ci">· Vomiting that will not stop + dizziness</div>
+      </div>
+      <div>
+        <div class="cl2 aa">RING YOUR CLINICIAN TODAY</div>
+        <div class="ci">· Nothing down for 24 hours · much less urine</div>
+        <div class="ci">· No bowel movement for 3 days</div>
+        <div class="ci">· Mood sliding, or thoughts of self-harm</div>
+      </div>
+    </div>
+    <div class="cph"><span>MY CLINICIAN</span><span class="ln"></span><span>PHONE</span><span class="ln"></span></div>
+  </div>
+  <div class="fn">This page is not medical advice and does not replace your prescriber. When in doubt, make the call &mdash; nobody has ever regretted ringing too early.</div>
+</div>
+</body></html>

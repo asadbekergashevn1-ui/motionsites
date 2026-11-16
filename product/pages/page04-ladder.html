@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Texture Ladder</title>
+<style>
+  :root{ --navy:#1B2A41; --amber:#E09F3E; --green:#4A7C59; --red:#C0453A; --mid:#D08030;
+         --muted:#7A8599; --line:#DDE1E8; --wash:#F6F7F9; }
+  @page{ size:A4; margin:0; }
+  html,body{overflow:hidden}
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{ width:794px; height:1123px; background:#fff; color:var(--navy);
+        font-family:"Inter","Inter Display",sans-serif; -webkit-font-smoothing:antialiased;
+        padding:38px 46px 26px; display:flex; flex-direction:column; }
+  .hdr{ display:flex; justify-content:space-between; font-size:9px; font-weight:700;
+        letter-spacing:.14em; color:var(--muted); padding-bottom:8px; border-bottom:1.5px solid var(--navy); }
+  h1{ font-size:40px; font-weight:800; letter-spacing:-.022em; margin-top:12px; line-height:1; }
+  .sub{ font-size:17px; font-weight:600; color:var(--amber); margin-top:7px; }
+  .why{ margin-top:15px; background:var(--wash); border-left:4px solid var(--navy);
+        padding:11px 15px; font-size:11.5px; line-height:1.5; }
+  .why b{ font-weight:800; }
+
+  .lhdr{ font-size:9px; font-weight:800; letter-spacing:.17em; color:var(--muted); margin:16px 0 9px;
+         display:flex; justify-content:space-between; }
+
+  .ladder{ display:flex; gap:11px; }
+  .arrow{ width:30px; flex:none; display:flex; flex-direction:column; align-items:center;
+          justify-content:space-between; padding:5px 0; }
+  .atxt{ font-size:8px; font-weight:800; letter-spacing:.1em; color:var(--muted);
+         writing-mode:vertical-rl; transform:rotate(180deg); }
+  .aline{ flex:1; width:2px; background:var(--line); position:relative; margin:5px 0; }
+  .rungs{ flex:1; display:flex; flex-direction:column; gap:7px; }
+
+  .rung{ display:grid; grid-template-columns:62px 1fr 1.35fr 62px; align-items:stretch;
+         border:1.5px solid var(--line); border-radius:9px; overflow:hidden; }
+  .lv{ display:flex; flex-direction:column; align-items:center; justify-content:center; color:#fff; padding:9px 0; }
+  .lvn{ font-size:19px; font-weight:800; line-height:1; }
+  .lvp{ font-size:8.4px; font-weight:800; letter-spacing:.07em; margin-top:3px; opacity:.9; }
+  .feel{ padding:10px 12px; border-right:1px solid var(--line); }
+  .ftag{ font-size:8.2px; font-weight:800; letter-spacing:.1em; color:var(--muted); }
+  .ftxt{ font-size:11.6px; font-weight:600; line-height:1.4; margin-top:3px; }
+  .eat{ padding:10px 12px; }
+  .etxt{ font-size:11px; line-height:1.45; margin-top:3px; }
+  .cap{ display:flex; flex-direction:column; align-items:center; justify-content:center;
+        border-left:1px solid var(--line); background:var(--wash); }
+  .cn{ font-size:16px; font-weight:800; line-height:1; }
+  .cl{ font-size:7.6px; font-weight:700; letter-spacing:.07em; color:var(--muted); margin-top:3px; text-align:center; }
+  .b1{ background:var(--red);} .b2{ background:var(--mid);} .b3{ background:var(--amber);} .b4{ background:var(--green);}
+
+  .climb{ margin-top:15px; display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+  .cbox{ border:1.5px solid var(--line); border-radius:9px; padding:11px 13px; }
+  .cbt{ font-size:9px; font-weight:800; letter-spacing:.13em; color:var(--muted); margin-bottom:6px; }
+  .cbx{ font-size:11.2px; line-height:1.5; }
+  .cbx b{ font-weight:800; }
+
+
+  .dayblk{ margin-top:15px; }
+  .dayhdr{ display:flex; justify-content:space-between; font-size:9px; font-weight:800;
+           letter-spacing:.13em; color:var(--muted); margin-bottom:9px; }
+  .daygrid{ display:grid; grid-template-columns:repeat(6,1fr); gap:7px; }
+  .slot{ border:1.5px solid var(--line); border-radius:8px; padding:9px 8px 10px; text-align:center; }
+  .slot.tot{ border-color:var(--navy); background:var(--navy); color:#fff; }
+  .st{ font-size:9.4px; font-weight:800; letter-spacing:.09em; color:var(--muted); }
+  .slot.tot .st{ color:#9FB0C6; }
+  .sw{ font-size:9.8px; line-height:1.4; margin-top:6px; min-height:40px; }
+  .sp{ font-size:17px; font-weight:800; margin-top:5px; color:var(--amber); }
+  .sv{ font-size:8.4px; font-weight:700; color:var(--muted); margin-top:2px; letter-spacing:.06em; }
+  .slot.tot .sv{ color:#9FB0C6; }
+  .foot{ margin-top:auto; }
+  .rule{ background:var(--navy); color:#fff; border-radius:7px; padding:13px 18px;
+         font-size:13.5px; font-weight:700; text-align:center; line-height:1.45; }
+  .rule b{ color:var(--amber); font-weight:800; }
+  .fn{ font-size:8.6px; color:var(--muted); line-height:1.55; font-style:italic;
+       text-align:center; margin-top:9px; }
+</style></head><body>
+
+<div class="hdr"><span>GLP-1 LOW APPETITE PROTEIN PLAN</span><span>PAGE 4</span></div>
+<h1>Texture Ladder</h1>
+<div class="sub">Match the food to today, not to the plan.</div>
+
+<div class="why">
+  Thin, cold, watery food leaves the stomach <b>faster</b> than thick, warm, fatty food. That is why a shake
+  goes down on a day when chicken will not. The ladder is not about willpower &mdash; it is about
+  <b>picking a texture your stomach can actually move today</b>, so the protein still gets in.
+</div>
+
+<div class="lhdr"><span>PICK YOUR RUNG EACH MORNING</span><span>PROTEIN STILL REACHABLE</span></div>
+
+<div class="ladder">
+  <div class="arrow">
+    <span class="atxt">BETTER DAY</span>
+    <div class="aline"></div>
+    <span class="atxt">HARDER DAY</span>
+  </div>
+  <div class="rungs">
+
+    <div class="rung">
+      <div class="lv b4"><div class="lvn">L4</div><div class="lvp">REGULAR</div></div>
+      <div class="feel"><div class="ftag">IF THIS IS YOU</div>
+        <div class="ftxt">Appetite close to normal. Food sounds fine.</div></div>
+      <div class="eat"><div class="ftag">EAT</div>
+        <div class="etxt">Your normal green list &mdash; chicken, tuna, tofu, cottage cheese, eggs. Add fibre back: berries, oats, pulses.</div></div>
+      <div class="cap"><div class="cn">100%</div><div class="cl">OF YOUR<br>TARGET</div></div>
+    </div>
+
+    <div class="rung">
+      <div class="lv b3"><div class="lvn">L3</div><div class="lvp">SOFT &amp; MOIST</div></div>
+      <div class="feel"><div class="ftag">IF THIS IS YOU</div>
+        <div class="ftxt">No nausea, but full after a few bites. Dry food sticks.</div></div>
+      <div class="eat"><div class="ftag">EAT</div>
+        <div class="etxt">Scrambled or poached eggs, flaked fish, minced chicken with sauce, soft tofu, Greek yogurt. Keep everything moist.</div></div>
+      <div class="cap"><div class="cn">90%</div><div class="cl">OF YOUR<br>TARGET</div></div>
+    </div>
+
+    <div class="rung">
+      <div class="lv b2"><div class="lvn">L2</div><div class="lvp">PURÉE &amp; THICK</div></div>
+      <div class="feel"><div class="ftag">IF THIS IS YOU</div>
+        <div class="ftxt">Queasy, but you could manage something smooth.</div></div>
+      <div class="eat"><div class="ftag">EAT</div>
+        <div class="etxt">Thick shake, blended soup fortified with milk powder or silken tofu, cottage cheese, Greek yogurt. Small spoons, long gaps.</div></div>
+      <div class="cap"><div class="cn">80%</div><div class="cl">OF YOUR<br>TARGET</div></div>
+    </div>
+
+    <div class="rung">
+      <div class="lv b1"><div class="lvn">L1</div><div class="lvp">CLEAR &amp; COLD</div></div>
+      <div class="feel"><div class="ftag">IF THIS IS YOU</div>
+        <div class="ftxt">Nauseous. The thought of food is the problem.</div></div>
+      <div class="eat"><div class="ftag">EAT</div>
+        <div class="etxt">One scoop of clear or isolate protein in 350 ml of iced water. Sip it over an hour. Electrolytes between. Nothing warm, nothing thick, nothing fatty.</div></div>
+      <div class="cap"><div class="cn">60%</div><div class="cl">OF YOUR<br>TARGET</div></div>
+    </div>
+
+  </div>
+</div>
+
+<div class="climb">
+  <div class="cbox"><div class="cbt">HOW TO CLIMB BACK UP</div>
+    <div class="cbx">Test with <b>one small portion</b> from the rung above &mdash; two or three spoons, no more.
+      If it sits comfortably for two hours, move up at the <b>next</b> meal, not the same one.
+      If it does not, drop back and try again tomorrow. Nothing is lost by waiting a day.</div></div>
+  <div class="cbox"><div class="cbt">WHAT NEVER CHANGES</div>
+    <div class="cbx"><b>Protein goes in first</b>, on every rung. <b>Fluids sit between meals</b>, never during them.
+      And on every rung there is still a number to hit &mdash; a lower one, but never zero.</div></div>
+</div>
+
+
+<div class="dayblk">
+  <div class="dayhdr"><span>AN L2 DAY, HOUR BY HOUR &mdash; 80% IS NOT A GUESS</span><span>TARGET 98 G &middot; CAPACITY 180 ML</span></div>
+  <div class="daygrid">
+    <div class="slot"><div class="st">07:30</div><div class="sw">Thick shake<br>1 scoop in 180 ml milk</div><div class="sp">31 g</div><div class="sv">180 ml</div></div>
+    <div class="slot"><div class="st">11:00</div><div class="sw">Greek yogurt 0%<br>¾ cup</div><div class="sp">15 g</div><div class="sv">180 ml</div></div>
+    <div class="slot"><div class="st">14:00</div><div class="sw">Blended soup<br>fortified with silken tofu</div><div class="sp">12 g</div><div class="sv">150 ml</div></div>
+    <div class="slot"><div class="st">17:00</div><div class="sw">Cottage cheese<br>½ cup</div><div class="sp">14 g</div><div class="sv">120 ml</div></div>
+    <div class="slot"><div class="st">20:00</div><div class="sw">Isolate in iced water<br>half scoop, sipped</div><div class="sp">8 g</div><div class="sv">90 ml</div></div>
+    <div class="slot tot"><div class="st">TOTAL</div><div class="sw">Five small windows<br>nothing warm or heavy</div><div class="sp">80 g</div><div class="sv">720 ml</div></div>
+  </div>
+</div>
+
+<div class="foot">
+  <div class="rule">After surgery, a texture ladder only goes one way.<br>
+    On a GLP-1 it goes <b>both ways</b> &mdash; down on a dose week, back up as it settles.</div>
+  <div class="fn">
+    Dropping a rung is the plan working, not the plan failing.<br>
+    If you cannot hold fluids down for 24 hours, or you are passing much less urine than usual, stop and call your clinician.
+  </div>
+</div>
+</body></html>
