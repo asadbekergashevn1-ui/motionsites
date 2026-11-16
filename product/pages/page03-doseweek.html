@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Dose Week Mode</title>
+<style>
+  :root{ --navy:#1B2A41; --amber:#E09F3E; --green:#4A7C59; --red:#C0453A;
+         --muted:#7A8599; --line:#DDE1E8; --wash:#F6F7F9; }
+  @page{ size:A4; margin:0; }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{ width:794px; height:1123px; background:#fff; color:var(--navy);
+        font-family:"Inter","Inter Display",sans-serif; -webkit-font-smoothing:antialiased;
+        padding:38px 46px 28px; display:flex; flex-direction:column; }
+  .hdr{ display:flex; justify-content:space-between; font-size:9px; font-weight:700;
+        letter-spacing:.14em; color:var(--muted); padding-bottom:8px; border-bottom:1.5px solid var(--navy); }
+  h1{ font-size:40px; font-weight:800; letter-spacing:-.022em; margin-top:12px; line-height:1; }
+  .sub{ font-size:17px; font-weight:600; color:var(--amber); margin-top:7px; }
+
+  .why{ margin-top:16px; background:var(--wash); border-left:4px solid var(--navy);
+        padding:11px 15px; font-size:11.5px; line-height:1.5; }
+  .why b{ font-weight:800; }
+
+  .dialhdr{ font-size:9px; font-weight:800; letter-spacing:.17em; color:var(--muted); margin:18px 0 9px; }
+  .dial{ display:grid; grid-template-columns:repeat(7,1fr); gap:6px; }
+  .day{ border:1.5px solid var(--line); border-radius:8px; overflow:hidden; display:flex; flex-direction:column; }
+  .dnum{ font-size:8.5px; font-weight:800; letter-spacing:.1em; color:var(--muted);
+         text-align:center; padding:6px 0 4px; }
+  .plot{ height:72px; display:flex; align-items:flex-end; padding:0 9px; }
+  .fill{ width:100%; border-radius:4px 4px 0 0; }
+  .pct{ text-align:center; font-size:15px; font-weight:800; padding:5px 0 0; }
+  .tex{ text-align:center; font-size:8.5px; font-weight:800; letter-spacing:.07em;
+        padding:4px 0; margin:5px 6px 6px; border-radius:4px; color:#fff; }
+  .note{ font-size:8.6px; line-height:1.4; color:var(--navy); padding:0 7px 9px; text-align:center; }
+  .l1{ background:var(--red);} .l2{ background:#D08030;} .l3{ background:var(--amber);} .l4{ background:var(--green);}
+  .f1{ background:var(--red);} .f2{ background:#D08030;} .f3{ background:var(--amber);} .f4{ background:var(--green);}
+
+  .calc{ margin-top:16px; border:1.5px solid var(--navy); border-radius:8px; padding:12px 14px; }
+  .calctop{ font-size:10.5px; font-weight:800; letter-spacing:.09em; margin-bottom:9px; }
+  .calcrow{ display:grid; grid-template-columns:repeat(7,1fr); gap:6px; }
+  .cbox{ text-align:center; }
+  .cmul{ font-size:9px; font-weight:700; color:var(--muted); }
+  .cline{ border-bottom:1.6px solid var(--navy); height:20px; margin:3px 4px 0; }
+  .cg{ font-size:8px; color:var(--muted); margin-top:2px; }
+  .eg{ font-size:9.6px; color:var(--muted); margin-top:9px; font-style:italic; }
+  .eg b{ color:var(--navy); font-style:normal; }
+
+  .chg{ margin-top:16px; }
+  .chghdr{ font-size:9px; font-weight:800; letter-spacing:.17em; color:var(--muted); margin-bottom:9px; }
+  .chgrid{ display:grid; grid-template-columns:1fr 1fr; gap:7px 16px; }
+  .ci{ display:flex; gap:9px; align-items:baseline; font-size:11.4px; line-height:1.4; }
+  .sym{ font-size:13px; font-weight:800; width:15px; flex:none; text-align:center; }
+  .dn{ color:var(--red);} .up{ color:var(--green);} .no{ color:var(--red);}
+  .ci b{ font-weight:700; }
+
+
+  .prep{ margin-top:16px; }
+  .prepgrid{ display:grid; grid-template-columns:repeat(4,1fr); gap:9px; }
+  .pcol{ border:1.5px solid var(--line); border-radius:8px; padding:0 0 9px; }
+  .ptag{ font-size:8.4px; font-weight:800; letter-spacing:.09em; color:#fff;
+         padding:5px 0; text-align:center; border-radius:6px 6px 0 0; }
+  .pcol ul{ list-style:none; padding:8px 11px 0; }
+  .pcol li{ font-size:10.4px; line-height:1.5; padding-left:11px; position:relative; margin-bottom:3px; }
+  .pcol li::before{ content:"·"; position:absolute; left:0; font-weight:800; color:var(--muted); }
+  .foot{ margin-top:auto; }
+  .rule{ background:var(--navy); color:#fff; border-radius:7px; padding:13px 18px;
+         font-size:14px; font-weight:700; text-align:center; }
+  .rule b{ color:var(--amber); font-weight:800; }
+  .fn{ font-size:8.6px; color:var(--muted); line-height:1.55; font-style:italic;
+       text-align:center; margin-top:10px; }
+</style></head><body>
+
+<div class="hdr"><span>GLP-1 LOW APPETITE PROTEIN PLAN</span><span>PAGE 3</span></div>
+<h1>Dose Week Mode</h1>
+<div class="sub">The week after a dose increase is predictable. So plan it.</div>
+
+<div class="why">
+  Side effects are most likely when you <b>start</b> a GLP-1 or <b>step up a dose</b>, and they usually
+  ease within one to two weeks. That is the whole point: this week is not a failure, it is a
+  <b>known pattern</b> — and a known pattern can be planned for instead of survived.
+</div>
+
+<div class="dialhdr">THE 7-DAY DIAL &mdash; START ON THE DAY YOU TAKE THE HIGHER DOSE</div>
+<div class="dial">
+  <div class="day"><div class="dnum">DAY 1</div>
+    <div class="plot"><div class="fill f1" style="height:60%"></div></div>
+    <div class="pct">60%</div><div class="tex l1">L1</div>
+    <div class="note">Cold, thin, sippable. Nothing solid if it fights you.</div></div>
+  <div class="day"><div class="dnum">DAY 2</div>
+    <div class="plot"><div class="fill f1" style="height:60%"></div></div>
+    <div class="pct">60%</div><div class="tex l1">L1</div>
+    <div class="note">Sip across the whole day. Protein liquid first.</div></div>
+  <div class="day"><div class="dnum">DAY 3</div>
+    <div class="plot"><div class="fill f2" style="height:80%"></div></div>
+    <div class="pct">80%</div><div class="tex l2">L2</div>
+    <div class="note">Add purée and thicker shakes. Small spoons.</div></div>
+  <div class="day"><div class="dnum">DAY 4</div>
+    <div class="plot"><div class="fill f2" style="height:80%"></div></div>
+    <div class="pct">80%</div><div class="tex l2">L2</div>
+    <div class="note">Start putting fibre back. Stop at first fullness.</div></div>
+  <div class="day"><div class="dnum">DAY 5</div>
+    <div class="plot"><div class="fill f3" style="height:90%"></div></div>
+    <div class="pct">90%</div><div class="tex l3">L3</div>
+    <div class="note">Soft and moist: minced, flaked, scrambled.</div></div>
+  <div class="day"><div class="dnum">DAY 6</div>
+    <div class="plot"><div class="fill f3" style="height:90%"></div></div>
+    <div class="pct">90%</div><div class="tex l3">L3</div>
+    <div class="note">Back to three small meals plus one top-up.</div></div>
+  <div class="day"><div class="dnum">DAY 7</div>
+    <div class="plot"><div class="fill f4" style="height:100%"></div></div>
+    <div class="pct">100%</div><div class="tex l4">L4</div>
+    <div class="note">Normal plan resumes. Climb back up the ladder.</div></div>
+</div>
+
+<div class="calc">
+  <div class="calctop">WRITE YOUR OWN NUMBERS &mdash; MY NORMAL TARGET IS <span style="border-bottom:1.6px solid var(--navy); padding:0 26px"></span> G</div>
+  <div class="calcrow">
+    <div class="cbox"><div class="cmul">&times; 0.6</div><div class="cline"></div><div class="cg">DAY 1</div></div>
+    <div class="cbox"><div class="cmul">&times; 0.6</div><div class="cline"></div><div class="cg">DAY 2</div></div>
+    <div class="cbox"><div class="cmul">&times; 0.8</div><div class="cline"></div><div class="cg">DAY 3</div></div>
+    <div class="cbox"><div class="cmul">&times; 0.8</div><div class="cline"></div><div class="cg">DAY 4</div></div>
+    <div class="cbox"><div class="cmul">&times; 0.9</div><div class="cline"></div><div class="cg">DAY 5</div></div>
+    <div class="cbox"><div class="cmul">&times; 0.9</div><div class="cline"></div><div class="cg">DAY 6</div></div>
+    <div class="cbox"><div class="cmul">&times; 1.0</div><div class="cline"></div><div class="cg">DAY 7</div></div>
+  </div>
+  <div class="eg">Worked example &mdash; if your normal target is <b>115 g</b>, this week reads
+    <b>69 · 69 · 92 · 92 · 104 · 104 · 115</b>.</div>
+</div>
+
+<div class="chg">
+  <div class="chghdr">WHAT CHANGES THIS WEEK</div>
+  <div class="chgrid">
+    <div class="ci"><span class="sym dn">&darr;</span><span><b>Fat.</b> It slows your stomach further, on top of what the drug already does.</span></div>
+    <div class="ci"><span class="sym up">&uarr;</span><span><b>Fluids.</b> Between meals, never with them — they take the space you need.</span></div>
+    <div class="ci"><span class="sym dn">&darr;</span><span><b>Fibre</b>, for the first few days only. Put it back from Day 4 so you don't trade nausea for constipation.</span></div>
+    <div class="ci"><span class="sym no">&times;</span><span><b>Alcohol.</b> It makes nausea and reflux worse while you are adjusting.</span></div>
+    <div class="ci"><span class="sym no">&times;</span><span><b>Large portions.</b> Vomiting on a GLP-1 usually comes from volume, not from the food itself.</span></div>
+    <div class="ci"><span class="sym up">&uarr;</span><span><b>Frequency.</b> A small breakfast, then something small every 3&ndash;4 hours.</span></div>
+  </div>
+</div>
+
+
+<div class="prep">
+  <div class="chghdr">STOCK THESE <span style="color:var(--navy)">BEFORE</span> DOSE DAY &mdash; YOU WILL NOT FEEL LIKE SHOPPING ON DAY 1</div>
+  <div class="prepgrid">
+    <div class="pcol"><div class="ptag l1">L1 &middot; DAYS 1&ndash;2</div><ul>
+      <li>Clear or isolate protein powder</li><li>Unsweetened almond or skim milk</li>
+      <li>Ice &mdash; cold is tolerated better</li><li>Electrolyte sachets</li></ul></div>
+    <div class="pcol"><div class="ptag l2">L2 &middot; DAYS 3&ndash;4</div><ul>
+      <li>Plain Greek yogurt, 0%</li><li>Cottage cheese</li>
+      <li>Smooth soup you can fortify</li><li>Silken tofu</li></ul></div>
+    <div class="pcol"><div class="ptag l3">L3 &middot; DAYS 5&ndash;6</div><ul>
+      <li>Eggs</li><li>Tinned tuna or salmon</li>
+      <li>Minced chicken or turkey</li><li>Soft white fish</li></ul></div>
+    <div class="pcol"><div class="ptag l4">L4 &middot; DAY 7</div><ul>
+      <li>Back to your normal green list</li><li>Fibre: berries, oats, pulses</li>
+      <li>Something you actually enjoy</li></ul></div>
+  </div>
+</div>
+
+<div class="foot">
+  <div class="rule">The target <b>drops</b>. It never goes to <b>zero</b>.</div>
+  <div class="fn">
+    Eating too little makes nausea worse, which makes you eat even less — that loop is the real risk of a dose week.<br>
+    You can ask your prescriber about a slower titration. Never change your dose on your own.<br>
+    Vomiting or diarrhoea for more than 24 hours, or much less urine than usual: call your clinician.
+  </div>
+</div>
+</body></html>
