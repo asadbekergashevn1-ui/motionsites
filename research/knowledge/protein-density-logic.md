@@ -89,3 +89,67 @@ Bet 2 da **ikkita ustun** bo'ladi:
 Bu bitta jadval o'zi sotuv argumenti:
 > *"Everyone tells you to eat more protein. Nobody tells you that half a plate of
 > vegetables costs you 100 ml of stomach and gives back 3 grams."*
+
+---
+
+# ✅ USDA BILAN TASDIQLANGAN (2026-11-16)
+
+**Manba:** USDA FoodData Central, SR Legacy · **Usul:** `(g protein/100 g) × (USDA piyola grammi) ÷ 240 ml × 100`
+
+| Mahsulot | g/100 g | USDA 1 piyola | **g / 100 ml** | Holat |
+|---|---|---|---|---|
+| Tovuq ko'kragi (to'g'ralgan) | 31.0 | 140 g | **18.1** | 🟢 USDA |
+| **Tofu (qattiq)** | 17.3 | 252 g | **18.1** | 🟢 USDA |
+| Tuna (konserva, suzilgan) | 29.1 | 146 g | **17.7** | 🟢 USDA |
+| Tvorog 1% | 12.4 | 226 g | **11.7** | 🟢 USDA |
+| Tuxum oqi | 10.9 | 243 g | **11.0** | 🟢 USDA |
+| Chedder (maydalangan) | 24.2 | ~113 g | **11.4** | 🟡 piyola taxminiy |
+| Yunon yogurti 0% | 9.5 | ~247 g | **9.8** | 🟡 zichlik ~1.03 |
+| Edamame | 11.9 | 155 g | **7.7** | 🟢 USDA |
+| Yasmiq | 9.0 | 198 g | **7.4** | 🟢 USDA |
+| Butun tuxum (to'g'ralgan) | 12.6 | 136 g | **7.1** | 🟢 USDA |
+| Qora loviya | 8.9 | 172 g | **6.3** | 🟢 USDA |
+| Jigarrang guruch | 2.7 | 202 g | **2.3** | 🟢 USDA |
+| **Brokkoli** | 2.4 | 156 g | **1.5** | 🟢 USDA |
+| Avokado | 2.0 | 150 g | **1.2** | 🟢 USDA |
+
+### Piyola o'lchovi yo'q (tovuq zichligi 0.583 g/ml asosida baholangan 🟡)
+| Mahsulot | g/100 g | ~g/100 ml |
+|---|---|---|
+| Kurka ko'kragi | 30.1 | ~17.6 |
+| Krevetka | 24.0 | ~14.0 |
+| Treska | 22.8 | ~13.3 |
+| Losos | 22.1 | ~12.9 |
+
+---
+
+## 🔴 TOPILGAN XATOLAR (v1 jadvalida)
+
+| Mahsulot | Men yozgandim | **Haqiqat** | Farq |
+|---|---|---|---|
+| **Tovuq** | 35 | **18.1** | ~2x bo'rttirilgan |
+| **Brokkoli** | 2.8 | **1.5** | ~2x bo'rttirilgan |
+| **Tofu** | 8 (sariq) | **18.1 (yashil!)** | Butunlay noto'g'ri tasnif |
+| Chedder | 8 (sariq) | **11.4 (yashil)** | Tasnif xato |
+| Tuna | 25 | 17.7 | |
+| Tvorog | 12 | 11.7 | ✓ yaqin |
+| Tuxum oqi | 11 | 11.0 | ✓ aniq |
+
+### Xatoning sababi
+USDA raqami **100 GRAMMGA**. Men uni **100 ML** deb olganman.
+Lekin zichlik har xil: brokkoli 100 ml = 65 g, tvorog 100 ml = 94 g.
+
+### ✅ Lekin asosiy sarlavha omon qoldi
+`18.1 ÷ 1.5 = 12.1` → **"Same space. 12x the protein."** to'g'ri, endi **to'g'ri hisob bilan**.
+
+---
+
+## 🆕 YANGI BILIM: TOFU — kutilmagan g'olib
+
+**18.1 g/100 ml** — tovuq bilan teng.
+→ Vegetarian/vegan segmenti uchun **kuchli sotuv nuqtasi**. Raqobatchilar buni ko'rsatmaydi.
+
+## ⚠️ Metrikaning cheklovi (halol belgilanishi kerak)
+Yong'oq yog'i hajm bo'yicha zich (~27 g/100 ml), **lekin yog'i ko'p** —
+Advisory: *"Foods high in protein or fat can further slow gastric emptying"*.
+→ Mahsulotda izoh: *"High-fat choices score well by volume but slow emptying. Use them between dose weeks."*
