@@ -28,3 +28,4 @@ yarn-error.log*
 .env.local
 .env.*.local
 product/exports/*.zip
+product/exports/listing/
