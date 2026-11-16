@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Protein Density Score</title>
+<style>
+  :root{
+    --navy:#1B2A41; --amber:#E09F3E; --green:#4A7C59; --red:#C0453A;
+    --ink:#1B2A41; --muted:#7A8599; --line:#DDE1E8; --paper:#FFFFFF;
+  }
+  @page{ size:A4; margin:0; }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{ width:794px; height:1123px; background:var(--paper); color:var(--ink);
+        font-family:"Inter","Inter Display",sans-serif; -webkit-font-smoothing:antialiased;
+        padding:38px 46px 28px; display:flex; flex-direction:column; }
+
+  /* header */
+  .hdr{ display:flex; justify-content:space-between; align-items:baseline;
+        font-size:9px; font-weight:700; letter-spacing:.14em; color:var(--muted);
+        padding-bottom:8px; border-bottom:1.5px solid var(--navy); }
+
+  h1{ font-size:40px; font-weight:800; letter-spacing:-.022em; margin-top:12px; line-height:1; }
+  .sub{ font-size:17px; font-weight:600; color:var(--amber); margin-top:7px; letter-spacing:-.01em; }
+
+  /* hero */
+  .hero2{ margin-top:16px; padding-bottom:12px; }
+  .h2lab{ text-align:center; font-size:9.5px; font-weight:800; letter-spacing:.17em;
+          color:var(--muted); margin-bottom:14px; }
+  .h2row{ display:grid; grid-template-columns:150px 50px 1fr; align-items:center; }
+  .h2side{ text-align:center; }
+  .h2cups{ height:58px; display:flex; align-items:flex-end; justify-content:center; }
+  .h2name{ font-size:9.5px; font-weight:800; letter-spacing:.13em; color:var(--muted); margin-top:9px; }
+  .h2amt{ font-size:30px; font-weight:800; letter-spacing:-.02em; margin-top:2px; }
+  .h2amt.a{ color:var(--amber); } .h2amt.r{ color:var(--red); }
+  .h2vs{ text-align:center; font-size:17px; font-weight:800; color:var(--navy); padding-bottom:34px; }
+  .heroline{ text-align:center; font-size:19px; font-weight:700; letter-spacing:-.01em;
+             padding:11px 0 0; border-top:1px solid var(--line); }
+  .heroline em{ font-style:normal; color:var(--amber); }
+  /* table */
+  table{ width:100%; border-collapse:collapse; margin-top:10px; }
+  thead th{ font-size:8.5px; font-weight:700; letter-spacing:.12em; color:var(--muted);
+            text-align:left; padding:0 0 7px; border-bottom:1.5px solid var(--navy); }
+  thead th.r{ text-align:right; }
+  tbody td{ padding:6px 0; border-bottom:1px solid var(--line); font-size:12.5px; vertical-align:middle; }
+  .stripe{ width:5px; padding:0 !important; }
+  .nm{ font-weight:600; padding-left:11px !important; width:190px; }
+  .barcell{ width:168px; }
+  .bar{ height:8px; border-radius:4px; }
+  .num{ text-align:right; width:92px; font-weight:800; font-variant-numeric:tabular-nums; }
+  .need{ text-align:right; width:118px; font-weight:600; font-variant-numeric:tabular-nums; }
+  .g1 .stripe{ background:var(--green); }  .g1 .bar{ background:var(--green); }
+  .g2 .stripe{ background:var(--amber); }  .g2 .bar{ background:var(--amber); }
+  .g3 .stripe{ background:var(--red); }    .g3 .bar{ background:var(--red); }
+  .g3 .need{ color:var(--red); }
+  tr.tier td{ padding:13px 0 5px; border:0; font-size:8.5px; font-weight:800; letter-spacing:.13em; }
+  tr.tier .green{ color:var(--green); } tr.tier .amb{ color:var(--amber); } tr.tier .rd{ color:var(--red); }
+
+  /* bottom */
+  .punch{ margin-top:auto; }
+  .rule{ background:var(--navy); color:#fff; border-radius:7px; padding:12px 18px;
+         font-size:13px; font-weight:600; text-align:center; letter-spacing:-.005em; }
+  .rule b{ color:var(--amber); font-weight:800; }
+  .cap{ text-align:center; font-size:11.5px; font-weight:600; color:var(--navy); margin:11px 0 10px; }
+  .cap b{ color:var(--amber); }
+  .fn{ font-size:8.6px; color:var(--muted); line-height:1.55; font-style:italic; text-align:center; }
+</style></head><body>
+
+<div class="hdr"><span>GLP-1 LOW APPETITE PROTEIN PLAN</span><span>PAGE 2</span></div>
+
+<h1>Protein Density Score</h1>
+<div class="sub">Your limit isn't calories. It's space.</div>
+
+<div class="hero2">
+  <div class="h2lab">TO PUT 20 G OF PROTEIN INTO YOUR STOMACH</div>
+  <div class="h2row">
+    <div class="h2side">
+      <div class="h2cups">
+        <svg width="54" height="58" viewBox="0 0 54 58"><g stroke="#1B2A41" stroke-width="2.4" fill="#fff" stroke-linejoin="round"><path d="M9 8 L14 46 Q15 52 21 52 L37 52 Q43 52 44 46 L49 8"/><path d="M49 17 q9 1 9 9 t-9 9" fill="none"/><path d="M6 8 h46" stroke-width="2.8"/><path d="M13 38 L45 38 L43 46 Q42 52 37 52 L21 52 Q16 52 15 46 Z" fill="#E09F3E" stroke="none"/></g></svg>
+      </div>
+      <div class="h2name">CHICKEN BREAST</div>
+      <div class="h2amt a">½ cup</div>
+    </div>
+    <div class="h2vs">VS</div>
+    <div class="h2side">
+      <div class="h2cups">
+        <svg width="340" height="58" viewBox="0 0 340 58">
+          <g stroke="#1B2A41" stroke-width="2.4" fill="#fff" stroke-linejoin="round">
+            <g><path d="M9 8 L14 46 Q15 52 21 52 L37 52 Q43 52 44 46 L49 8"/><path d="M49 17 q9 1 9 9 t-9 9" fill="none"/><path d="M6 8 h46" stroke-width="2.8"/><path d="M11 14 L47 14 L44 46 Q43 52 37 52 L21 52 Q16 52 15 46 Z" fill="#C0453A" stroke="none" opacity=".85"/></g>
+            <g transform="translate(62,0)"><path d="M9 8 L14 46 Q15 52 21 52 L37 52 Q43 52 44 46 L49 8"/><path d="M49 17 q9 1 9 9 t-9 9" fill="none"/><path d="M6 8 h46" stroke-width="2.8"/><path d="M11 14 L47 14 L44 46 Q43 52 37 52 L21 52 Q16 52 15 46 Z" fill="#C0453A" stroke="none" opacity=".85"/></g>
+            <g transform="translate(124,0)"><path d="M9 8 L14 46 Q15 52 21 52 L37 52 Q43 52 44 46 L49 8"/><path d="M49 17 q9 1 9 9 t-9 9" fill="none"/><path d="M6 8 h46" stroke-width="2.8"/><path d="M11 14 L47 14 L44 46 Q43 52 37 52 L21 52 Q16 52 15 46 Z" fill="#C0453A" stroke="none" opacity=".85"/></g>
+            <g transform="translate(186,0)"><path d="M9 8 L14 46 Q15 52 21 52 L37 52 Q43 52 44 46 L49 8"/><path d="M49 17 q9 1 9 9 t-9 9" fill="none"/><path d="M6 8 h46" stroke-width="2.8"/><path d="M11 14 L47 14 L44 46 Q43 52 37 52 L21 52 Q16 52 15 46 Z" fill="#C0453A" stroke="none" opacity=".85"/></g>
+            <g transform="translate(248,0)"><path d="M9 8 L14 46 Q15 52 21 52 L37 52 Q43 52 44 46 L49 8"/><path d="M49 17 q9 1 9 9 t-9 9" fill="none"/><path d="M6 8 h46" stroke-width="2.8"/><path d="M11 14 L47 14 L44 46 Q43 52 37 52 L21 52 Q16 52 15 46 Z" fill="#C0453A" stroke="none" opacity=".85"/></g>
+            <g transform="translate(306,0) scale(0.56,1)"><path d="M9 8 L14 46 Q15 52 21 52 L37 52 Q43 52 44 46 L49 8"/><path d="M6 8 h46" stroke-width="2.8"/><path d="M11 14 L47 14 L44 46 Q43 52 37 52 L21 52 Q16 52 15 46 Z" fill="#C0453A" stroke="none" opacity=".85"/></g>
+          </g>
+        </svg>
+      </div>
+      <div class="h2name">BROCCOLI</div>
+      <div class="h2amt r">5½ cups</div>
+    </div>
+  </div>
+</div>
+
+<div class="heroline">Same stomach. <em>11&times;</em> more room needed.</div>
+
+<table>
+<thead><tr>
+  <th colspan="2">FOOD</th><th></th>
+  <th class="r">PROTEIN PER 100 ML</th>
+  <th class="r">TO GET 20 G YOU NEED</th>
+</tr></thead>
+<tbody>
+<tr class="tier"><td colspan="5"><span class="green">WORTH THE SPACE &mdash; 10 g or more per 100 ml</span></td></tr>
+<tr class="g1"><td class="stripe"></td><td class="nm">Chicken breast</td><td class="barcell"><div class="bar" style="width:100%"></div></td><td class="num">18 g</td><td class="need">½ cup</td></tr>
+<tr class="g1"><td class="stripe"></td><td class="nm">Firm tofu</td><td class="barcell"><div class="bar" style="width:100%"></div></td><td class="num">18 g</td><td class="need">½ cup</td></tr>
+<tr class="g1"><td class="stripe"></td><td class="nm">Tuna, canned</td><td class="barcell"><div class="bar" style="width:98%"></div></td><td class="num">18 g</td><td class="need">½ cup</td></tr>
+<tr class="g1"><td class="stripe"></td><td class="nm">Shrimp</td><td class="barcell"><div class="bar" style="width:78%"></div></td><td class="num">14 g</td><td class="need">⅔ cup</td></tr>
+<tr class="g1"><td class="stripe"></td><td class="nm">Salmon</td><td class="barcell"><div class="bar" style="width:72%"></div></td><td class="num">13 g</td><td class="need">⅔ cup</td></tr>
+<tr class="g1"><td class="stripe"></td><td class="nm">Cottage cheese</td><td class="barcell"><div class="bar" style="width:67%"></div></td><td class="num">12 g</td><td class="need">¾ cup</td></tr>
+<tr class="g1"><td class="stripe"></td><td class="nm">Cheddar, grated</td><td class="barcell"><div class="bar" style="width:61%"></div></td><td class="num">11 g</td><td class="need">¾ cup</td></tr>
+<tr class="g1"><td class="stripe"></td><td class="nm">Egg white</td><td class="barcell"><div class="bar" style="width:61%"></div></td><td class="num">11 g</td><td class="need">¾ cup</td></tr>
+<tr class="g1"><td class="stripe"></td><td class="nm">Greek yogurt, 0%</td><td class="barcell"><div class="bar" style="width:55%"></div></td><td class="num">10 g</td><td class="need">¾ cup</td></tr>
+
+<tr class="tier"><td colspan="5"><span class="amb">GOOD SUPPORT &mdash; 4 to 10 g per 100 ml</span></td></tr>
+<tr class="g2"><td class="stripe"></td><td class="nm">Edamame</td><td class="barcell"><div class="bar" style="width:44%"></div></td><td class="num">8 g</td><td class="need">1 cup</td></tr>
+<tr class="g2"><td class="stripe"></td><td class="nm">Lentils</td><td class="barcell"><div class="bar" style="width:39%"></div></td><td class="num">7 g</td><td class="need">1¼ cups</td></tr>
+<tr class="g2"><td class="stripe"></td><td class="nm">Whole egg</td><td class="barcell"><div class="bar" style="width:39%"></div></td><td class="num">7 g</td><td class="need">1¼ cups</td></tr>
+<tr class="g2"><td class="stripe"></td><td class="nm">Shake, 1 scoop in 350 ml</td><td class="barcell"><div class="bar" style="width:39%"></div></td><td class="num">7 g</td><td class="need">1¼ cups</td></tr>
+<tr class="g2"><td class="stripe"></td><td class="nm">Black beans</td><td class="barcell"><div class="bar" style="width:33%"></div></td><td class="num">6 g</td><td class="need">1½ cups</td></tr>
+
+<tr class="tier"><td colspan="5"><span class="rd">STEALS YOUR SPACE &mdash; under 4 g per 100 ml</span></td></tr>
+<tr class="g3"><td class="stripe"></td><td class="nm">Milk</td><td class="barcell"><div class="bar" style="width:22%"></div></td><td class="num">4 g</td><td class="need">2 cups</td></tr>
+<tr class="g3"><td class="stripe"></td><td class="nm">Brown rice</td><td class="barcell"><div class="bar" style="width:13%"></div></td><td class="num">2.3 g</td><td class="need">3½ cups</td></tr>
+<tr class="g3"><td class="stripe"></td><td class="nm">Broccoli</td><td class="barcell"><div class="bar" style="width:8%"></div></td><td class="num">1.5 g</td><td class="need">5½ cups</td></tr>
+<tr class="g3"><td class="stripe"></td><td class="nm">Avocado</td><td class="barcell"><div class="bar" style="width:7%"></div></td><td class="num">1.2 g</td><td class="need">7 cups</td></tr>
+<tr class="g3"><td class="stripe"></td><td class="nm">Salad leaves</td><td class="barcell"><div class="bar" style="width:6%"></div></td><td class="num">1 g</td><td class="need">8 cups</td></tr>
+</tbody></table>
+
+<div class="punch">
+  <div class="cap">On a GLP-1, most people manage about <b>¾ of a cup</b> in one sitting.<br>
+  Look down that last column and you can see which foods are simply impossible.</div>
+  <div class="rule">Fill the space with <b>GREEN</b> first. Amber second. Red only once you have hit your protein.</div>
+  <div class="fn" style="margin-top:10px">
+    Calculated from USDA FoodData Central, per 100 ml of cooked volume. Cup = 240 ml.<br>
+    High-fat choices score well by volume but slow stomach emptying &mdash; save them for non-dose weeks.<br>
+    History of kidney stones? Ask your clinician before increasing animal protein.
+  </div>
+</div>
+</body></html>
