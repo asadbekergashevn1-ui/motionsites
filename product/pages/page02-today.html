@@ -1,0 +1,134 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>What Can I Eat Today</title><style>
+  :root{ --navy:#1B2A41; --amber:#E09F3E; --green:#4A7C59; --red:#C0453A; --mid:#D08030;
+         --muted:#7A8599; --line:#DDE1E8; --wash:#F6F7F9; }
+  @page{ size:A4; margin:0; }
+  html,body{overflow:hidden}
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{ width:794px; height:1122px; background:#fff; color:var(--navy);
+        font-family:"Inter","Inter Display",sans-serif; -webkit-font-smoothing:antialiased;
+        padding:38px 46px 26px; display:flex; flex-direction:column; }
+  .hdr{ display:flex; justify-content:space-between; font-size:9px; font-weight:700;
+        letter-spacing:.14em; color:var(--muted); padding-bottom:8px; border-bottom:1.5px solid var(--navy); }
+  h1{ font-size:40px; font-weight:800; letter-spacing:-.022em; margin-top:12px; line-height:1; }
+  .sub{ font-size:17px; font-weight:600; color:var(--amber); margin-top:7px; }
+  .lead{ font-size:12px; line-height:1.5; margin-top:12px; }
+  .lead b{ font-weight:800; }
+
+  .rows{ margin-top:15px; display:flex; flex-direction:column; gap:9px; }
+  .row{ display:grid; grid-template-columns:168px 1fr 104px; border:1.5px solid var(--line);
+        border-radius:10px; overflow:hidden; }
+  .feel{ padding:13px 14px; display:flex; flex-direction:column; justify-content:center; }
+  .tick{ display:flex; align-items:center; gap:8px; }
+  .bx{ width:15px; height:15px; border:1.8px solid var(--navy); border-radius:3px; flex:none; }
+  .ft{ font-size:14.5px; font-weight:800; line-height:1.2; }
+  .fs{ font-size:10px; color:var(--muted); margin-top:4px; line-height:1.35; }
+  .eat{ padding:11px 14px; border-left:1px solid var(--line); border-right:1px solid var(--line); }
+  .item{ display:flex; justify-content:space-between; align-items:baseline; font-size:12px;
+         padding:2.6px 0; }
+  .item b{ font-weight:800; font-variant-numeric:tabular-nums; }
+  .item span:first-child::before{ content:"· "; color:var(--muted); }
+  .tot{ display:flex; flex-direction:column; align-items:center; justify-content:center;
+        background:var(--wash); padding:0 6px; }
+  .tn{ font-size:21px; font-weight:800; line-height:1; }
+  .tl{ font-size:8px; font-weight:700; letter-spacing:.07em; color:var(--muted);
+       text-align:center; margin-top:5px; line-height:1.3; }
+  .r1 .feel{ border-left:5px solid var(--green);} .r1 .tn{ color:var(--green);}
+  .r2 .feel{ border-left:5px solid var(--amber);} .r2 .tn{ color:var(--amber);}
+  .r3 .feel{ border-left:5px solid var(--mid);} .r3 .tn{ color:var(--mid);}
+  .r4 .feel{ border-left:5px solid var(--red);} .r4 .tn{ color:var(--red);}
+
+
+  .how{ margin-top:18px; border:1.5px solid var(--line); border-radius:10px; padding:13px 16px 15px; }
+  .hhdr{ font-size:9px; font-weight:800; letter-spacing:.15em; color:var(--muted); margin-bottom:11px; }
+  .hgrid{ display:grid; grid-template-columns:1fr 26px 1fr 26px 1fr; align-items:center; gap:0 4px; }
+  .hs{ display:flex; gap:11px; align-items:center; }
+  .hn{ width:28px; height:28px; border-radius:50%; background:var(--navy); color:#fff; font-size:14px;
+       font-weight:800; display:flex; align-items:center; justify-content:center; flex:none; }
+  .ht{ font-size:12.5px; font-weight:600; line-height:1.35; }
+  .ha{ text-align:center; font-size:17px; font-weight:800; color:var(--amber); }
+  .hnote{ grid-column:1/-1; font-size:11.4px; line-height:1.5; color:var(--navy);
+          margin-top:13px; padding-top:11px; border-top:1px solid var(--line); }
+  .hnote b{ font-weight:800; }
+  .foot{ margin-top:auto; }
+  .rule{ background:var(--navy); color:#fff; border-radius:7px; padding:12px 18px;
+         font-size:13px; font-weight:700; text-align:center; line-height:1.45; }
+  .rule b{ color:var(--amber); font-weight:800; }
+  .fn{ font-size:8.6px; color:var(--muted); line-height:1.55; font-style:italic;
+       text-align:center; margin-top:9px; }
+</style></head><body>
+
+<div class="hdr"><span>GLP-1 LOW APPETITE PROTEIN PLAN</span><span>PAGE 2</span></div>
+<h1>What Can I Eat Today?</h1>
+<div class="sub">No maths. Find the line that sounds like today.</div>
+<div class="lead">Tick the row that matches how you feel <b>this morning</b>, then pick from that row all day.
+  You do not have to understand the rest of this plan to use this page &mdash; everything behind it is just the
+  reason these particular foods are on these particular lines.</div>
+
+<div class="rows">
+  <div class="row r1"><div class="feel"><div class="tick"><span class="bx"></span><span class="ft">A good day</span></div>
+      <div class="fs">Appetite is more or less there. Food sounds fine.</div></div>
+    <div class="eat">
+      <div class="item"><span>1 chicken breast, palm-sized</span><b>31 g</b></div>
+      <div class="item"><span>1 small tin of tuna, drained</span><b>25 g</b></div>
+      <div class="item"><span>1 pot of Greek yogurt, 0%</span><b>14 g</b></div>
+      <div class="item"><span>2 eggs, any way you like them</span><b>13 g</b></div>
+      <div class="item"><span>1 small tub of cottage cheese</span><b>12 g</b></div>
+    </div>
+    <div class="tot"><div class="tn">60&ndash;75 g</div><div class="tl">PICK ANY<br>THREE</div></div></div>
+
+  <div class="row r2"><div class="feel"><div class="tick"><span class="bx"></span><span class="ft">Full after a few bites</span></div>
+      <div class="fs">No nausea, but you stop very quickly.</div></div>
+    <div class="eat">
+      <div class="item"><span>1 scoop of protein in 200 ml milk</span><b>31 g</b></div>
+      <div class="item"><span>Half a tin of tuna with mayo</span><b>13 g</b></div>
+      <div class="item"><span>1 small tub of cottage cheese</span><b>12 g</b></div>
+      <div class="item"><span>1 scrambled egg + 1 egg white</span><b>10 g</b></div>
+      <div class="item"><span>Half a pot of Greek yogurt</span><b>7 g</b></div>
+    </div>
+    <div class="tot"><div class="tn">55&ndash;65 g</div><div class="tl">FIVE SMALL<br>ONES</div></div></div>
+
+  <div class="row r3"><div class="feel"><div class="tick"><span class="bx"></span><span class="ft">Queasy</span></div>
+      <div class="fs">You could manage something smooth and cold.</div></div>
+    <div class="eat">
+      <div class="item"><span>1 scoop of protein in 350 ml iced water</span><b>25 g</b></div>
+      <div class="item"><span>1 pot of cold Greek yogurt</span><b>14 g</b></div>
+      <div class="item"><span>Smooth soup + 2 tbsp milk powder</span><b>12 g</b></div>
+      <div class="item"><span>1 small tub of cottage cheese</span><b>12 g</b></div>
+      <div class="item"><span>Half a block of silken tofu, blended</span><b>9 g</b></div>
+    </div>
+    <div class="tot"><div class="tn">50&ndash;60 g</div><div class="tl">SPREAD<br>ACROSS THE DAY</div></div></div>
+
+  <div class="row r4"><div class="feel"><div class="tick"><span class="bx"></span><span class="ft">Can't face food</span></div>
+      <div class="fs">The thought of eating is the problem.</div></div>
+    <div class="eat">
+      <div class="item"><span>1 scoop of clear protein, iced, sipped over an hour</span><b>25 g</b></div>
+      <div class="item"><span>A second one in the afternoon</span><b>25 g</b></div>
+      <div class="item"><span>Electrolyte drink between them</span><b>&mdash;</b></div>
+      <div class="item" style="color:var(--muted)"><span>Nothing warm, nothing thick, nothing fatty</span><b></b></div>
+    </div>
+    <div class="tot"><div class="tn">~50 g</div><div class="tl">AND THAT IS<br>ENOUGH TODAY</div></div></div>
+</div>
+
+
+<div class="how">
+  <div class="hhdr">HOW TO USE THIS PAGE</div>
+  <div class="hgrid">
+    <div class="hs"><div class="hn">1</div><div class="ht">Tick a row<br>in the morning</div></div>
+    <div class="ha">&rarr;</div>
+    <div class="hs"><div class="hn">2</div><div class="ht">Pick three to five<br>things from that row</div></div>
+    <div class="ha">&rarr;</div>
+    <div class="hs"><div class="hn">3</div><div class="ht">If the day changes,<br>change rows</div></div>
+    <div class="hnote"><b>Not sure which row?</b> Start one row lower than you think. It is far easier to move
+      up at lunch than to spend the morning failing at a bigger day.</div>
+  </div>
+</div>
+
+<div class="foot">
+  <div class="rule">Whichever row you are on, <b>drink the protein first</b> and leave the rest of the meal for after.</div>
+  <div class="fn">
+    Grams are typical for an average portion &mdash; a palm of chicken is roughly 100 g, a yogurt pot roughly 150 g, a tub of cottage cheese roughly 100 g.<br>
+    Protein powders vary: check the scoop size on your own tub. Page 3 has the full list if you want to swap something in.<br>
+    Calculated from USDA FoodData Central. History of kidney stones? Ask your clinician before increasing animal protein.
+  </div>
+</div>
+</body></html>

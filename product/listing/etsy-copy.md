@@ -86,38 +86,45 @@ different plan for a dose week than for a good week.
 
 ────────────────────────────────────────
 
-WHAT YOU GET — 9 PAGES
+WHAT YOU GET — 10 PAGES
 
 1 · START HERE
-   A safety check, then two minutes with a pen that gives you your protein
-   target, your real capacity, and the one number everything else runs on.
+   A safety check, then a table that gives you your protein target without
+   any maths, and two minutes with a measuring cup that gives you your real
+   capacity.
 
-2 · PROTEIN DENSITY SCORE
-   What every 100 ml of food is actually worth, calculated from USDA
-   FoodData Central. 100 ml of chicken carries 18 g. The same 18 g from
-   broccoli takes five cups. A final column tells you exactly how much of
-   each food you would have to eat to reach 20 g.
+2 · WHAT CAN I EAT TODAY?
+   The page most people use every day. Tick the line that sounds like this
+   morning — a good day, full after a few bites, queasy, or can't face food
+   — and eat from that row. Everyday portions, grams already worked out,
+   nothing to calculate.
 
-3 · DOSE WEEK MODE
+3 · PROTEIN DENSITY SCORE
+   The reference behind page 2. What a normal portion of each food gives
+   you, and what it costs you in space, calculated from USDA FoodData
+   Central. 100 ml of chicken carries 18 g. The same 18 g from broccoli
+   takes five cups.
+
+4 · DOSE WEEK MODE
    Side effects follow dose steps and usually ease within a week or two.
    Predictable means plannable. A seven-day dial, what changes that week,
    and what to buy before dose day — because nobody shops on day one.
 
-4 · TEXTURE LADDER
+5 · TEXTURE LADDER
    Four levels matched to how you feel that morning, each showing how much
    of your target it can still reach. Includes an hour-by-hour bad day
    that still gets to 80 g.
 
-5 · RED FLAGS
+6 · RED FLAGS
    What needs emergency care, what needs a call today, and what is simply
    the medication working. With a script for the call and a cut-out card
    for the fridge.
 
 PLUS 4 BONUS SHEETS
-6 · Dose Week Tracker — one sheet per dose increase
-7 · Daily Protein Card — two cut-apart cards per page
-8 · Grocery List — sorted by protein per 100 ml, not by aisle
-9 · Aversion Swaps — for when protein itself becomes the problem
+7 · Dose Week Tracker — one sheet per dose increase
+8 · Daily Protein Card — two cut-apart cards per page
+9 · Grocery List — sorted by protein per 100 ml, not by aisle
+10 · Aversion Swaps — for when protein itself becomes the problem
 
 ────────────────────────────────────────
 
@@ -144,8 +151,8 @@ what you needed.
 
 WHAT'S INCLUDED
 
-· 9 pages, instant digital download
-· Two PDFs: A4 and US Letter
+· 10 pages, instant digital download
+· Two complete PDFs: A4 and US Letter
 · Print as often as you like, forever
 · Nothing to install, no subscription, no account
 

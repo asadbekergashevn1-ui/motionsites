@@ -14,54 +14,57 @@
   h1{ font-size:40px; font-weight:800; letter-spacing:-.022em; margin-top:12px; line-height:1; }
   .sub{ font-size:17px; font-weight:600; color:var(--amber); margin-top:7px; }
 
-  .step{ margin-top:15px; }
+  .step{ margin-top:11px; }
   .slab{ display:flex; align-items:center; gap:9px; margin-bottom:8px; }
   .snum{ width:19px; height:19px; border-radius:50%; background:var(--navy); color:#fff;
          font-size:10.5px; font-weight:800; display:flex; align-items:center; justify-content:center; flex:none; }
   .stit{ font-size:11px; font-weight:800; letter-spacing:.13em; }
   .shint{ font-size:10px; color:var(--muted); font-weight:600; margin-left:auto; }
 
-  .gate{ border:1.5px solid var(--red); border-radius:9px; padding:12px 14px 11px; }
-  .gcols{ display:grid; grid-template-columns:1fr 1fr; gap:4px 20px; }
-  .gi{ display:flex; gap:9px; align-items:center; font-size:11.2px; line-height:1.35; }
+  .gate{ border:1.5px solid var(--red); border-radius:9px; padding:10px 14px 9px; }
+  .gcols{ display:grid; grid-template-columns:1fr 1fr; gap:2px 20px; }
+  .gi{ display:flex; gap:9px; align-items:center; font-size:10.9px; line-height:1.3; }
   .box{ width:12px; height:12px; border:1.6px solid var(--navy); border-radius:2.5px; flex:none; }
-  .gstop{ margin-top:10px; padding-top:9px; border-top:1px solid var(--line);
+  .gstop{ margin-top:8px; padding-top:7px; border-top:1px solid var(--line);
           font-size:11.2px; font-weight:700; }
   .gstop b{ color:var(--red); }
 
-  .mathbox{ border:1.5px solid var(--line); border-radius:9px; padding:12px 14px; }
+  .look{ margin-top:9px; padding-top:9px; border-top:1px solid var(--line); }
+  .lt{ font-size:8.6px; font-weight:800; letter-spacing:.13em; color:var(--amber); margin-bottom:8px; }
+  .lk{ width:100%; border-collapse:collapse; }
+  .lk th{ font-size:8.4px; font-weight:800; letter-spacing:.08em; color:var(--muted);
+          text-align:left; width:98px; padding:4px 0; }
+  .lk td{ text-align:center; font-size:10.4px; padding:4px 2px; border-left:1px solid var(--line); line-height:1.3; }
+  .lk td span{ font-size:8.6px; color:var(--muted); }
+  .lk td b{ font-size:13px; font-weight:800; }
+  .lf{ font-size:9.4px; color:var(--muted); font-style:italic; margin-top:8px; }
+  .mathbox{ border:1.5px solid var(--line); border-radius:9px; padding:10px 14px; }
   .mrow{ display:flex; align-items:baseline; gap:8px; font-size:13px; font-weight:600; flex-wrap:wrap; }
-  .mrow + .mrow{ margin-top:9px; }
+  .mrow + .mrow{ margin-top:7px; }
   .ln{ border-bottom:1.8px solid var(--navy); min-width:58px; height:17px; display:inline-block; }
   .ln.sm{ min-width:40px; }
   .unit{ font-weight:700; color:var(--muted); font-size:11px; }
-  .mnote{ font-size:9.6px; color:var(--muted); line-height:1.5; margin-top:9px; font-style:italic; }
+  .mnote{ font-size:9.2px; color:var(--muted); line-height:1.45; margin-top:7px; font-style:italic; }
   .mnote b{ color:var(--navy); font-style:normal; }
 
-  .eqbox{ background:var(--navy); color:#fff; border-radius:9px; padding:14px 16px; }
+  .eqbox{ background:var(--navy); color:#fff; border-radius:9px; padding:11px 16px; }
   .eqtop{ font-size:10px; font-weight:800; letter-spacing:.14em; color:#9FB0C6; margin-bottom:10px; }
   .eq{ display:flex; align-items:center; justify-content:center; gap:11px; font-size:14px; font-weight:700; }
   .eq .ln{ border-bottom:1.8px solid var(--amber); min-width:52px; }
   .eq .res{ border-bottom:1.8px solid var(--amber); min-width:70px; }
   .eq small{ font-size:10px; color:#9FB0C6; font-weight:600; }
 
-  .scale{ display:grid; grid-template-columns:repeat(4,1fr); gap:7px; margin-top:12px; }
+  .scale{ display:grid; grid-template-columns:repeat(4,1fr); gap:7px; margin-top:10px; }
   .sb{ border-radius:7px; padding:8px 9px 9px; color:#fff; }
   .sbn{ font-size:12.5px; font-weight:800; }
   .sbt{ font-size:9.4px; line-height:1.4; margin-top:3px; opacity:.95; }
   .s1{ background:var(--green);} .s2{ background:#7A9B5C;} .s3{ background:var(--amber);} .s4{ background:var(--red);}
 
 
-  .exbox{ border:1.5px solid var(--amber); border-radius:9px; padding:12px 14px; background:#FDF8F1; }
-  .exgrid{ display:grid; grid-template-columns:repeat(4,1fr); gap:10px; }
-  .ex{ border-left:2.5px solid var(--amber); padding-left:10px; }
-  .exn{ font-size:8.5px; font-weight:800; color:var(--amber); letter-spacing:.1em; }
-  .exb{ font-size:9.4px; font-weight:800; letter-spacing:.08em; color:var(--muted); margin-top:1px; }
-  .exv{ font-size:12.5px; font-weight:600; margin-top:4px; }
-  .exv b{ font-weight:800; }
-  .exd{ font-size:9.2px; color:var(--muted); margin-top:2px; line-height:1.35; }
-  .exout{ margin-top:11px; padding-top:10px; border-top:1px solid #EBDFCB;
-          font-size:11.4px; line-height:1.5; }
+  .exbox{ border:1.5px solid var(--amber); border-radius:9px; padding:10px 14px; background:#FDF8F1; }
+  .exline{ font-size:11.6px; line-height:1.55; } .exline b{ font-weight:800; }
+  .exout{ margin-top:8px; padding-top:8px; border-top:1px solid #EBDFCB;
+          font-size:11.2px; line-height:1.5; }
   .foot{ margin-top:auto; }
   .nextbar{ border:1.5px solid var(--navy); border-radius:7px; padding:11px 16px;
             font-size:13px; font-weight:700; text-align:center; }
@@ -95,12 +98,23 @@
 
 <div class="step">
   <div class="slab"><span class="snum">2</span><span class="stit">YOUR PROTEIN TARGET</span>
-    <span class="shint">Your clinician's number always wins</span></div>
+    <span class="shint">Use the table, or do the maths &mdash; same answer</span></div>
   <div class="mathbox">
     <div class="mrow">Body weight <span class="ln sm"></span><span class="unit">KG</span>
       &nbsp;&times;&nbsp; 1.2 &nbsp;=&nbsp; <span class="ln"></span><span class="unit">G &mdash; LOWER TARGET</span></div>
     <div class="mrow">Body weight <span class="ln sm"></span><span class="unit">KG</span>
       &nbsp;&times;&nbsp; 1.6 &nbsp;=&nbsp; <span class="ln"></span><span class="unit">G &mdash; UPPER TARGET</span></div>
+<div class="look">
+      <div class="lt">OR JUST READ IT OFF &mdash; NO MATHS NEEDED</div>
+      <table class="lk"><tr><th>YOUR WEIGHT</th>
+        <td>60 kg<br><span>132 lb</span></td><td>70 kg<br><span>154 lb</span></td>
+        <td>80 kg<br><span>176 lb</span></td><td>90 kg<br><span>198 lb</span></td>
+        <td>100 kg<br><span>220 lb</span></td><td>110 kg<br><span>242 lb</span></td></tr>
+      <tr><th>TARGET RANGE</th><td><b>72&ndash;96</b> g</td><td><b>84&ndash;112</b> g</td>
+        <td><b>96&ndash;128</b> g</td><td><b>108&ndash;144</b> g</td>
+        <td><b>120&ndash;160</b> g</td><td><b>132&ndash;176</b> g</td></tr></table>
+      <div class="lf">Between two columns? Take the lower one to start with. Starting low and climbing beats missing every day.</div>
+    </div>
     <div class="mnote">1.2&ndash;1.6 g per kg is the range proposed for people actively reducing weight.
       <b>If your clinician gave you a different number, use theirs and ignore this box.</b>
       Staying under roughly 0.4&ndash;0.5 g per kg for a long stretch is where muscle loss starts &mdash; that is the floor this plan is built to keep you off.</div>
@@ -144,19 +158,12 @@
   <div class="slab"><span class="snum">&#10003;</span><span class="stit">SEE IT DONE ONCE</span>
     <span class="shint">The same four steps, filled in</span></div>
   <div class="exbox">
-    <div class="exgrid">
-      <div class="ex"><div class="exn">1</div><div class="exb">Gate</div>
-        <div class="exv">Nothing ticked</div><div class="exd">Clear to start</div></div>
-      <div class="ex"><div class="exn">2</div><div class="exb">Target</div>
-        <div class="exv">82 kg &times; 1.2 = <b>98 g</b></div><div class="exd">Lower end to begin with</div></div>
-      <div class="ex"><div class="exn">3</div><div class="exb">Capacity</div>
-        <div class="exv">180 ml &times; 4 = <b>720 ml</b></div><div class="exd">Measured over three days</div></div>
-      <div class="ex"><div class="exn">4</div><div class="exb">Required density</div>
-        <div class="exv">98 &divide; 7.2 = <b>13.6 g</b></div><div class="exd">per 100 ml &mdash; the amber band</div></div>
-    </div>
-    <div class="exout"><b>What that means for her:</b> almost every 100 ml she eats has to be green-tier
-      &mdash; chicken, tofu, tuna, cottage cheese &mdash; and one concentrated shake closes the last stretch.
-      A plate of salad and brown rice would quietly cost her the whole day.</div>
+    <div class="exline"><b>Worked example.</b> Maria is 82 kg, so her target is <b>98 g</b>. She measured
+      <b>180 ml</b> a sitting across four meals, which is <b>720 ml</b> of space a day.
+      98 &divide; 7.2 = <b>13.6 g per 100 ml</b> &mdash; the amber band.</div>
+    <div class="exout"><b>What that means for her:</b> almost every 100 ml has to be green-tier &mdash; chicken,
+      tofu, tuna, cottage cheese &mdash; and one concentrated shake closes the last stretch. A plate of salad
+      and brown rice would quietly cost her the whole day.</div>
   </div>
 </div>
 
