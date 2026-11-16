@@ -1,0 +1,102 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Dose Week Tracker</title><style>
+  :root{ --navy:#1B2A41; --amber:#E09F3E; --green:#4A7C59; --red:#C0453A; --mid:#D08030;
+         --muted:#7A8599; --line:#DDE1E8; --wash:#F6F7F9; }
+  @page{ size:A4; margin:0; }
+  html,body{overflow:hidden}
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{ width:794px; height:1122px; background:#fff; color:var(--navy);
+        font-family:"Inter","Inter Display",sans-serif; -webkit-font-smoothing:antialiased;
+        padding:38px 46px 26px; display:flex; flex-direction:column; }
+  .hdr{ display:flex; justify-content:space-between; font-size:9px; font-weight:700;
+        letter-spacing:.14em; color:var(--muted); padding-bottom:8px; border-bottom:1.5px solid var(--navy); }
+  h1{ font-size:38px; font-weight:800; letter-spacing:-.022em; margin-top:12px; line-height:1; }
+  .sub{ font-size:16px; font-weight:600; color:var(--amber); margin-top:6px; }
+  .top{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px; margin-top:16px; }
+  .tb{ border:1.5px solid var(--line); border-radius:8px; padding:9px 12px; }
+  .tl{ font-size:8.4px; font-weight:800; letter-spacing:.11em; color:var(--muted); }
+  .tv{ border-bottom:1.6px solid var(--navy); height:21px; margin-top:5px; }
+  table{ width:100%; border-collapse:collapse; margin-top:17px; }
+  th{ font-size:8.2px; font-weight:800; letter-spacing:.09em; color:var(--muted);
+      padding:0 4px 7px; border-bottom:1.5px solid var(--navy); text-align:center; }
+  th.l{ text-align:left; padding-left:9px; }
+  td{ border-bottom:1px solid var(--line); height:58px; padding:0 4px; text-align:center; }
+  .dcell{ text-align:left; padding-left:9px; width:72px; }
+  .dn{ font-size:12.5px; font-weight:800; }
+  .dd{ font-size:8.4px; color:var(--muted); font-weight:700; margin-top:1px; }
+  .tgt{ width:74px; font-size:14px; font-weight:800; }
+  .t1{color:var(--red)} .t2{color:var(--mid)} .t3{color:var(--amber)} .t4{color:var(--green)}
+  .wr{ border-bottom:1.5px solid var(--navy); height:19px; margin:0 6px; }
+  .rungs{ display:flex; gap:4px; justify-content:center; }
+  .rg{ width:21px; height:21px; border:1.4px solid var(--line); border-radius:4px;
+       font-size:8.4px; font-weight:800; color:var(--muted); display:flex; align-items:center; justify-content:center; }
+  .nz{ display:flex; gap:4px; justify-content:center; }
+  .nb{ width:19px; height:19px; border:1.4px solid var(--line); border-radius:50%;
+       font-size:8.2px; font-weight:700; color:var(--muted); display:flex; align-items:center; justify-content:center; }
+  .sum{ margin-top:16px; display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+  .sb{ border:1.5px solid var(--navy); border-radius:9px; padding:11px 13px; }
+  .st{ font-size:9px; font-weight:800; letter-spacing:.12em; color:var(--muted); margin-bottom:7px; }
+  .sq{ font-size:11.4px; line-height:1.9; }
+  .sq .ln{ border-bottom:1.5px solid var(--navy); display:inline-block; width:46px; height:14px; }
+
+  .notes{ margin-top:16px; }
+  .nhdr{ display:flex; justify-content:space-between; font-size:9px; font-weight:800;
+         letter-spacing:.12em; color:var(--muted); margin-bottom:9px; }
+  .ngrid{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  .ncol{ border:1.5px solid var(--line); border-radius:9px; padding:10px 13px 13px; }
+  .nlab{ font-size:8.6px; font-weight:800; letter-spacing:.1em; color:var(--muted); margin-bottom:9px; }
+  .nl{ border-bottom:1.4px solid var(--line); height:25px; }
+  .nfn{ font-size:9.6px; color:var(--muted); font-style:italic; text-align:center; margin-top:10px; }
+  .foot{ margin-top:auto; }
+  .rule{ background:var(--navy); color:#fff; border-radius:7px; padding:12px 18px;
+         font-size:13px; font-weight:700; text-align:center; }
+  .rule b{ color:var(--amber); font-weight:800; }
+  .fn{ font-size:8.4px; color:var(--muted); line-height:1.5; font-style:italic; text-align:center; margin-top:9px; }
+</style></head><body>
+<div class="hdr"><span>GLP-1 LOW APPETITE PROTEIN PLAN &mdash; BONUS 1</span><span>DOSE WEEK TRACKER</span></div>
+<h1>Dose Week Tracker</h1>
+<div class="sub">Seven days, one sheet. Fill it in as you go, not from memory.</div>
+<div class="top">
+  <div class="tb"><div class="tl">DOSE INCREASED ON</div><div class="tv"></div></div>
+  <div class="tb"><div class="tl">FROM &mdash; TO (MG)</div><div class="tv"></div></div>
+  <div class="tb"><div class="tl">MY NORMAL TARGET (G)</div><div class="tv"></div></div>
+</div>
+<table>
+<thead><tr><th class="l">DAY</th><th>TARGET</th><th>PROTEIN I ACTUALLY HIT</th><th>FLUID</th>
+<th>RUNG USED</th><th>NAUSEA 0&ndash;3</th></tr></thead>
+<tbody>
+<tr><td class="dcell"><div class="dn">DAY 1</div><div class="dd">DOSE DAY</div></td><td class="tgt t1">&times;0.6</td><td><div class="wr"></div></td><td><div class="wr"></div></td><td><div class="rungs"><span class="rg">L1</span><span class="rg">L2</span><span class="rg">L3</span><span class="rg">L4</span></div></td><td><div class="nz"><span class="nb">0</span><span class="nb">1</span><span class="nb">2</span><span class="nb">3</span></div></td></tr>
+<tr><td class="dcell"><div class="dn">DAY 2</div></td><td class="tgt t1">&times;0.6</td><td><div class="wr"></div></td><td><div class="wr"></div></td><td><div class="rungs"><span class="rg">L1</span><span class="rg">L2</span><span class="rg">L3</span><span class="rg">L4</span></div></td><td><div class="nz"><span class="nb">0</span><span class="nb">1</span><span class="nb">2</span><span class="nb">3</span></div></td></tr>
+<tr><td class="dcell"><div class="dn">DAY 3</div></td><td class="tgt t2">&times;0.8</td><td><div class="wr"></div></td><td><div class="wr"></div></td><td><div class="rungs"><span class="rg">L1</span><span class="rg">L2</span><span class="rg">L3</span><span class="rg">L4</span></div></td><td><div class="nz"><span class="nb">0</span><span class="nb">1</span><span class="nb">2</span><span class="nb">3</span></div></td></tr>
+<tr><td class="dcell"><div class="dn">DAY 4</div><div class="dd">FIBRE BACK</div></td><td class="tgt t2">&times;0.8</td><td><div class="wr"></div></td><td><div class="wr"></div></td><td><div class="rungs"><span class="rg">L1</span><span class="rg">L2</span><span class="rg">L3</span><span class="rg">L4</span></div></td><td><div class="nz"><span class="nb">0</span><span class="nb">1</span><span class="nb">2</span><span class="nb">3</span></div></td></tr>
+<tr><td class="dcell"><div class="dn">DAY 5</div></td><td class="tgt t3">&times;0.9</td><td><div class="wr"></div></td><td><div class="wr"></div></td><td><div class="rungs"><span class="rg">L1</span><span class="rg">L2</span><span class="rg">L3</span><span class="rg">L4</span></div></td><td><div class="nz"><span class="nb">0</span><span class="nb">1</span><span class="nb">2</span><span class="nb">3</span></div></td></tr>
+<tr><td class="dcell"><div class="dn">DAY 6</div></td><td class="tgt t3">&times;0.9</td><td><div class="wr"></div></td><td><div class="wr"></div></td><td><div class="rungs"><span class="rg">L1</span><span class="rg">L2</span><span class="rg">L3</span><span class="rg">L4</span></div></td><td><div class="nz"><span class="nb">0</span><span class="nb">1</span><span class="nb">2</span><span class="nb">3</span></div></td></tr>
+<tr><td class="dcell"><div class="dn">DAY 7</div><div class="dd">BACK TO NORMAL</div></td><td class="tgt t4">&times;1.0</td><td><div class="wr"></div></td><td><div class="wr"></div></td><td><div class="rungs"><span class="rg">L1</span><span class="rg">L2</span><span class="rg">L3</span><span class="rg">L4</span></div></td><td><div class="nz"><span class="nb">0</span><span class="nb">1</span><span class="nb">2</span><span class="nb">3</span></div></td></tr>
+</tbody></table>
+<div class="sum">
+  <div class="sb"><div class="st">HOW THE WEEK WENT</div>
+    <div class="sq">Days I hit the day's target &nbsp;<span class="ln"></span> / 7<br>
+      Worst day was day &nbsp;<span class="ln"></span><br>
+      Nausea gone by day &nbsp;<span class="ln"></span></div></div>
+  <div class="sb"><div class="st">WORTH TELLING YOUR CLINICIAN</div>
+    <div class="sq" style="line-height:1.55; font-size:10.6px">Nausea still at 2 or 3 by day 7.<br>
+      Four or more days under target.<br>
+      Any day you could not keep fluids down.<br>
+      <b>Ask about a slower step up next time.</b></div></div>
+</div>
+
+<div class="notes">
+  <div class="nhdr"><span>WHAT ACTUALLY WENT DOWN THIS WEEK</span><span>YOUR OWN SHORTLIST FOR NEXT TIME</span></div>
+  <div class="ngrid">
+    <div class="ncol"><div class="nlab">WORKED &mdash; DO IT AGAIN</div>
+      <div class="nl"></div><div class="nl"></div><div class="nl"></div><div class="nl"></div></div>
+    <div class="ncol"><div class="nlab">DIDN'T WORK &mdash; SKIP NEXT TIME</div>
+      <div class="nl"></div><div class="nl"></div><div class="nl"></div><div class="nl"></div></div>
+  </div>
+  <div class="nfn">Every dose week teaches you something the first one couldn't. Three of these sheets and you stop guessing altogether.</div>
+</div>
+
+<div class="foot">
+  <div class="rule">Print one of these for <b>every</b> dose increase. The pattern repeats &mdash; your notes make it predictable.</div>
+  <div class="fn">Never change your dose on your own. This sheet is for the conversation, not instead of it.</div>
+</div>
+</body></html>

@@ -1,0 +1,96 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Grocery List</title><style>
+  :root{ --navy:#1B2A41; --amber:#E09F3E; --green:#4A7C59; --red:#C0453A;
+         --muted:#7A8599; --line:#DDE1E8; --wash:#F6F7F9; }
+  @page{ size:A4; margin:0; }
+  html,body{overflow:hidden}
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{ width:794px; height:1122px; background:#fff; color:var(--navy);
+        font-family:"Inter","Inter Display",sans-serif; -webkit-font-smoothing:antialiased;
+        padding:38px 46px 26px; display:flex; flex-direction:column; }
+  .hdr{ display:flex; justify-content:space-between; font-size:9px; font-weight:700;
+        letter-spacing:.14em; color:var(--muted); padding-bottom:8px; border-bottom:1.5px solid var(--navy); }
+  h1{ font-size:38px; font-weight:800; letter-spacing:-.022em; margin-top:12px; line-height:1; }
+  .sub{ font-size:16px; font-weight:600; color:var(--amber); margin-top:6px; }
+  .lead{ font-size:11.4px; line-height:1.5; margin-top:12px; }
+  .lead b{ font-weight:800; }
+  .cols{ display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:16px; }
+  .sec{ border:1.5px solid var(--line); border-radius:9px; overflow:hidden; margin-bottom:12px; }
+  .sh{ padding:8px 13px; font-size:9.4px; font-weight:800; letter-spacing:.1em; color:#fff;
+       display:flex; justify-content:space-between; }
+  .sh small{ font-weight:700; opacity:.9; font-size:8.4px; }
+  .sg{ background:var(--green);} .sa{ background:var(--amber);} .sn{ background:var(--navy);}
+  .sb{ padding:8px 13px 10px; }
+  .it{ display:flex; align-items:center; gap:9px; padding:2.8px 0; font-size:11.2px; }
+  .ck{ width:12px; height:12px; border:1.5px solid var(--navy); border-radius:2.5px; flex:none; }
+  .gv{ margin-left:auto; font-size:9.6px; font-weight:800; color:var(--muted); }
+  .warn{ border:1.5px solid var(--red); border-radius:9px; padding:10px 13px; margin-top:4px; }
+  .wt{ font-size:9.4px; font-weight:800; letter-spacing:.1em; color:var(--red); margin-bottom:6px; }
+  .wi{ font-size:10.8px; line-height:1.55; }
+
+  .ow{ border-bottom:1.4px solid var(--line); height:24px; }
+  .owf{ font-size:9.2px; color:var(--muted); font-style:italic; line-height:1.45; margin-top:9px; }
+  .foot{ margin-top:auto; }
+  .rule{ background:var(--navy); color:#fff; border-radius:7px; padding:12px 18px;
+         font-size:13px; font-weight:700; text-align:center; }
+  .rule b{ color:var(--amber); font-weight:800; }
+  .fn{ font-size:8.4px; color:var(--muted); line-height:1.5; font-style:italic; text-align:center; margin-top:9px; }
+</style></head><body>
+<div class="hdr"><span>GLP-1 LOW APPETITE PROTEIN PLAN &mdash; BONUS 3</span><span>GROCERY LIST</span></div>
+<h1>Grocery List</h1>
+<div class="sub">Sorted by what it gives you, not by aisle.</div>
+<div class="lead">The number beside each item is <b>grams of protein per 100 ml</b> &mdash; the figure from page 2.
+  Fill the basket from the top of this list down, and your stomach space is spent well before you reach anything that wastes it.</div>
+<div class="cols">
+ <div>
+  <div class="sec"><div class="sh sg"><span>WORTH THE SPACE</span><small>G / 100 ML</small></div><div class="sb">
+    <div class="it"><span class="ck"></span>Chicken breast<span class="gv">18</span></div>
+    <div class="it"><span class="ck"></span>Firm tofu<span class="gv">18</span></div>
+    <div class="it"><span class="ck"></span>Tinned tuna, in water<span class="gv">18</span></div>
+    <div class="it"><span class="ck"></span>Turkey breast<span class="gv">18</span></div>
+    <div class="it"><span class="ck"></span>Prawns<span class="gv">14</span></div>
+    <div class="it"><span class="ck"></span>Salmon or cod<span class="gv">13</span></div>
+    <div class="it"><span class="ck"></span>Cottage cheese<span class="gv">12</span></div>
+    <div class="it"><span class="ck"></span>Cheddar, for grating<span class="gv">11</span></div>
+    <div class="it"><span class="ck"></span>Egg whites, carton<span class="gv">11</span></div>
+    <div class="it"><span class="ck"></span>Greek yogurt, 0%<span class="gv">10</span></div>
+  </div></div>
+  <div class="sec"><div class="sh sa"><span>GOOD SUPPORT</span><small>G / 100 ML</small></div><div class="sb">
+    <div class="it"><span class="ck"></span>Edamame, frozen<span class="gv">8</span></div>
+    <div class="it"><span class="ck"></span>Lentils<span class="gv">7</span></div>
+    <div class="it"><span class="ck"></span>Eggs<span class="gv">7</span></div>
+    <div class="it"><span class="ck"></span>Black beans<span class="gv">6</span></div>
+  </div></div>
+  <div class="sec"><div class="sh sn"><span>ADD YOUR OWN</span><small>G / 100 ML</small></div><div class="sb">
+    <div class="ow"></div><div class="ow"></div><div class="ow"></div>
+    <div class="ow"></div><div class="ow"></div><div class="ow"></div>
+    <div class="owf">To work out the number for any food: take the grams of protein in a portion,
+      divide by the millilitres that portion fills, then multiply by 100.</div>
+  </div></div>
+ </div>
+ <div>
+  <div class="sec"><div class="sh sn"><span>FOR L1 AND L2 DAYS</span><small>THE HARD ONES</small></div><div class="sb">
+    <div class="it"><span class="ck"></span>Clear or isolate protein powder</div>
+    <div class="it"><span class="ck"></span>Unflavoured protein powder, for soups</div>
+    <div class="it"><span class="ck"></span>Skimmed milk powder, to fortify</div>
+    <div class="it"><span class="ck"></span>Silken tofu, to blend in</div>
+    <div class="it"><span class="ck"></span>Smooth soup you can thicken</div>
+    <div class="it"><span class="ck"></span>Electrolyte sachets</div>
+    <div class="it"><span class="ck"></span>Ice &mdash; cold goes down easier</div>
+  </div></div>
+  <div class="sec"><div class="sh sn"><span>KEEP THE ROUTINE WORKING</span><small>EVERY SHOP</small></div><div class="sb">
+    <div class="it"><span class="ck"></span>Fibre: berries, oats, pulses</div>
+    <div class="it"><span class="ck"></span>Something salty &mdash; for sweet-shake fatigue</div>
+    <div class="it"><span class="ck"></span>A measuring cup, if you don't own one</div>
+    <div class="it"><span class="ck"></span>Small plates and small spoons</div>
+  </div></div>
+  <div class="warn"><div class="wt">EASY TO BUY BY ACCIDENT</div>
+    <div class="wi">Smoothies, broth-only soups, salad bags, rice cakes, avocado.
+      None of them are bad food &mdash; they simply cost you <b>most of a day's capacity</b> and hand back one or two grams.
+      Buy them for pleasure, never as the protein.</div></div>
+ </div>
+</div>
+<div class="foot">
+  <div class="rule">Shop from the <b>top</b> of this list down. What's left over is what your space can afford.</div>
+  <div class="fn">Figures calculated from USDA FoodData Central, per 100 ml of cooked volume. History of kidney stones? Ask your clinician before increasing animal protein.</div>
+</div>
+</body></html>
