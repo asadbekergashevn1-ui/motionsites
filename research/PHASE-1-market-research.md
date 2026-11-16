@@ -591,3 +591,43 @@ Tekshirilmagan — 2-bosqichda kerak bo'lsa qaytamiz.
 > Etsy — $3–10 printable bozori, qaysi nicha bo'lishidan qat'i nazar.
 > $29+ mahsulot uchun boshqa kanal kerak (Gumroad / o'z sahifa / auditoriya).
 > Va har ikkala nichada ham **professional xaridor iste'molchidan qimmatga chidaydi**.
+
+---
+
+## V7.7 — 4-do'kon: naqsh tasdiqlandi
+
+| Do'kon | Sotuv | Yoshi | Sotuv/oy | Narx | ~Daromad/oy | Sharh/Sotuv |
+|---|---|---|---|---|---|---|
+| **FitPlanWorks** | 1,300 | 1 yil | **~108** | **$3.47** (25% off) | ~$376 | 54/1300 = 4.2% |
+
+Postpartum Etsy namunasi endi to'liq (4 do'kon): **$2.52 · $3.47 · $6.47 · $10.02**
+Hech qanday istisno yo'q — **$3–10 mixi mustahkam**.
+
+Mahsulot: **bitta PNG fayl**, 12 ta mashq, $3.47.
+"Sale ends in 12:02:00" — orqaga sanovchi taymer, ya'ni sun'iy shoshilinchlik madaniyati.
+
+Yangilangan kalibratsiya (10 kuzatuv): mediana **≈ 6.0%** (o'zgarishsiz).
+
+### 🔗 V7.8 — HALQA YOPILDI: qidiruv so'rovlari = $3 chart tarkibi
+
+FitPlanWorks chartidagi mashqlar: Deep Belly Breathing · Pelvic Tilts · **Heel Slides** ·
+Marching · Bent Knee Fall Outs · Bridge · **Bird Dog** · Modified Plank · Side Lying Leg Lifts ·
+Dead Bug · Side Plank · Quadruped Core Activation
+
+Google Trends "Rising queries": **`heel slides` +400%**, **`bird dog exercise` +350%**
+
+→ **Odamlar aynan shu mashq nomlarini qidiradi, va $3 lik chartlar aynan shu talabni qondiradi.**
+
+**Strategik oqibat (muhim):**
+"Qaysi mashqlar?" degan savol **allaqachon $3 ga javob topgan** — bu bozorga kirish ma'nosiz.
+$29 lik mahsulot **boshqa savolga** javob berishi kerak:
+
+| $3 chart javob beradi | $29 protokol javob berishi kerak |
+|---|---|
+| Qaysi mashqlar | **Qaysi tartibda, necha hafta** |
+| Necha marta takrorlash | **Men tayyormanmi, qayerdan boshlayman** |
+| — | **"Coning" ko'rsam nima qilaman** |
+| — | **Qaysi mashq menga HOZIR zarar beradi** |
+| — | **Qachon to'xtab shifokorga borishim kerak** |
+
+Ya'ni qiymat **mashqlar ro'yxatida emas, qaror mantiqida**.
