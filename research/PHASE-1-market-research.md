@@ -368,3 +368,118 @@ O'rnini bosuvchilar: Facebook guruhlari (ishlayapti), Quora, Mumsnet, YouTube iz
 - ⚠️ Yoki: Etsy'da **o'qituvchi** segmenti (isbotlangan sotuv bor, lekin narx urushi va $300 shifti bilan)
 
 **Hal qilinmagan savol:** ota-ona segmentining real sotuv raqami (CalmAndDocumented do'koni).
+
+---
+
+# 🔁 V6. IKKINCHI TEKSHIRUV RAUNDI (2026-11-16, kechqurun)
+
+## V6.1 — Google Trends: AQSH + 5 YIL ✅ SAVOL YOPILDI
+
+| Atama | 5 yillik o'rtacha |
+|---|---|
+| `diastasis recti` | ~63 |
+| `postpartum belly` | ~15 |
+| `mom pooch` | ~4 |
+
+**Chiziq shakli:** 5 yil davomida ~45–90 oralig'ida tebranadi, **pasayish tendensiyasi YO'Q**.
+Eng yuqori nuqta (100) **yaqinda, 2026-yilda** qayd etilgan, keyin ~50 ga qaytgan.
+
+→ Avvalgi xavotir ("bozor sovuyaptimi?") **rad etildi**.
+12 oylik grafik chalg'itgan edi: u g'ayrioddiy cho'qqi va uning normallashuvini ko'rsatgan.
+5 yillik rasm — **barqaror, o'suvchi tomonga egilgan**.
+
+**Qo'shimcha kuzatuv:** `postpartum belly` ham aynan shu paytda ~15 dan ~47 ga sakragan.
+Ikkala atamaning bir vaqtda ko'tarilishi → **media/viral hodisa**, mavsumiylik emas.
+Aniq yillik mavsumiylik ko'rinmaydi.
+
+## V6.2 — Etsy IEP: to'liq rasm (7 do'kon)
+
+| Do'kon | Sotuv | Yoshi | Sotuv/oy | Narx | ~Daromad/oy | Auditoriya |
+|---|---|---|---|---|---|---|
+| **SupportsAndStardust** | **9,300** | 3 yil | **~258** | **$3.64** | **~$940** | 👨‍👩‍👧 ota-ona |
+| PetalNestDigital | 385 | 5 oy | ~77 | $4.47 | ~$344 | 👩‍🏫 o'qituvchi |
+| **HazelFiles** | 127 | 3 oy | ~42 | **$5.87 (PLR!)** | ~$247 | 👨‍👩‍👧 ota-ona |
+| KamiDigitals | 326 | 1.5 yil | ~18 | $15.67 | ~$282 | 👩‍🏫 o'qituvchi |
+| SimpleDesignLLC | 200 | 1.5 yil | ~11 | $27.99 | ~$308 | 👩‍🏫 o'qituvchi |
+| **LovedLittleLearners** | **13** | 6 oy | **~2** | **$24.63** | **~$53** | 👨‍👩‍👧 ota-ona |
+| PopAndPaperCo | 109 | 8 yil | ~1.1 | $8.96 | ~$10 | 👩‍🏫 o'qituvchi |
+
+### V6.3 — ❌ OLDINGI IKKI XULOSAM TUZATILADI
+
+**Tuzatish 1: "$300 shifti" noto'g'ri edi.**
+SupportsAndStardust ~$940/oy qiladi. Shift $300 emas.
+Lekin bu **do'kon** raqami (3 yil, ko'p mahsulot), bitta mahsulotniki emas.
+
+**Tuzatish 2: "4/4 top sotuvchi o'qituvchiga" — endi noto'g'ri.**
+SupportsAndStardust (9.3k sotuv) **ota-onaga** sotadi.
+→ Ota-ona segmenti Etsy'da sotiladi. **Lekin faqat $3.64 ga.**
+
+### V6.4 — ✅ ASOSIY QONUNIYAT: NARX ↔ SOTUV (teskari va keskin)
+
+| Narx | Sotuv/oy |
+|---|---|
+| $3.64 | **258** |
+| $4.47 | 77 |
+| $5.87 | 42 |
+| $15.67 | 18 |
+| $24.63 | **2** |
+| $27.99 | 11 |
+
+**Etsy'dagi IEP xaridori $3–6 ga mixlangan.** $24+ mahsulotlar oyiga 2–11 ta sotiladi.
+
+### V6.5 — 🚨 ENG MUHIM OGOHLANTIRISH: PLR
+
+HazelFiles mahsuloti: *"IEP Parent Binder... **(PLR Rights)** ... Includes
+**FULL PLR RIGHTS to rebrand and resell**"* — $5.87, 3 oyda 127 sotuv.
+
+**PLR = Private Label Rights.** Ya'ni bu mahsulot **boshqa sotuvchilarga** sotilyapti,
+ular uni o'z brendi ostida qayta sotishi uchun.
+
+Oqibati:
+- Bozor bir xil "oq yorliqli" mahsulotlar bilan to'lmoqda
+- $5.87 to'lagan har kim ertaga raqobatchingga aylanadi
+- **$3–6 segmentida hech qanday himoya (moat) yo'q**
+- Bu nima uchun shuncha o'xshash arzon binder borligini tushuntiradi
+
+### V6.6 — 💥 MENING GIPOTEZAM ETSY'DA SINOVDAN O'TGAN VA O'TMAGAN
+
+**LovedLittleLearners** mahsuloti — bu men "bo'shliq" deb ta'riflagan narsaning deyarli aynan o'zi:
+- 110 sahifa, 15 bo'lim
+- "Parent Advocacy Organizer"
+- Bo'limlari: Child Profile · Meeting Prep · Parent Concerns · Communication Log ·
+  **Email Templates** · Accommodation Tracker
+- Narx $24.63, **chegirmasiz**
+
+**Natija: 6 oyda 13 ta sotuv (~$53/oy). Birorta ham sharh yo'q.**
+
+→ Men taklif qilgan konsepsiya **Etsy'da allaqachon sinalgan va ishlamagan**.
+
+⚠️ **Lekin muhim nuance:** bu **kanal sinovi**, konsepsiya sinovi emas.
+Listing "Books > Guides & How Tos" kategoriyasida — Etsy SEO u yerda zaif.
+Trafik yo'q bo'lsa, mahsulot qanchalik yaxshi bo'lishidan qat'i nazar sotilmaydi.
+Shunday bo'lsa-da, bu **jiddiy ogohlantirish**.
+
+## V6.7 — XULOSA: IEP BO'YICHA POZITSIYA PASAYTIRILADI
+
+| Dalil | Ta'sir |
+|---|---|
+| Advokat $150–260/soat | ➕ to'lov qobiliyati bor |
+| Facebook'da jonli og'riq posti | ➕ muammo real |
+| Etsy xaridori $3–6 ga mixlangan | ➖ |
+| $24.63 ota-ona mahsuloti: 6 oyda 13 sotuv | ➖➖ |
+| PLR bozorni kommoditizatsiya qilmoqda | ➖➖ |
+| Premium raqamli mahsulot sotilgani haqida dalil YO'Q | ➖ |
+
+**Yangi baho:** IEP o'lmadi, lekin **premium raqamli monetizatsiya dalili yo'q**,
+arzon segment esa PLR bilan himoyasiz. Shortlistda **2-o'rindan pastga** tushadi.
+
+**Postpartum 1-o'rinda mustahkamlandi:** 5 yillik Trends barqaror/o'suvchi,
+Gumroad'da bitta mahsulot $53k+, qidiruvlar protokol talab qiladi.
+
+## V6.8 — KEYINGI HAL QILUVCHI SAVOL
+
+Postpartum'ni **xuddi shu usulda** sinash kerak:
+Etsy'da `diastasis recti` → top do'konlarning **sotuv + yosh + narx**.
+
+- Agar u yerda ham $3–6 mixi bo'lsa → Etsy umuman noto'g'ri kanal, Gumroad/o'z sahifa yagona yo'l
+- Agar $29+ sotilayotgan bo'lsa → postpartum narx bo'yicha IEP'dan tubdan kuchliroq
