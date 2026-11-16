@@ -347,3 +347,94 @@ Sekinroq titratsiya (har dozada 4 hafta o'rniga **6–8 hafta**) ko'ngil aynishi
 - ACLM bemor handouti — https://lifestylemedicine.org/wp-content/uploads/2026/07/Patient-Handout-Understanding-Side-Effects-of-GLP-1-Medicines.pdf
 - Nestlé Medical Hub — https://www.nestlemedicalhub.com/sites/default/files/2026-04/Test%20Q%20and%20A%20Optimizing%20Nutrition%20GLP1%2003.26.pdf
 - Healio — https://www.healio.com/news/endocrinology/20260922/sustainable-success-with-glp1s-requires-guided-nutrition-lifestyle-strategies
+
+---
+
+# 16. ⚠️ ETSY GLP-1 BOZORI — KATTA TUZATISH (2026-11-16)
+
+## 16.1 Phase 2 dagi bahoyim NOTO'G'RI edi
+
+Phase 2 da GLP-1 ga **"To'lov dalili 11/20 — dalil juda yupqa (jami 7 reyting)"** deb ball qo'ygandim.
+Bu baho **faqat Gumroad**ga asoslangan edi. Etsy umuman tekshirilmagan.
+
+**Etsy butunlay boshqa rasmni ko'rsatdi.**
+
+## 16.2 Real ma'lumot — `glp 1 meal plan` qidiruvi
+
+| Do'kon | Sharhlar | Narx | Chegirma | Belgilar |
+|---|---|---|---|---|
+| **TrustPrintPlan** | **6,200** 🔥 | $4.11 | 40% off (asli $6.84) | 110+ taom, 4 haftalik |
+| SoftotechPrintStudio | 523 | **$2.35** | **65% off** (asli $6.71) | Star Seller |
+| FitnessVaultPro | 248 | $10.63 | **70% off** (asli $35.44) | **Ad** · 45+ bet · Canva |
+| SacramentoPrints | 148 | $4.12 | 50% off | **Bestseller** |
+
+Qidiruv natijasi: **1,000+ listing**. Birinchi ekranda **4 ta "Bestseller" belgisi**.
+
+### Taxminiy sotuv (6.1% mediana koeffitsienti bilan)
+
+| Do'kon | Sharh | ~Sotuv |
+|---|---|---|
+| TrustPrintPlan | 6,200 | **~100,000** (diapazon: 56k–238k) |
+| SoftotechPrintStudio | 523 | ~8,600 |
+| FitnessVaultPro | 248 | ~4,100 |
+| SacramentoPrints | 148 | ~2,400 |
+
+> ⚠️ Bu **do'kon** darajasidagi sharhlar — barcha mahsulotlarni qamraydi. Do'kon yoshi noma'lum.
+> Aniq raqam uchun do'kon sahifasi kerak (`X sales` + `Y years on Etsy`).
+
+### Solishtirish: GLP-1 >> IEP
+
+| | Eng yaxshi do'kon sharhi |
+|---|---|
+| IEP (SupportsAndStardust) | 549 |
+| **GLP-1 (TrustPrintPlan)** | **6,200** — **11 barobar ko'p** |
+
+## 16.3 🔑 ENG MUHIM TOPILMA: Etsy'ning o'z filtri
+
+Qidiruv sahifasida Etsy avtomatik filtrlar taklif qiladi:
+
+`Under USD 10` · `Star Seller` · `7-Day` · `4-Week` · `Low Sugar` · **`Low Appetite`** · `Macros`
+
+**"Low Appetite" — Etsy tomonidan yaratilgan filtr.**
+
+Etsy bunday fasetlarni o'z qidiruv va listing ma'lumotlaridan avtomatik hosil qiladi.
+Ya'ni **"ishtaha past" shu qadar ko'p qidiriladi/eslatiladiki, Etsy uni alohida filtr qilgan.**
+
+> 🟢 Bu **Phase 3 ning "sig'im" tezisining mustaqil tasdig'i** — va u bizning taxminimiz emas, Etsy platformasining o'z ma'lumoti.
+
+## 16.4 Lekin narx naqshi o'zgarmadi
+
+- Asosiy oraliq: **$2.35 – $4.12**
+- Yuqori chegara $10.63 — va u **reklama to'laydi** + **70% chegirma** beradi
+- Chegirmalar: 40%, 50%, 65%, 70% — **narx urushi juda qattiq**
+
+## 16.5 Mahsulot turlari — hammasi bir xil
+
+| Tur | Misol |
+|---|---|
+| Meal plan | 7-kunlik, 4-haftalik, 110+ taom |
+| Food list | "EAT / LIMIT / AVOID" jadvali |
+| Tracker | "Ultimate GLP-1 Tracker", Google Sheets & Excel, 8 tab |
+| Poster | 16x20 + A4 + US Letter |
+
+❌ **Birorta ham "sig'im tizimi" yo'q.** Hammasi: nima yeyish ro'yxati yoki nimani hisoblash.
+✅ Bizning pozitsiyamiz hali ham bo'sh — **lekin endi bozor kattaligi isbotlangan.**
+
+## 16.6 Yangilangan baho
+
+| Mezon | Eski | Yangi | Sabab |
+|---|---|---|---|
+| To'lov dalili | 11/20 | **16/20** | 6.2k sharhli do'kon, 1000+ listing, 4 Bestseller |
+| Qamrov | 9/10 | 10/10 | Etsy hajmi tasdiqlandi |
+| Farq | 7/10 | **8/10** | "Low Appetite" fasetı bo'sh pozitsiyani tasdiqlaydi |
+| Distribution | 13/20 | **15/20** | Etsy tripwire kanali isbotlandi |
+| **JAMI** | **70** | **~78** | |
+
+→ **GLP-1 endi Phase 2 dagi eng yuqori balli konseptdan (P1 Coning, 75) ham yuqori.**
+
+## 16.7 Hali olinmagan (hal qiluvchi)
+| # | Kerak | Nega |
+|---|---|---|
+| 1 | TrustPrintPlan do'kon sahifasi: `X sales` + `Y years` | Haqiqiy hajm |
+| 2 | SoftotechPrintStudio, FitnessVaultPro — shu bilan birga | Narx↔sotuv egri chizig'i |
+| 3 | `Low Appetite` filtri bosilgandagi listinglar soni | Sub-nicha hajmi |
