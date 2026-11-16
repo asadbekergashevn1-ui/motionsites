@@ -239,3 +239,132 @@ Bu hisobotda tasdiqlanmagan, lekin qarorga ta'sir qiladigan narsalar:
 - Pinterest'da natija **oylar, ba'zida yillar** talab qiladi; tajribali sotuvchilar "agar listing Etsy qidiruvida konvert bo'lmasa, Pinterest buni tuzatmaydi" deydi.
 
 **Xulosa:** Yaxshi mahsulot yaratish ishning ~30%i. Qolgan 70% — aniq segmentni topib, ularning allaqachon to'planган joyiga (Facebook guruhi, Telegram kanali, mavjud auditoriya) borish. Shu sababli 2-bosqichda **mahsulot dizaynidan oldin distribution tekshiruvi** turishi kerak.
+
+---
+---
+
+# ✅ QO'SHIMCHA: TASDIQLANGAN DALILLAR (2026-11-16, foydalanuvchi tomonidan to'plangan)
+
+Hisobotning yuqoridagi qismi men kira olmagan manbalar sababli "Tasdiqlanmagan" belgisi bilan yozilgan edi.
+Quyidagilar **real tekshirildi** va ba'zi xulosalarni **o'zgartiradi**.
+
+## V1. Etsy — IEP nichasi: real sotuv raqamlari
+
+| Do'kon | Jami sotuv | Do'kon yoshi | Sotuv/oy | Ko'rilgan narx | Taxminiy daromad/oy | Sharhlar | Sharh/Sotuv | Auditoriya |
+|---|---|---|---|---|---|---|---|---|
+| PetalNestDigital | **385** | **5 oy** | **~77** | $4.47 (50% off) | **~$344** | 10 | 2.6% | 👩‍🏫 o'qituvchi |
+| KamiDigitals | 326 | 1.5 yil | ~18 | $15.67 (60% off) | ~$282 | 20 | 6.1% | 👩‍🏫 o'qituvchi |
+| SimpleDesignLLC | 200 | 1.5 yil | ~11 | $27.99 | ~$308 | 22 | 11.0% | 👩‍🏫 o'qituvchi |
+| PopAndPaperCo | 109 | **8 yil** | ~1.1 | $8.96 (20% off) | ~$10 | 3 | 2.8% | 👩‍🏫 o'qituvchi |
+
+> Cheklov: "sotuv" — do'konning BARCHA mahsulotlari bo'yicha umrbod raqami; narx esa bitta listingники.
+> Shuning uchun daromad ustuni **aniq emas, kattalik tartibi**.
+
+### V1.1 — DAROMAD SHIFTI (eng muhim topilma)
+Uchta faol do'kon butunlay boshqa strategiya bilan ishlaydi:
+- $4.47 × 77 sotuv/oy
+- $15.67 × 18 sotuv/oy
+- $27.99 × 11 sotuv/oy
+
+**Natija deyarli bir xil: ~$280–345/oy.**
+Ya'ni Etsy'da IEP nichasida **daromad shifti ~$300/oy** — narx strategiyasidan qat'i nazar.
+Arzon sotsang ko'p sotasan, qimmat sotsang kam — jami bir xil.
+
+### V1.2 — O'QITUVCHI ≠ OTA-ONA
+Yuqori sotuvdagi **4 ta do'konning 4 tasi ham o'qituvchiga** mo'ljallangan
+(caseload tracker, SPED teacher planner, progress monitoring, data binder).
+Ota-onaga mo'ljallangan mahsulot (CalmAndDocumented "IEP Parent Binder", $15.95)
+topildi, lekin uning do'kon sotuv raqami **hali noma'lum**; listingda "8 views in last 24 hours".
+
+**Xulosa: Etsy'dagi IEP puli o'qituvchi segmentida. Ota-ona segmenti Etsy'da zaif.**
+
+### V1.3 — OLDINGI XULOSAM QISMAN XATO EDI
+Yuqorida (G1 bo'limida) "Etsy binder'lari faqat tashkiliy papka, huquqiy strategiya yo'q" deyilgan.
+**Bu to'liq to'g'ri emas:** "IEP Binder for Parents" listingi sarlavhasida aynan
+*"Meeting Prep, Parent Rights, Sample Letters, Logs"* bor, 57 sahifa, tavsifida
+*"created by a special education parent leader, not a graphic designer"* deyilgan.
+→ Bo'shliq men baholaganchalik ochiq emas. Muammo mahsulotda emas, **kanalda**.
+
+### V1.4 — KIRISH TO'SIG'I PAST, LEKIN HIMOYA HAM YO'Q
+PetalNestDigital **5 oyda 385 sotuv** va Star Seller maqomiga erishgan,
+8 yillik PopAndPaperCo esa jami 109 sotuvda qolgan.
+→ Etsy SEO bu nichada eski sotuvchilar tomonidan egallanmagan — **yangi kiruvchi tez o'sa oladi**.
+→ Lekin ayni sabab bilan **hech qanday himoya ham yo'q**: narx urushi kuchli
+(50%, 60%, 25%, 20% chegirmalar; $6.99 bundle).
+
+## V2. Sharh → Sotuv koeffitsienti (kalibratsiya)
+
+4 ta kuzatuv: **11.0% · 6.1% · 2.8% · 2.6%** → mediana ≈ **4.5%**, diapazon **2.6–11%**.
+Qonuniyat: arzon/ommaviy mahsulotlar past sharh ulushiga ega.
+
+### Gumroad topilmasiga qo'llanilishi
+Gumroad'dagi $29 "COMPLETE Online Pelvic Floor PT Program" — **203 reyting**:
+
+| Koeffitsient | Taxminiy sotuv | Taxminiy umrbod daromad |
+|---|---|---|
+| 11% (eng konservativ) | ~1,850 | **~$53,000** |
+| 4.5% (mediana) | ~4,500 | **~$131,000** |
+| 2.6% (eng optimistik) | ~7,800 | ~$226,000 |
+
+> ⚠️ Etsy va Gumroad sharh so'rash mexanizmi har xil → bu **aniq raqam emas, kattalik tartibi**.
+
+**Solishtirish:** postpartum'da bitta mahsulot ≈ $53k+ (eng konservativ hisobda),
+Etsy'dagi eng yaxshi IEP do'koni ≈ $300/oy.
+
+## V3. Google Trends (Worldwide, 12 oy) — qisman
+
+- O'rtacha qiziqish: `diastasis recti` ≈ **63** · `postpartum belly` ≈ **18** · `mom pooch` ≈ **1**
+  → odamlar **tibbiy atama** bilan qidiradi, jargon bilan emas → auditoriya tashxisni biladi, **yechim** izlaydi
+- Iyun–iyulda cho'qqi (100), noyabrda ~35 ga tushgan → **mavsumiylikmi yoki pasayishmi — hal qilinmagan**
+- Mintaqa: AQSH, Kanada, Avstraliya, Buyuk Britaniya ustun → ingliz tilidagi bozor tasdiqlandi
+
+### Rising related queries (`diastasis recti`)
+| So'rov | O'sish | Izoh |
+|---|---|---|
+| ~~walmart near me~~ | +2,550% | shovqin |
+| **diastasis recti coning** | +400% | 🔥 **belgi nomi** — sotib olish momenti |
+| heel slides | +400% | mashq nomi |
+| bird dog exercise | +350% | mashq nomi |
+| pelvic floor physical therapy | +350% | ✅ hisobotdagi topilmani tasdiqlaydi |
+
+**Xulosa:** auditoriya "bu nima kasallik" emas, **"qaysi mashq, qaysi tartibda"** izlayapti.
+→ Mahsulot **protokol** bo'lishi kerak, ta'limiy maqola emas.
+
+**Hali bajarilmagan:** US + 5 yillik grafik (mavsumiylik savolini hal qiladi).
+
+## V4. Facebook — IEP ota-ona guruhlari
+
+| Guruh | A'zo | Turi | Faollik |
+|---|---|---|---|
+| IEP Parent Advocates | 24,900 | Yopiq | 2 post/kun |
+| Special Education IEP Help Center | 14,000 | Yopiq | 2 post/kun |
+| ADHD IEP 504 DYSGRAPHIA | 12,000 | Yopiq | — |
+
+Jami ~51,000. Real, lekin ulkan emas.
+
+**Jonli og'riq dalili** (IEP Parent Advocates, ~2 oy oldingi post):
+> *"**I am finding this extremely frustrating.** My son is 6th grade... At the yearly IEP meeting
+> in April 2026, **they wanted to stop speech**. But..."*
+
+→ Maktab xizmatni to'xtatmoqchi, ota-ona rozi emas, lekin **nima deyishni bilmaydi** →
+forumga yozyapti. Bu hisobotdagi asosiy gipotezani tasdiqlaydi.
+
+## V5. Reddit — foydalanuvchi uchun ham bloklangan
+"You've been blocked by network security". → Reddit bu loyiha uchun **umuman mavjud emas**.
+O'rnini bosuvchilar: Facebook guruhlari (ishlayapti), Quora, Mumsnet, YouTube izohlari.
+
+---
+
+## 🔄 SHORTLIST QAYTA TARTIBLANDI
+
+| Eski | Yangi | Sabab |
+|---|---|---|
+| 1. IEP | **1. Postpartum/diastaz** | Daromad dalili ~$53k+ vs ~$300/oy; Trends protokol talabini tasdiqladi |
+| 2. Postpartum | **2. IEP — lekin kanal o'zgardi** | Etsy = $15 printable bozori va $300/oy shifti. Ota-ona segmenti Etsy'da emas, Facebook guruhlarida |
+
+**IEP bo'yicha yangi pozitsiya:**
+- ❌ Etsy'da $15 binder sotish (shift $300/oy)
+- ✅ Facebook guruhlari → o'z sotuv sahifasi (Gumroad/Payhip), $47–97 "nima deyish kerak" tizimi
+- ⚠️ Yoki: Etsy'da **o'qituvchi** segmenti (isbotlangan sotuv bor, lekin narx urushi va $300 shifti bilan)
+
+**Hal qilinmagan savol:** ota-ona segmentining real sotuv raqami (CalmAndDocumented do'koni).
