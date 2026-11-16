@@ -438,3 +438,154 @@ Ya'ni **"ishtaha past" shu qadar ko'p qidiriladi/eslatiladiki, Etsy uni alohida 
 | 1 | TrustPrintPlan do'kon sahifasi: `X sales` + `Y years` | Haqiqiy hajm |
 | 2 | SoftotechPrintStudio, FitnessVaultPro — shu bilan birga | Narx↔sotuv egri chizig'i |
 | 3 | `Low Appetite` filtri bosilgandagi listinglar soni | Sub-nicha hajmi |
+
+---
+
+# 17. 🟢 BIRLAMCHI MANBA O'QILDI — Qo'shma Advisory (to'liq matn)
+
+**Manba:** Mozaffarian D. va b. *Obesity (Silver Spring)*. 2025-may-30;33(8):1475–1503. doi:10.1002/oby.24336
+**O'qilgan:** 2026-11-16, to'liq matn (PMC12304835)
+
+> Shu paytgacha menda faqat abstrakt va matbuot relizi bor edi. To'liq matn **3 ta xavfsizlik elementini qo'shdi va 1 ta da'vomni tuzatdi.**
+
+## 17.1 ⚠️ TUZATISH: protein raqamini men bo'rttirgan edim
+
+| Men avval yozgandim | Asl matnda |
+|---|---|
+| *"Advisory 1.2–1.6 g/kg **tavsiya qiladi**"* | *"Higher targets, such as 1.2–1.6 g/kg/day, have been **proposed** during active weight reduction"* |
+
+**Farqi muhim:** Advisory buni **taklif qilingan** deb keltiradi, o'zining qat'iy tavsiyasi sifatida emas.
+Umumiy aholi uchun RDA — **0.8 g/kg/kun** (hozir National Academies tomonidan qayta ko'rib chiqilmoqda).
+
+### 🆕 Protein uchun **pastki chegara** (menda yo'q edi)
+> *"Protein intake in adults should not fall below **0.4–0.5 g/kg/day**, as this can lead to **muscle atrophy and functional impairments**"*
+
+Bu mahsulot uchun juda muhim: ko'p foydalanuvchi aynan shu chegaradan pastga tushadi.
+
+| Chegara | Qiymat |
+|---|---|
+| ⛔ Pastki xavf chegarasi | **0.4–0.5 g/kg/kun** |
+| Umumiy RDA | 0.8 g/kg/kun |
+| Vazn kamaytirishda taklif qilingan | 1.2–1.6 g/kg/kun |
+| ⛔ Uzoq muddat qochish kerak | ≥2 g/kg/kun |
+| Eng yaxshi hisob asosi | **estimated fat-free mass** (lekin konsensus yo'q) |
+
+## 17.2 🆕 UCHTA XAVFSIZLIK ELEMENTI — menda YO'Q edi
+
+### 🔴 S1. Buyrak toshi (nefrolitiaz) → hayvon proteinidan qochish
+> *"Individuals with a history of **nephrolithiasis** should be counseled to avoid high-oxalate foods, highly processed foods, and **animal-source proteins**"*
+
+⚠️ **Bu aynan men "sezmasligim mumkin" degan ko'r nuqta.**
+Bizning mahsulot "ko'proq protein ye" deydi va yashil ro'yxat hayvon proteinlariga to'la bo'ladi.
+Buyrak toshi tarixi bor odamga bu **zarar qilishi mumkin**.
+→ **S0 Safety Gate ga qo'shiladi.**
+
+### 🔴 S2. Kayfiyat buzilishi va suitsidal fikrlar
+> *"individuals should also be screened and monitored for worsening of mood disorders or suicidal thoughts, and GLP-1s should be **discontinued if symptoms develop**"*
+
+→ **A13 Red Flag kartasiga qo'shiladi.**
+
+### 🔴 S3. Restriktiv ovqatlanish buzilishi — umumiy KONTRAINDIKATSIYA
+> *"restrictive eating disorder is a **general contraindication** to GLP-1 use"*
+> ED tarixi bo'lganlar **semizlik mutaxassisi VA ovqatlanish buzilishi mutaxassisiga** yo'naltirilishi kerak
+
+Menda "ED tarixi" bor edi, lekin uni **kontraindikatsiya** darajasida emas. Kuchaytiriladi.
+
+### 🆕 Qo'shimcha skrining (Advisory, 5-jadval)
+Sarkopeniya · osteopeniya · GI buzilishlar · buyrak yetishmovchiligi · tselikiya · avvalgi bariatrik jarrohlik · juda past kaloriyali parhez tarixi
+
+## 17.3 🆕 TOLA BO'YICHA ZIDDIYAT — bu ham menda yo'q edi
+
+> *"Smaller, more frequent meals and avoiding fatty **or high fiber** foods during the **first few days** of treatment can help alleviate symptoms"*
+
+⚠️ Bu umumiy "ko'proq tola ye" maslahatiga **zid**. To'g'ri ketma-ketlik:
+1. **Dastlabki kunlar / doza oshgandan keyin:** tolani **kamaytirish**
+2. **Keyin:** asta-sekin oshirish (eruvchan + erimaydigan — quritilgan meva va b.)
+
+> *"Foods **high in protein or fat** can further slow gastric emptying... potentially requiring **temporary limitation** of these foods"*
+
+⚠️ Ya'ni **protein ham** oshqozon bo'shashini sekinlashtiradi va ich qotishini yomonlashtirishi mumkin.
+Bizning "protein-first" qoidamiz shu nuanceni hisobga olishi kerak.
+
+## 17.4 ✅ MENING DIZAYNIM TASDIQLANDI (3 ta joyda)
+
+### 1. Kuch testlari — Advisory aynan shularni nomlaydi
+> *"Muscle strength and function (e.g., **sit-to-stand, stair climb, timed-up-and-go**...)"*
+
+→ A14 Strength Check Sheet endi **birlamchi manbaga asoslangan**, mening ixtiroim emas. 🟢 A
+
+### 2. Yopiq halqa — Advisory uni ochiq nomlaydi
+> *"Some individuals get caught in a **cycle of not eating due to nausea, which worsens the symptoms, which then further reduces the likelihood of eating**"*
+
+→ RC4 dagi "yopiq halqa" mening tahlilim emas — **qo'llanmada yozilgan.** 🟢 A
+
+### 3. Tekstura narvonining FIZIOLOGIK asosi
+> *"Foods with **lower viscosity** (i.e., that flow easily), **fewer calories**, **lower glycemic index**, and **higher water content** can facilitate **faster gastric emptying**"*
+
+→ Bu tekstura narvonining **mexanizmi**. L1 (tiniq, suyuq, sovuq) → tezroq bo'shaydi → tezroq keyingi ovqat.
+Men buni intuitiv qilgandim; endi **fiziologik asos bor**. 🟢 A
+
+### 4. Doza bilan bog'liqlik tasdiqlandi
+> *"GI side effects are generally more likely to occur during GLP-1 **initiation or dose escalation**"*
+> *"Some report **food aversions**, sometimes severe, typically **at the initiation of treatment and with dose increases**"*
+> *"During dose escalation in the clinical trials, subjects were allowed to remain at a GLP-1 dose for **up to 8 weeks**, as needed"*
+
+→ **Dose-Week Mode** ning butun asosi. 🟢 A
+
+## 17.5 🆕 ANIQ PROTOKOL DETALLARI (asl matndan)
+
+| Element | Advisory matni |
+|---|---|
+| **Ovqat ritmi** | *"eat a **small breakfast** and then additional **small meals every 3–4 h** while drinking adequate fluids"* |
+| Ko'ngil aynishi vaqti | *"often occurs **in the morning** or after **longer periods without eating**"* |
+| Qusish | *"more likely to occur with **large meals**"* |
+| Suvsizlanish | *"can cause **acute kidney injury**, with or without existing kidney disease, as well as **heart palpitations**"* |
+| Spirtli ichimlik | *"may worsen nausea and gastroesophageal reflux... should be **minimized**"* |
+| Yordamchi vositalar | zanjabil yoki yalpiz choyi, akupressura bilaguzuklari |
+| Kaloriya ta'siri | *"GLP-1s reduce energy intake by **16%–39%** compared with placebo"* |
+| ⚠️ Tasodifiy ro'za | *"Individuals on GLP-1 therapy may also practice **unintended intermittent fasting**, due to not being hungry"* → baribir **muntazam vaqtda** ovqatlanish kerak |
+
+## 17.6 🆕 OFF-RAMP uchun REAL DALIL (S7 bosqichi)
+
+Advisory **National Weight Control Registry** ma'lumotlariga tayanadi — vaznni ushlab qolish bilan bog'liq omillar:
+
+| Omil |
+|---|
+| Har kuni **muntazam vaqtda** ovqatlanish |
+| **Nonushtani tashlamaslik** |
+| Minimal qayta ishlangan, tola/protein boy ovqatlar |
+| Shirin ichimlik, ultra-qayta ishlangan ovqat, gazakdan qochish |
+| ⚠️ **Qattiq cheklov emas** — moslashuvchanlik + nazorat ostidagi kichik "treat"lar |
+| Jismoniy faollik **≥60 daq/kun** |
+| **O'z-o'zini kuzatish**: vazn, ovqat, faollik |
+| Ekran vaqti **<10 soat/hafta** |
+| Ijtimoiy qo'llab-quvvatlash, oldindan rejalashtirish, muammo yechish ko'nikmalari |
+
+🆕 **SURMOUNT-3:** 12 haftalik turmush tarzi aralashuvidan **keyin** tirzepatid → **25%** vazn kamayishi (platsebo 4.8%)
+→ Bosqichli yondashuv afzalligiga dalil.
+
+## 17.7 🆕 PARHEZ TURLARI BO'YICHA OGOHLANTIRISH
+| Parhez | Risk |
+|---|---|
+| **Ketogen + GLP-1 + diabet** | diabetik ketoatsidoz va gipoglikemiya riski oshadi |
+| **Intervalli ro'za + 2-tur diabet** (gipoglikemik dorilar bilan) yoki 1-tur diabet | gipoglikemiya riski |
+| **Mikrodozing / off-label** | *"Nutritional considerations for off-label use **remain unclear**"* |
+
+## 17.8 Advisory ning yakuniy xulosasi (to'g'ridan-to'g'ri)
+> *"all clinicians prescribing GLP-1s for obesity management should establish a thoughtful plan of care that includes thorough nutritional and lifestyle counseling **before, during, and after** the weight reduction period"*
+
+Asosiy muammolar ro'yxati: GI nojo'ya ta'sirlar · nutrient yetishmovchiligi · **mushak va suyak yo'qotish** · yuqori narx · tez-tez tashlab ketish · vazn qaytishi.
+
+---
+
+## 📌 17.9 BU O'QISH NIMANI O'ZGARTIRDI — xulosa
+
+| | Soni |
+|---|---|
+| 🔴 Men bilmagan **xavfsizlik** elementlari | **3** (buyrak toshi+hayvon proteini · kayfiyat/suitsid · ED kontraindikatsiya) |
+| ⚠️ Men **bo'rttirgan** da'vo | **1** (1.2–1.6 "tavsiya" emas, "taklif qilingan") |
+| 🆕 Men bilmagan **chegara** | **1** (protein pasti 0.4–0.5 g/kg) |
+| ⚠️ Men bilmagan **ziddiyat** | **1** (dastlabki kunlarda tolani **kamaytirish**) |
+| ✅ Dizaynim **tasdiqlandi** | **4** (kuch testlari · yopiq halqa · narvon mexanizmi · doza bog'liqligi) |
+
+> **Xulosa:** ikkilamchi manbalar bilan ishlash **yetarli emas edi**. Birlamchi manbani o'qish 3 ta xavfsizlik bo'shlig'ini yopdi — ularning biri (buyrak toshi + hayvon proteini) aynan *"men sezmasligim mumkin"* deb aytgan turdagi ko'r nuqta edi.
