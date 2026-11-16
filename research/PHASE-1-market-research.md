@@ -483,3 +483,111 @@ Etsy'da `diastasis recti` → top do'konlarning **sotuv + yosh + narx**.
 
 - Agar u yerda ham $3–6 mixi bo'lsa → Etsy umuman noto'g'ri kanal, Gumroad/o'z sahifa yagona yo'l
 - Agar $29+ sotilayotgan bo'lsa → postpartum narx bo'yicha IEP'dan tubdan kuchliroq
+
+---
+
+# 🏁 V7. UCHINCHI RAUND: POSTPARTUM ETSY'DA — PHASE 1 YOPILDI
+
+## V7.1 — Etsy `diastasis recti`: do'konlar
+
+| Do'kon | Sotuv | Yoshi | Sotuv/oy | Narx | ~Daromad/oy | Sharh | Sharh/Sotuv | Kimga |
+|---|---|---|---|---|---|---|---|---|
+| **NoureliaStudioCo** | 140 | **1 oy** | **~140** | $6.47 | ~$906 | 5 | 3.6% | 👩 iste'molchi |
+| **PrintableDietStudio** | 2,300 | 11 oy | ~209 | **$2.52** (50% off) | ~$527 | 165 | 7.2% | 👩 iste'molchi |
+| **RaiseThePelvicFloor** | 2,100 | **6 yil** | ~29 | **$10.02** | ~$292 | 217 | 10.3% | 🩺 **klinisist** |
+
+## V7.2 — ✅ HAL QILUVCHI SAVOLGA JAVOB
+
+**Postpartum'da ham Etsy narx mixi bir xil: $2.52 – $10.02.**
+Namunada birorta $29+ mahsulot yo'q.
+
+→ **Xulosa: narxni NICHA emas, KANAL belgilaydi.**
+Etsy — bu arzon printable bozori, nuqta. IEP'da ham, postpartum'da ham bir xil $3–10 mix.
+Nichani o'zgartirish Etsy'dagi narx shiftini ko'tarmaydi.
+
+## V7.3 — 🩺 YANGI NAQSH: PROFESSIONAL SEGMENT HAR IKKALA NICHADA TAKRORLANADI
+
+**RaiseThePelvicFloor** — namunadagi eng qimmat mahsulot ($10.02) va eng uzoq yashagan do'kon (6 yil).
+U **iste'molchiga emas, mutaxassisga** sotadi. Sharhlar buni ochiq ko'rsatadi:
+
+> *"Wonderful handout **for patients**... Would **100% repeat business**!"*
+> *"Perfect **patient education resources**, and beautifully designed."*
+> *"Very helpful handout **for patient education** :)"*
+> *"lovely product!! **Make more!!** love it."*
+
+Mahsulot tavsifi: *"print out and up the vibe of the **patient handouts in your clinic**"*
+Do'kon sharhlarida: *"a friend who graduated from **midwifery school**"*
+
+**Ya'ni xaridor — pelvic floor PT, akusher, klinika.**
+
+### Ikki nichadagi bir xil naqsh:
+| Nicha | Iste'molchi narxi | Professional narxi |
+|---|---|---|
+| IEP | $3.64 (ota-ona) | $15.67–27.99 (o'qituvchi) |
+| Postpartum | $2.52–6.47 (ayol) | $10.02 (klinisist) |
+
+**Etsy'da professional xaridor iste'molchidan 2–7 baravar qimmatga chidaydi.**
+Va u **takroriy** xaridor ("100% repeat business", "make more").
+
+## V7.4 — SHARH/SOTUV KALIBRATSIYASI (9 kuzatuv)
+
+`11.8% · 11.0% · 10.3% · 7.2% · 6.1% · 5.9% · 3.6% · 2.8% · 2.6%`
+→ **mediana ≈ 6.1%**, diapazon **2.6–11.8%**
+
+### Gumroad $29 pelvic floor programmasi (203 reyting):
+| Koeffitsient | Sotuv | Umrbod daromad |
+|---|---|---|
+| 11.8% | ~1,720 | **~$50,000** |
+| **6.1% (mediana)** | ~3,330 | **~$96,500** |
+| 2.6% | ~7,800 | ~$226,000 |
+
+## V7.5 — 🎯 YAKUNIY SOLISHTIRISH
+
+| Mezon | IEP | Postpartum |
+|---|---|---|
+| Etsy narx mixi | $3.64–5.87 | $2.52–10.02 |
+| Etsy eng yuqori hajm | 258/oy @ $3.64 | 209/oy @ $2.52 |
+| Premium ($24+) Etsy'da | ❌ 6 oyda 13 sotuv | namunada yo'q |
+| **Etsy'dan tashqari premium dalili** | ❌ **topilmadi** | ✅ **$29 × 203 reyting ≈ $50–96k** |
+| 5 yillik qidiruv trendi | o'lchanmagan | ✅ barqaror/o'suvchi |
+| Qidiruv xatti-harakati | — | ✅ protokol izlaydi (`coning`, `heel slides`) |
+| PLR kommoditizatsiya | 🚨 **tasdiqlangan** | namunada kuzatilmadi |
+| Professional segment | o'qituvchi, $15–28 | klinisist, $10, 6 yil barqaror |
+
+**Hal qiluvchi farq:** postpartum'da Etsy'dan tashqarida premium monetizatsiya **isbotlangan**.
+IEP'da bunday dalil **umuman yo'q**.
+
+## V7.6 — 🏁 PHASE 1 YAKUNIY QARORI
+
+### 🥇 1-o'rin: POSTPARTUM / diastaz — tasdiqlangan
+**Lekin aniq shart bilan: Etsy'da asosiy mahsulot sotilmaydi.**
+
+| ❌ Qilmaslik | ✅ Qilish |
+|---|---|
+| Etsy'da $5 chart sotish (209/oy × $2.52 = narx urushi) | Gumroad/o'z sahifada $29–49 **protokol** |
+| "Nima bu diastaz" ta'limiy kontent | **Qaysi mashq, qaysi tartibda, qaysi biri zararli** |
+| Obuna modeli | Bir martalik, aniq oxiri bor dastur |
+
+Etsy faqat **lead magnit / trafik manbasi** sifatida ma'noli bo'lishi mumkin.
+
+### 🥈 2-o'rin (YANGI): PROFESSIONAL SEGMENT — klinisist materiallari
+6 yil barqaror, takroriy xaridor, "Make more!!" talabi, narx bosimi kamroq.
+Hajmi kichik (~29 sotuv/oy), lekin **narx himoyasi bor**.
+→ 2-bosqichda alohida ko'rib chiqishga arziydi.
+
+### 🥉 3-o'rin: IEP — pasaytirildi
+Muammo real, to'lov qobiliyati bor (advokat $150–260/soat),
+lekin raqamli mahsulot orqali qimmat sotish mumkinligiga **dalil topilmadi**,
+arzon segment esa PLR bilan himoyasiz.
+
+### Qolganlar (GLP-1, perimenopauza, UK spouse visa, ARFID)
+Tekshirilmagan — 2-bosqichda kerak bo'lsa qaytamiz.
+
+---
+
+## 📌 PHASE 1 ASOSIY SABOG'I
+
+> **Narxni nicha emas, kanal belgilaydi.**
+> Etsy — $3–10 printable bozori, qaysi nicha bo'lishidan qat'i nazar.
+> $29+ mahsulot uchun boshqa kanal kerak (Gumroad / o'z sahifa / auditoriya).
+> Va har ikkala nichada ham **professional xaridor iste'molchidan qimmatga chidaydi**.
