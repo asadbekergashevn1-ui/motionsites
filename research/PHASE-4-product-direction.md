@@ -142,3 +142,44 @@ Nega 5 bet: 1 bet juda yupqa ($2.35 tuzog'i), 50 bet juda og'ir. 5 bet — $6–
 4. **Listing matni** — sarlavhaga `Low Appetite` + `High Protein` + `GLP-1`
 5. **Bundle qo'shimchalari** (tracker + xarid ro'yxati)
 6. **Ishga tushirish** → 30 kun kuzatuv → narx/sarlavha optimizatsiyasi
+
+---
+
+# 9. SOLUTION-FIRST TEKSHIRUVI
+
+> Qoida: format (e-book / template / toolkit) **o'z-o'zidan qiymat emas**.
+> Savol: *"Bu auditoriyaning muammosini eng sodda, to'liq va amaliy tizim orqali qanday hal qilamiz?"*
+
+| # | Mezon | Javob | Holat |
+|---|---|---|---|
+| 1 | **Muammoning aniq sababi** | Dori oshqozon bo'shashini sekinlashtiradi → fizik sig'im ~180 ml. **Bilim emas, joy** yetishmaydi | 🟢 Advisory bilan tasdiqlangan |
+| 2 | **Konkret natija** | 7 kunning ≥5 kunida protein maqsadi — doza haftalarini ham qo'shib | 🟢 O'lchanadigan |
+| 3 | **Mavjud bo'shliqlar** | Trekerlar hisoblaydi, yordam bermaydi · Meal planlar sig'imni ko'rmaydi · "Fiber first" **teskari ishlaydi** | 🟢 11 do'kon tahlil qilindi |
+| 4 | **Original unified solution** | Capacity Gap → Density Score → Texture Ladder → Dose-Week Mode (bitta zanjir) | 🔧 Bizning dizayn |
+| 5 | **Zarur vositalar** | Printer/telefon · o'lchov piyolasi · oziq-ovqat. Qimmat hech narsa yo'q | 🟢 To'siq past |
+| 6 | **Eng qulay format** | Bosiladigan PDF (muzlatgich + do'konda telefon). **Ilova emas** — u bozor to'lgan | 🟢 Isbotlangan |
+| 7 | **Nimani kamaytiradi** | Har doza haftasida noldan improvizatsiya (~2–3 soat/hafta) · noto'g'ri xarid · mushak riski | 🟡 1-si aniq, 3-si taxmin |
+| 8 | **Qanday sinaladi** | Foydalanuvchi: hit-rate ___/7 + kuch testi. Biz: Etsy konversiya + reyting | 🟢 Ikki tomonlama |
+
+### ⚠️ "Qiziqish ≠ dalil" tekshiruvi
+Bizda qiziqish emas, **sotuv** bor: 85,400 · 7,900 · 6,500 · 5,600.
+Va Etsy'ning o'zi `Low Appetite` filtrini yaratgan.
+
+### 🔴 Format tuzog'idan qochish
+Biz **9 betlik PDF sotmaymiz**. Biz **qaror tizimi** sotamiz, u 9 betda yetkaziladi.
+Agar bir xil natijaga 4 bet yetsa — 4 bet qilinadi.
+
+---
+
+# 10. 🔴 SIFAT TO'SIG'I: RAQAMLAR TEKSHIRILISHI SHART
+
+2-betdagi har bir `g/100 ml` qiymati **USDA FoodData Central** bo'yicha tasdiqlanishi kerak.
+
+| Nega | |
+|---|---|
+| Noto'g'ri raqam = **bad review** | Foydalanuvchi aytgan asosiy xavf |
+| Tibbiy-yaqin mavzu | Aniqlik majburiy |
+| Bizning yagona differensiatorimiz shu jadval | Xato bo'lsa — butun mahsulot qulaydi |
+
+**Holat:** hozirgi raqamlar — mening eng yaxshi bahom, **tasdiqlanmagan**.
+**Kerak:** `fdc.nal.usda.gov` ga kirish (nashrdan oldin).
