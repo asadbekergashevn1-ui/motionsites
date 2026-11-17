@@ -81,8 +81,8 @@ This is an educational planning tool, not medical advice. Protein figures come f
 - Primary audience: adults
 
 ## PRICING
-Paperback list:  $17.99   (royalty ~$7–8 after print cost)
-Kindle list:     $6.99    (choose 70% royalty tier)
+Paperback list:  $12.99   (Premium color; royalty ~$3.59 after print cost)
+Kindle list:     $5.99    (choose 70% royalty tier)
 
 ## BISAC (if asked for a code)
 HEA006000  — HEALTH & FITNESS / Diet & Nutrition / Weight Loss
