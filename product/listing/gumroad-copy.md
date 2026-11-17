@@ -1,5 +1,5 @@
 # GUMROAD LISTING COPY
-Product: GLP-1 Low Appetite Protein Plan · 26-page printable guide
+Product: GLP-1 Low Appetite Protein Plan · 40-page printable guide
 
 ═══════════════════════════════════════════════════════
 
@@ -11,7 +11,7 @@ GLP-1 Low Appetite Protein Plan — Hit Your Protein Target When You Can't Eat E
 
 ## SUMMARY (the one-line under the title)
 
-A 26-page printable system for eating enough protein on Ozempic, Wegovy, Mounjaro or Zepbound — built around the space you actually have.
+A 40-page printable system for eating enough protein on Ozempic, Wegovy, Mounjaro or Zepbound — built around the space you actually have.
 
 ═══════════════════════════════════════════════════════
 
@@ -38,7 +38,7 @@ stomach space has to carry — and which foods can actually do it.
 
 ────────────────────────
 
-WHAT'S INSIDE — 26 PAGES
+WHAT'S INSIDE — 40 PAGES
 
 • Your two numbers — your protein target and your real capacity, worked out
   once in ten minutes, no maths required (read it off a table)
@@ -75,7 +75,7 @@ NOT FOR YOU IF
 
 THE DETAILS
 
-• 26-page PDF, instant download, print as often as you like, forever
+• 40-page PDF, instant download, print as often as you like, forever
 • Designed to be printed and written on by hand, or read on a screen — these
   are not fillable form PDFs
 • No subscription, no account, nothing to install

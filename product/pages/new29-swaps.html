@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Budget and Preference Swaps</title>
+<style>
+  :root{ --navy:#1B2A41; --amber:#E09F3E; --green:#4A7C59; --red:#C0453A;
+         --muted:#7A8599; --line:#DDE1E8; --wash:#F6F7F9; }
+  @page{ size:A4; margin:0; } html,body{overflow:hidden}
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{ width:794px; height:1123px; background:#fff; color:var(--navy);
+        font-family:"Inter","Inter Display",sans-serif; -webkit-font-smoothing:antialiased;
+        padding:38px 46px 30px; display:flex; flex-direction:column; }
+  .hdr{ display:flex; justify-content:space-between; font-size:9px; font-weight:700;
+        letter-spacing:.14em; color:var(--muted); padding-bottom:8px; border-bottom:1.5px solid var(--navy); }
+  h1{ font-size:33px; font-weight:800; letter-spacing:-.022em; margin-top:13px; line-height:1.04; }
+  h1 em{ font-style:normal; color:var(--green); }
+  .sub{ font-size:13.4px; color:#4A5565; margin-top:9px; line-height:1.55; max-width:680px; }
+  .sub b{ font-weight:800; color:var(--navy); }
+
+  .cols{ margin-top:17px; display:flex; gap:12px; flex:1; }
+  .col{ flex:1; border:1.5px solid var(--line); border-radius:12px; overflow:hidden;
+        display:flex; flex-direction:column; }
+  .ch2{ padding:12px 16px; color:#fff; }
+  .b1 .ch2{ background:var(--green); } .b2 .ch2{ background:#5E7391; } .b3 .ch2{ background:var(--amber); color:var(--navy); }
+  .cn3{ font-size:15.5px; font-weight:800; letter-spacing:-.015em; }
+  .cw2{ font-size:9.8px; margin-top:3px; opacity:.9; line-height:1.4; }
+  .cb2{ padding:11px 15px 13px; flex:1; }
+  .it2{ display:flex; justify-content:space-between; align-items:baseline; gap:8px;
+        padding:6.5px 0; border-bottom:1px solid #F1F3F6; }
+  .it2:last-child{ border-bottom:0; }
+  .in2{ font-size:11.8px; font-weight:700; }
+  .in2 small{ display:block; font-size:9.4px; font-weight:600; color:var(--muted); margin-top:1px; }
+  .ig{ flex:none; font-size:11.5px; font-weight:800; }
+  .b1 .ig{ color:var(--green); } .b2 .ig{ color:#5E7391; } .b3 .ig{ color:#9A6A15; }
+  .star{ margin-top:auto; padding:9px 15px 11px; border-top:1px dashed var(--line);
+         font-size:10px; line-height:1.45; color:#5C6676; }
+  .star b{ color:var(--navy); font-weight:800; }
+
+  .foot2{ margin-top:14px; background:var(--wash); border-radius:11px; padding:13px 17px;
+          display:flex; gap:14px; align-items:center; }
+  .fi2{ flex:none; width:38px; height:38px; border-radius:50%; background:var(--navy); color:#fff;
+        display:flex; align-items:center; justify-content:center; font-size:16px; font-weight:800; }
+  .ft4{ font-size:11.8px; line-height:1.5; color:#3C4556; }
+  .ft4 b{ color:var(--navy); font-weight:800; }
+</style></head><body>
+
+  <div class="hdr"><span>CHECKLISTS &nbsp;&middot;&nbsp; 30</span><span>THE SAME SYSTEM, WHOEVER YOU ARE</span></div>
+
+  <h1>Your basket, <em>your rules.</em></h1>
+  <div class="sub">Tight budget, no meat, or dairy that fights back &mdash; the system doesn't care.
+    <b>Swap column for column and every page in this book still works</b>, because the g/100&nbsp;ml logic
+    travels with the food.</div>
+
+  <div class="cols">
+    <div class="col b1">
+      <div class="ch2"><div class="cn3">On a budget</div><div class="cw2">the cheapest protein in the shop is already in this book</div></div>
+      <div class="cb2">
+        <div class="it2"><span class="in2">Eggs<small>the price-per-gram champion</small></span><span class="ig">6 g each</span></div>
+        <div class="it2"><span class="in2">Tinned tuna, own brand<small>same fish, smaller label</small></span><span class="ig">25 g/tin</span></div>
+        <div class="it2"><span class="in2">Milk powder<small>fortifies anything for pennies</small></span><span class="ig">+5 g/2 tbsp</span></div>
+        <div class="it2"><span class="in2">Frozen chicken &amp; prawns<small>freezer = same protein, lower price</small></span><span class="ig">= fresh</span></div>
+        <div class="it2"><span class="in2">Dried lentils<small>cook a batch, fridge for days</small></span><span class="ig">18 g/cup</span></div>
+      </div>
+      <div class="star"><b>Cheapest full day:</b> eggs + tuna + milk powder soup + lentils &asymp; 70 g for small money.</div>
+    </div>
+
+    <div class="col b2">
+      <div class="ch2"><div class="cn3">No meat</div><div class="cw2">the top of the density table is already half vegetarian</div></div>
+      <div class="cb2">
+        <div class="it2"><span class="in2">Firm tofu<small>ties chicken at the very top</small></span><span class="ig">18 g/100ml</span></div>
+        <div class="it2"><span class="in2">Greek yogurt &amp; cottage cheese<small>both anchors, both meat-free</small></span><span class="ig">10&ndash;12</span></div>
+        <div class="it2"><span class="in2">Eggs<small>if they're in your version of vegetarian</small></span><span class="ig">6 g each</span></div>
+        <div class="it2"><span class="in2">Edamame &amp; lentils<small>the support tier, plant edition</small></span><span class="ig">7&ndash;8</span></div>
+        <div class="it2"><span class="in2">Silken tofu, blended<small>the gentle-day anchor, unchanged</small></span><span class="ig">9 g/half</span></div>
+      </div>
+      <div class="star"><b>Swap rule:</b> wherever a page says chicken, read tofu &mdash; same number, same job.</div>
+    </div>
+
+    <div class="col b3">
+      <div class="ch2"><div class="cn3">Dairy fights back</div><div class="cw2">lactose-light routes to the same numbers</div></div>
+      <div class="cb2">
+        <div class="it2"><span class="in2">Lactose-free yogurt &amp; milk<small>same protein, minus the fight</small></span><span class="ig">= regular</span></div>
+        <div class="it2"><span class="in2">Hard cheeses<small>naturally almost lactose-free</small></span><span class="ig">7 g/handful</span></div>
+        <div class="it2"><span class="in2">Fish, eggs, chicken, tofu<small>the whole anchor tier, no dairy at all</small></span><span class="ig">13&ndash;18</span></div>
+        <div class="it2"><span class="in2">Isolate protein powder<small>isolates are near lactose-free &mdash; check the tub</small></span><span class="ig">25 g/scoop</span></div>
+        <div class="it2"><span class="in2">Soy or pea milk, unsweetened<small>for shakes and soups</small></span><span class="ig">varies</span></div>
+      </div>
+      <div class="star"><b>Gentle-day note:</b> the queasy row rebuilt dairy-free: shake &middot; soup+powder &middot; silken tofu. Still ~60 g.</div>
+    </div>
+  </div>
+
+  <div class="foot2">
+    <div class="fi2">=</div>
+    <div class="ft4"><b>One thing never changes:</b> whatever column you shop from, the anchor still eats
+      first. Numbers from the same USDA source as every other page &mdash; swap with confidence.</div>
+  </div>
+
+</body></html>

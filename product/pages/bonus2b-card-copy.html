@@ -1,0 +1,102 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Daily Protein Card</title><style>
+  :root{ --navy:#1B2A41; --amber:#E09F3E; --green:#4A7C59; --red:#C0453A;
+         --muted:#7A8599; --line:#DDE1E8; --wash:#F6F7F9; }
+  @page{ size:A4; margin:0; }
+  html,body{overflow:hidden}
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{ width:794px; height:1122px; background:#fff; color:var(--navy);
+        font-family:"Inter","Inter Display",sans-serif; -webkit-font-smoothing:antialiased;
+        padding:30px 46px 22px; display:flex; flex-direction:column; }
+  .top{ display:flex; justify-content:space-between; font-size:9px; font-weight:700;
+        letter-spacing:.14em; color:var(--muted); padding-bottom:7px; border-bottom:1.5px solid var(--navy); }
+  .note{ font-size:9.6px; color:var(--muted); font-style:italic; text-align:center; margin:8px 0 4px; }
+  .card{ border:2px solid var(--navy); border-radius:11px; padding:18px 20px 19px; margin-top:11px; }
+  .ch{ display:flex; justify-content:space-between; align-items:flex-end; padding-bottom:10px;
+       border-bottom:1.5px solid var(--navy); }
+  .ct{ font-size:22px; font-weight:800; letter-spacing:-.015em; }
+  .cmeta{ display:flex; gap:16px; align-items:flex-end; }
+  .mi{ text-align:right; }
+  .ml{ font-size:7.8px; font-weight:800; letter-spacing:.1em; color:var(--muted); }
+  .mv{ border-bottom:1.5px solid var(--navy); width:82px; height:17px; margin-top:3px; }
+  .rungs{ display:flex; gap:4px; }
+  .rg{ width:24px; height:24px; border:1.5px solid var(--line); border-radius:5px; font-size:9px;
+       font-weight:800; color:var(--muted); display:flex; align-items:center; justify-content:center; }
+  table{ width:100%; border-collapse:collapse; margin-top:11px; }
+  th{ font-size:7.8px; font-weight:800; letter-spacing:.1em; color:var(--muted);
+      text-align:left; padding:0 7px 6px; }
+  th.r{ text-align:right; }
+  td{ border-bottom:1.3px solid var(--line); height:41px; padding:0 7px; }
+  td.tm{ width:62px; font-size:10.5px; font-weight:700; color:var(--muted); }
+  td.pg{ width:66px; border-bottom:1.3px solid var(--navy); }
+  .totrow td{ border-bottom:none; padding-top:8px; }
+  .totl{ font-size:11px; font-weight:800; letter-spacing:.08em; }
+  .totb{ border:1.5px solid var(--navy); border-radius:6px; height:36px; }
+  .bot{ display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:11px;
+        padding-top:11px; border-top:1.5px solid var(--line); }
+  .bl{ font-size:8.2px; font-weight:800; letter-spacing:.1em; color:var(--muted); margin-bottom:6px; }
+  .glasses{ display:flex; gap:5px; }
+  .gl{ width:20px; height:26px; border:1.4px solid var(--line); border-radius:3px 3px 6px 6px; }
+  .tomo{ display:flex; gap:6px; }
+  .tb{ border:1.4px solid var(--line); border-radius:5px; padding:4px 9px; font-size:9.2px; font-weight:700; color:var(--muted); }
+  .cut{ border-top:2px dashed var(--line); position:relative; margin:17px 0 0; }
+  .cut span{ position:absolute; top:-7px; left:50%; transform:translateX(-50%); background:#fff;
+             padding:0 10px; font-size:8.2px; font-weight:800; letter-spacing:.13em; color:var(--muted); }
+  .fn{ font-size:8.2px; color:var(--muted); font-style:italic; text-align:center; margin-top:auto; padding-top:10px; }
+</style></head><body>
+<div class="top"><span>WORKSHEETS &nbsp;&middot;&nbsp; 35</span><span>DAILY PROTEIN CARD &mdash; TWO MORE, CUT THESE TOO</span></div>
+<div class="note">Print this sheet as often as you need &mdash; two cards per page. Cut along the dashed line and keep today's card where you eat.</div>
+
+<div class="card">
+  <div class="ch"><div class="ct">Today's Protein Card</div>
+    <div class="cmeta">
+      <div class="mi"><div class="ml">DATE</div><div class="mv"></div></div>
+      <div class="mi"><div class="ml">TODAY'S TARGET (G)</div><div class="mv"></div></div>
+      <div class="mi"><div class="ml">RUNG</div><div class="rungs" style="margin-top:3px"><span class="rg">L1</span><span class="rg">L2</span><span class="rg">L3</span><span class="rg">L4</span></div></div>
+    </div></div>
+  <table><thead><tr><th>TIME</th><th>WHAT I HAD &mdash; PROTEIN FIRST</th><th class="r">GRAMS</th></tr></thead>
+  <tbody>
+    <tr><td class="tm">&nbsp;</td><td></td><td class="pg"></td></tr>
+    <tr><td class="tm">&nbsp;</td><td></td><td class="pg"></td></tr>
+    <tr><td class="tm">&nbsp;</td><td></td><td class="pg"></td></tr>
+    <tr><td class="tm">&nbsp;</td><td></td><td class="pg"></td></tr>
+    <tr><td class="tm">&nbsp;</td><td></td><td class="pg"></td></tr>
+    <tr><td class="tm">&nbsp;</td><td></td><td class="pg"></td></tr>
+    <tr class="totrow"><td colspan="2" class="totl" style="text-align:right; padding-right:12px">TOTAL FOR THE DAY</td><td><div class="totb"></div></td></tr>
+  </tbody></table>
+  <div class="bot">
+    <div><div class="bl">FLUID &mdash; BETWEEN MEALS, NOT WITH THEM</div>
+      <div class="glasses"><span class="gl"></span><span class="gl"></span><span class="gl"></span><span class="gl"></span><span class="gl"></span><span class="gl"></span><span class="gl"></span><span class="gl"></span></div></div>
+    <div><div class="bl">TOMORROW</div>
+      <div class="tomo"><span class="tb">MOVE UP A RUNG</span><span class="tb">STAY HERE</span><span class="tb">DROP ONE</span></div></div>
+  </div>
+</div>
+
+<div class="cut"><span>CUT HERE</span></div>
+
+<div class="card">
+  <div class="ch"><div class="ct">Today's Protein Card</div>
+    <div class="cmeta">
+      <div class="mi"><div class="ml">DATE</div><div class="mv"></div></div>
+      <div class="mi"><div class="ml">TODAY'S TARGET (G)</div><div class="mv"></div></div>
+      <div class="mi"><div class="ml">RUNG</div><div class="rungs" style="margin-top:3px"><span class="rg">L1</span><span class="rg">L2</span><span class="rg">L3</span><span class="rg">L4</span></div></div>
+    </div></div>
+  <table><thead><tr><th>TIME</th><th>WHAT I HAD &mdash; PROTEIN FIRST</th><th class="r">GRAMS</th></tr></thead>
+  <tbody>
+    <tr><td class="tm">&nbsp;</td><td></td><td class="pg"></td></tr>
+    <tr><td class="tm">&nbsp;</td><td></td><td class="pg"></td></tr>
+    <tr><td class="tm">&nbsp;</td><td></td><td class="pg"></td></tr>
+    <tr><td class="tm">&nbsp;</td><td></td><td class="pg"></td></tr>
+    <tr><td class="tm">&nbsp;</td><td></td><td class="pg"></td></tr>
+    <tr><td class="tm">&nbsp;</td><td></td><td class="pg"></td></tr>
+    <tr class="totrow"><td colspan="2" class="totl" style="text-align:right; padding-right:12px">TOTAL FOR THE DAY</td><td><div class="totb"></div></td></tr>
+  </tbody></table>
+  <div class="bot">
+    <div><div class="bl">FLUID &mdash; BETWEEN MEALS, NOT WITH THEM</div>
+      <div class="glasses"><span class="gl"></span><span class="gl"></span><span class="gl"></span><span class="gl"></span><span class="gl"></span><span class="gl"></span><span class="gl"></span><span class="gl"></span></div></div>
+    <div><div class="bl">TOMORROW</div>
+      <div class="tomo"><span class="tb">MOVE UP A RUNG</span><span class="tb">STAY HERE</span><span class="tb">DROP ONE</span></div></div>
+  </div>
+</div>
+
+<div class="fn">Protein goes in first, every time. Fluids sit between meals. Five small windows beat three normal ones.</div>
+</body></html>

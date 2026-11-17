@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Build a Sitting</title>
+<style>
+  :root{ --navy:#1B2A41; --amber:#E09F3E; --green:#4A7C59; --red:#C0453A;
+         --muted:#7A8599; --line:#DDE1E8; --wash:#F6F7F9; }
+  @page{ size:A4; margin:0; } html,body{overflow:hidden}
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{ width:794px; height:1123px; background:#fff; color:var(--navy);
+        font-family:"Inter","Inter Display",sans-serif; -webkit-font-smoothing:antialiased;
+        padding:38px 46px 30px; display:flex; flex-direction:column; }
+  .hdr{ display:flex; justify-content:space-between; font-size:9px; font-weight:700;
+        letter-spacing:.14em; color:var(--muted); padding-bottom:8px; border-bottom:1.5px solid var(--navy); }
+  h1{ font-size:34px; font-weight:800; letter-spacing:-.022em; margin-top:13px; line-height:1.04; }
+  h1 em{ font-style:normal; color:var(--amber); }
+  .sub{ font-size:13.4px; color:#4A5565; margin-top:8px; line-height:1.52; max-width:660px; }
+  .sub b{ font-weight:800; color:var(--navy); }
+
+  .cols{ margin-top:17px; display:flex; gap:12px; align-items:stretch; }
+  .col{ flex:1; border:1.5px solid var(--line); border-radius:12px; overflow:hidden; }
+  .colh{ padding:10px 14px; font-size:10px; font-weight:800; letter-spacing:.13em; color:#fff; text-align:center; }
+  .k1 .colh{ background:var(--green); } .k2 .colh{ background:#5E7391; } .k3 .colh{ background:var(--amber); color:var(--navy); }
+  .colb{ padding:9px 14px 11px; }
+  .op{ display:flex; justify-content:space-between; align-items:baseline; padding:5.5px 0;
+       border-bottom:1px solid #F1F3F6; font-size:11.6px; font-weight:600; }
+  .op:last-child{ border-bottom:0; }
+  .op b{ font-weight:800; font-size:11px; }
+  .k1 .op b{ color:var(--green); } .k2 .op b{ color:#5E7391; } .k3 .op b{ color:#9A6A15; }
+  .plus{ align-self:center; font-size:26px; font-weight:800; color:var(--muted); flex:none; }
+
+  .law{ margin-top:13px; text-align:center; font-size:12.8px; font-weight:700; color:#4A5565; }
+  .law b{ color:var(--navy); font-weight:800; }
+
+  .builds{ margin-top:15px; }
+  .bl{ font-size:9.5px; font-weight:800; letter-spacing:.18em; color:var(--amber); margin-bottom:9px; }
+  .bld{ display:flex; align-items:center; gap:10px; background:var(--wash); border-radius:10px;
+        padding:11px 16px; margin-bottom:9px; }
+  .bname{ flex:none; width:136px; font-size:12px; font-weight:800; letter-spacing:-.01em; }
+  .bparts{ flex:1; font-size:11.4px; color:#4A5565; }
+  .bparts b{ color:var(--navy); font-weight:700; }
+  .bsum{ flex:none; font-size:15px; font-weight:800; color:var(--green); width:52px; text-align:right; }
+
+  .foot{ margin-top:auto; border-top:1.5px solid var(--navy); padding-top:12px; display:flex; gap:16px; align-items:center; }
+  .fn3{ flex:none; width:40px; height:40px; border-radius:50%; background:var(--navy); color:#fff;
+        display:flex; align-items:center; justify-content:center; font-size:18px; font-weight:800; }
+  .ft3{ font-size:11.6px; line-height:1.5; color:#4A5565; }
+  .ft3 b{ color:var(--navy); font-weight:800; }
+</style></head><body>
+
+  <div class="hdr"><span>THE FOOD PAGES &nbsp;&middot;&nbsp; 18</span><span>ONE FORMULA, ENDLESS SITTINGS</span></div>
+
+  <h1>Build any sitting: <em>1 + 1 + 1.</em></h1>
+  <div class="sub">When none of the ready-made meals appeal, build your own. <b>One from each column, anchor
+    eaten first</b> &mdash; that's the entire skill this book teaches, in one line.</div>
+
+  <div class="cols">
+    <div class="col k1">
+      <div class="colh">1 &middot; PICK AN ANCHOR</div>
+      <div class="colb">
+        <div class="op"><span>Chicken, one palm</span><b>31 g</b></div>
+        <div class="op"><span>Tuna, small tin</span><b>25 g</b></div>
+        <div class="op"><span>Protein shake, strong</span><b>25 g</b></div>
+        <div class="op"><span>Greek yogurt pot</span><b>14 g</b></div>
+        <div class="op"><span>2 boiled eggs</span><b>13 g</b></div>
+        <div class="op"><span>Cottage cheese tub</span><b>12 g</b></div>
+      </div>
+    </div>
+    <div class="plus">+</div>
+    <div class="col k2">
+      <div class="colh">2 &middot; ADD A TOP-UP <span style="opacity:.7">(IF ROOM)</span></div>
+      <div class="colb">
+        <div class="op"><span>1 more boiled egg</span><b>+6 g</b></div>
+        <div class="op"><span>Grated cheddar, handful</span><b>+7 g</b></div>
+        <div class="op"><span>Glass of milk</span><b>+9 g</b></div>
+        <div class="op"><span>Half cup lentils, stirred in</span><b>+9 g</b></div>
+        <div class="op"><span>2 tbsp milk powder in soup</span><b>+5 g</b></div>
+        <div class="op"><span>Nothing &mdash; fine too</span><b>+0</b></div>
+      </div>
+    </div>
+    <div class="plus">+</div>
+    <div class="col k3">
+      <div class="colh">3 &middot; FINISH WITH COLOUR</div>
+      <div class="colb">
+        <div class="op"><span>Berries or peach slices</span><b>fibre</b></div>
+        <div class="op"><span>Small salad</span><b>fresh</b></div>
+        <div class="op"><span>6 crackers or ½ cup rice</span><b>fuel</b></div>
+        <div class="op"><span>Steamed veg</span><b>colour</b></div>
+        <div class="op"><span>A pickle, some pepper</span><b>joy</b></div>
+        <div class="op"><span>Skip it on tight days</span><b>ok</b></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="law">The one law: <b>column 1 is eaten before columns 2 and 3 touch the plate.</b> That's it. That's the system.</div>
+
+  <div class="builds">
+    <div class="bl">THREE BUILDS, DONE FOR YOU &mdash; SUMS INCLUDED</div>
+    <div class="bld"><span class="bname">The Desk Lunch</span><span class="bparts"><b>Tuna tin</b> &rarr; <b>glass of milk</b> &rarr; crackers &amp; a pickle</span><span class="bsum">34 g</span></div>
+    <div class="bld"><span class="bname">The Gentle Evening</span><span class="bparts"><b>Cottage cheese</b> &rarr; <b>1 boiled egg</b> &rarr; peach slices</span><span class="bsum">18 g</span></div>
+    <div class="bld"><span class="bname">The Family Dinner</span><span class="bparts"><b>Chicken palm</b> &rarr; nothing &rarr; the same rice &amp; veg everyone else is having</span><span class="bsum">31 g</span></div>
+  </div>
+
+  <div class="foot">
+    <div class="fn3">5&times;</div>
+    <div class="ft3"><b>Five builds a day at your five alarms</b> &mdash; even modest ones &mdash; lands 60&ndash;90 g
+      without a single "meal plan" in sight. Check builds off against your daily card as you go.</div>
+  </div>
+
+</body></html>

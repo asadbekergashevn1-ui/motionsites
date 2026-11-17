@@ -10,7 +10,7 @@ English
 GLP-1 Low Appetite Protein Plan
 
 ## SUBTITLE
-Hit Your Protein Target When You Can't Eat Enough — A 26-Page Printable System for Ozempic, Wegovy, Mounjaro & Zepbound
+Hit Your Protein Target When You Can't Eat Enough — A 40-Page Printable System for Ozempic, Wegovy, Mounjaro & Zepbound
 
 ## SERIES
 (leave blank for now — add later if you build more)
@@ -25,7 +25,7 @@ Primary Author:  Clare Bennett
 
 You already know you're supposed to eat more protein. Nobody told you HOW — when your stomach now holds about a cup, and half of that is gone before the protein arrives.
 
-This is not another meal plan or recipe book. It is a 26-page planning system for one specific problem: being physically unable to eat enough protein on a GLP-1 medication.
+This is not another meal plan or recipe book. It is a 40-page planning system for one specific problem: being physically unable to eat enough protein on a GLP-1 medication.
 
 WHY THIS IS DIFFERENT
 
@@ -33,7 +33,7 @@ Most GLP-1 advice tells you to start with fiber and fill half your plate with ve
 
 This plan reverses the order. Protein first. Density before volume. It teaches you one number no other guide uses: how much protein every 100 ml of your stomach space has to carry — and exactly which foods can do it.
 
-WHAT'S INSIDE — 26 PAGES YOU USE, NOT READ
+WHAT'S INSIDE — 40 PAGES YOU USE, NOT READ
 
 - Your two numbers: protein target and real capacity, worked out once, no math required
 - The 30-second morning page: tick how today feels, eat from that row
