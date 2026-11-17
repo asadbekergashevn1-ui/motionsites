@@ -19,10 +19,7 @@ Hit Your Protein Target When You Can't Eat Enough — A 26-Page Printable System
 1
 
 ## AUTHOR
-Primary Author:  [YOUR PEN NAME]
-→ Pick a pen name and use the SAME one every time. Suggestions:
-   "Nadia Oakwell"  ·  "Clare Bennett"  ·  "The Low Appetite Press"
-   (A pen name is normal and allowed on KDP.)
+Primary Author:  Clare Bennett
 
 ## DESCRIPTION  (paste into the Description box)
 
@@ -56,7 +53,7 @@ THIS IS FOR YOU IF
 - The week after a dose increase undoes your progress every time
 - You want a printed system you can write on, not another app
 
-This is an educational planning tool, not medical advice. Protein figures come from USDA FoodData Central; the clinical framing follows the 2025 joint advisory of four professional societies. Where a structure is the author's own design rather than published guidance, the book says so. Always speak to your prescriber before changing how you eat, and never change your dose on your own. Not affiliated with, endorsed by, or connected to the makers of Ozempic, Wegovy, Mounjaro or Zepbound.
+This is an educational planning tool, not medical advice. Protein figures come from USDA FoodData Central, and the clinical framing follows the 2025 joint advisory of four professional societies. Talk to your doctor before starting this plan, and never change your dose on your own. Not affiliated with, endorsed by, or connected to the makers of Ozempic, Wegovy, Mounjaro or Zepbound.
 
 ═══════════════════════════════════════════════
 

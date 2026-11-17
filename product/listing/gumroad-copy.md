@@ -84,16 +84,13 @@ THE DETAILS
 
 HONEST NOTE
 
-This is an educational planning tool, not medical advice, and not a promise.
-It shows you what to do — the result depends on you following it and on your
-clinician's guidance. Protein figures come from USDA FoodData Central; the
-clinical framing follows the 2025 joint advisory of the American College of
-Lifestyle Medicine, the American Society for Nutrition, the Obesity Medicine
-Association and The Obesity Society. Where a structure is our own design rather
-than published guidance, the guide says so.
+This is an educational planning tool, not medical advice. Protein figures come
+from USDA FoodData Central, and the clinical framing follows the 2025 joint
+advisory of the American College of Lifestyle Medicine, the American Society for
+Nutrition, the Obesity Medicine Association and The Obesity Society.
 
-Speak to your prescriber before changing how you eat, and never change your
-dose on your own. Not affiliated with, endorsed by, or connected to the makers
+Talk to your doctor before starting this plan, and never change your dose on your
+own. Not affiliated with, endorsed by, or connected to the makers
 of Ozempic®, Wegovy®, Mounjaro® or Zepbound®.
 
 ═══════════════════════════════════════════════════════

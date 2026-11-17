@@ -160,9 +160,6 @@ THIS IS NOT FOR YOU IF
 · You are not on a GLP-1 and want to raise your own naturally — the
   advice here runs in the opposite direction and would not suit you
 
-We would rather you buy something else than buy this and find it was not
-what you needed.
-
 ────────────────────────────────────────
 
 WHAT'S INCLUDED
@@ -178,18 +175,13 @@ WHAT'S INCLUDED
 
 HONEST NOTE
 
-This is a planning system, not medical advice, and not a promise. It shows
-you what to do — the result depends on you following it and on your
-clinician's guidance.
+This is an educational planning system, not medical advice. Protein figures
+are calculated from USDA FoodData Central, and the protein range comes from the
+2025 joint advisory of the American College of Lifestyle Medicine, the American
+Society for Nutrition, the Obesity Medicine Association and The Obesity Society.
 
-Protein figures are calculated from USDA FoodData Central. The protein
-range comes from the 2025 joint advisory of the American College of
-Lifestyle Medicine, the American Society for Nutrition, the Obesity
-Medicine Association and The Obesity Society. Where a structure is our own
-design rather than published guidance, the page says so.
-
-Speak to your prescriber before changing anything about how you eat,
-and never change your dose on your own.
+Talk to your doctor before starting this plan, and never change your dose on
+your own.
 
 Not affiliated with, endorsed by, or connected to the makers of Ozempic®,
 Wegovy®, Mounjaro® or Zepbound®. Those names are used only to describe who
