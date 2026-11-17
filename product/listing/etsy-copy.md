@@ -75,6 +75,22 @@ appetite, with a separate protocol for the week after every dose increase.
 
 ────────────────────────────────────────
 
+WHAT IT COSTS YOU TO HAVE NO PLAN
+
+Nothing dramatic. You eat what you can face, you tell yourself you'll
+make it up tomorrow, and on a dose week you don't. Four or five days of
+eating far too little protein — every single time the dose goes up.
+
+The protein target exists on these medications for a reason. Weight
+coming off quickly takes lean tissue with it unless there is enough
+protein to hold on to it. That is the entire point of the number. Missing
+it for a week at a time, every month, is the quiet cost of guessing.
+
+This fixes one thing, properly: hitting that number in the space you
+actually have.
+
+────────────────────────────────────────
+
 WHY THIS ONE IS DIFFERENT
 
 Most GLP-1 guides tell you to start with fibre and fill half the plate with
@@ -153,6 +169,8 @@ WHAT'S INCLUDED
 
 · 10 pages, instant digital download
 · Two complete PDFs: A4 and US Letter
+· Designed to be printed and written on by hand, or read on a screen —
+  these are not fillable form PDFs
 · Print as often as you like, forever
 · Nothing to install, no subscription, no account
 
@@ -201,6 +219,11 @@ The protein figures are calculated from USDA FoodData Central, and the page
 shows the method. Where something is our own planning structure rather than
 published guidance — the dose-week percentages, the texture levels — the page
 says so plainly rather than dressing it up as a protocol.
+
+**Is it a fillable PDF?**
+No. It is built to be printed and written on with a pen, or read on a screen.
+The pages you fill in — the dose-week tracker and the daily card — are designed
+for handwriting. Saying so here rather than after you have paid.
 
 **Do I need a printer?**
 No. The pages work on a phone or tablet, and the grocery list is designed to be
