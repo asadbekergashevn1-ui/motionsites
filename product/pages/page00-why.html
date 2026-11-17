@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Why This Exists</title>
+<style>
+  :root{ --navy:#1B2A41; --amber:#E09F3E; --green:#4A7C59; --red:#C0453A;
+         --muted:#7A8599; --line:#DDE1E8; --wash:#F6F7F9; }
+  @page{ size:A4; margin:0; }
+  html,body{overflow:hidden}
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{ width:794px; height:1123px; background:#fff; color:var(--navy);
+        font-family:"Inter","Inter Display",sans-serif; -webkit-font-smoothing:antialiased;
+        display:flex; flex-direction:column; }
+
+  .top{ background:var(--navy); color:#fff; padding:52px 46px 46px; }
+  .eyebrow{ font-size:9.5px; font-weight:800; letter-spacing:.26em; color:var(--amber); }
+  h1{ font-size:53px; font-weight:800; line-height:1.0; letter-spacing:-.03em; margin-top:16px; }
+  h1 em{ font-style:normal; color:var(--amber); }
+  .lede{ font-size:14.8px; line-height:1.66; margin-top:24px; max-width:630px; color:#D4D9E2; }
+  .lede b{ color:#fff; font-weight:700; }
+
+  .mid{ padding:32px 46px 0; }
+  .pain{ border-left:3px solid var(--amber); padding:2px 0 2px 16px; }
+  .pain p{ font-size:14.2px; line-height:1.66; }
+  .pain p + p{ margin-top:9px; }
+  .pain b{ font-weight:700; }
+
+  .shout{ margin-top:28px; text-align:center; padding:22px 20px;
+          border-top:2px solid var(--navy); border-bottom:2px solid var(--navy); }
+  .shout .s1{ font-size:27px; font-weight:800; letter-spacing:-.022em; line-height:1.12; }
+  .shout .s2{ font-size:13.4px; font-weight:600; color:var(--muted); margin-top:10px; }
+
+  .cols{ display:grid; grid-template-columns:1fr 1fr; gap:0; margin-top:28px;
+         border:1.5px solid var(--line); border-radius:11px; overflow:hidden; }
+  .col{ padding:20px 20px 22px; }
+  .col + .col{ border-left:1.5px solid var(--line); }
+  .col.no{ background:var(--wash); }
+  .ch{ font-size:10px; font-weight:800; letter-spacing:.17em; margin-bottom:14px; }
+  .col.no .ch{ color:var(--muted); }
+  .col.yes .ch{ color:var(--green); }
+  .it{ display:flex; gap:10px; font-size:12.9px; line-height:1.4; align-items:flex-start; }
+  .it + .it{ margin-top:13px; }
+  .mk{ font-size:12px; font-weight:800; flex:none; line-height:1.3; }
+  .col.no .mk{ color:#AEB5C0; } .col.no .it{ color:#6E7787; }
+  .col.yes .mk{ color:var(--green); }
+  .it b{ font-weight:700; }
+
+  .foot{ margin-top:auto; background:var(--amber); color:var(--navy);
+         padding:24px 46px 26px; display:flex; align-items:center; gap:26px; }
+  .fnum{ font-size:52px; font-weight:800; letter-spacing:-.04em; line-height:.9; flex:none; }
+  .fnum span{ display:block; font-size:9.5px; font-weight:800; letter-spacing:.17em; margin-top:5px; }
+  .fbar{ width:2px; align-self:stretch; background:rgba(27,42,65,.3); flex:none; }
+  .ftxt .f1{ font-size:21px; font-weight:800; letter-spacing:-.02em; line-height:1.15; }
+  .ftxt .f2{ font-size:12.4px; font-weight:600; margin-top:7px; line-height:1.45; }
+</style></head><body>
+
+  <div class="top">
+    <div class="eyebrow">GLP-1 LOW APPETITE PROTEIN PLAN</div>
+    <h1>You were given a<br>prescription.<br><em>Not a plan.</em></h1>
+    <div class="lede">The appointment covered the dose and how to inject it. It did not
+      cover what to eat on a morning when nothing appeals, how to hit a protein
+      target in a stomach that now holds about a cup, or <b>which signs mean you
+      should pick up the phone today.</b></div>
+  </div>
+
+  <div class="mid">
+    <div class="pain">
+      <p>So you searched. At eleven at night, on your phone, you read five articles
+         that all said the same four words: <b>eat more protein.</b></p>
+      <p>None of them said <b>how</b> — when half your room is gone before the
+         protein arrives, and the one thing you managed yesterday turns your
+         stomach today.</p>
+    </div>
+
+    <div class="shout">
+      <div class="s1">This is not another hundred pages<br>of advice to get through.</div>
+      <div class="s2">It is twenty-six pages you <b>use</b> — most days, only one of them.</div>
+    </div>
+
+    <div class="cols">
+      <div class="col no">
+        <div class="ch">WHAT THIS IS NOT</div>
+        <div class="it"><span class="mk">&#10007;</span><span>A diet. Nothing here asks you to eat less.</span></div>
+        <div class="it"><span class="mk">&#10007;</span><span>Theory. There is no chapter on how the drug works.</span></div>
+        <div class="it"><span class="mk">&#10007;</span><span>Recipes you will never cook on a bad day.</span></div>
+        <div class="it"><span class="mk">&#10007;</span><span>&ldquo;Listen to your body.&rdquo; Your body has stopped asking.</span></div>
+        <div class="it"><span class="mk">&#10007;</span><span>Anything about your dose. That belongs to your prescriber.</span></div>
+      </div>
+      <div class="col yes">
+        <div class="ch">WHAT IT IS</div>
+        <div class="it"><span class="mk">&#10003;</span><span><b>Two numbers that are yours</b> — worked out in ten minutes, once.</span></div>
+        <div class="it"><span class="mk">&#10003;</span><span><b>One page for the morning.</b> Tick a line. Eat from it.</span></div>
+        <div class="it"><span class="mk">&#10003;</span><span><b>A plan for dose week</b>, before dose week arrives.</span></div>
+        <div class="it"><span class="mk">&#10003;</span><span><b>Food measured in space</b>, not just in grams.</span></div>
+        <div class="it"><span class="mk">&#10003;</span><span><b>A line you do not cross alone</b> — and what to say on the call.</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <div class="fnum">10<span>MINUTES</span></div>
+    <div class="fbar"></div>
+    <div class="ftxt">
+      <div class="f1">Plan it. Do it. Keep what you built.</div>
+      <div class="f2">Ten minutes today sets up the next month. After that it is thirty
+        seconds a morning — and you stop looking things up at midnight.</div>
+    </div>
+  </div>
+
+</body></html>

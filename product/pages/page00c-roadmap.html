@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Your Roadmap</title>
+<style>
+  :root{ --navy:#1B2A41; --amber:#E09F3E; --green:#4A7C59; --red:#C0453A;
+         --muted:#7A8599; --line:#DDE1E8; --wash:#F6F7F9; }
+  @page{ size:A4; margin:0; }
+  html,body{overflow:hidden}
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{ width:794px; height:1123px; background:#fff; color:var(--navy);
+        font-family:"Inter","Inter Display",sans-serif; -webkit-font-smoothing:antialiased;
+        padding:38px 46px 26px; display:flex; flex-direction:column; }
+  .hdr{ display:flex; justify-content:space-between; font-size:9px; font-weight:700;
+        letter-spacing:.14em; color:var(--muted); padding-bottom:8px; border-bottom:1.5px solid var(--navy); }
+  h1{ font-size:41px; font-weight:800; letter-spacing:-.024em; margin-top:12px; line-height:1.02; }
+  .sub{ font-size:14.8px; font-weight:600; color:var(--amber); margin-top:7px; }
+
+  .ends{ display:flex; gap:12px; align-items:stretch; margin-top:18px; }
+  .end{ flex:1; border-radius:10px; padding:14px 17px 15px; }
+  .end.a{ background:var(--wash); border:1.5px solid var(--line); }
+  .end.b{ background:var(--navy); color:#fff; }
+  .el{ font-size:8.5px; font-weight:800; letter-spacing:.18em; }
+  .end.a .el{ color:var(--muted); } .end.b .el{ color:var(--amber); }
+  .et{ font-size:13.4px; line-height:1.5; margin-top:8px; }
+  .end.a .et{ color:#5C6676; } .end.b .et{ color:#D4D9E2; }
+  .et b{ font-weight:700; } .end.b .et b{ color:#fff; }
+  .arrow{ flex:none; align-self:center; font-size:23px; font-weight:800; color:var(--amber); }
+
+  .rail{ margin-top:20px; position:relative; padding-left:64px; flex:1; display:flex; flex-direction:column; justify-content:space-between; }
+  .spine{ position:absolute; left:23px; top:6px; bottom:20px; width:2.5px; background:var(--line); }
+  .stop{ position:relative; }
+  .dot{ position:absolute; left:-64px; top:0; width:47px; height:47px; border-radius:50%;
+        background:#fff; border:2.5px solid var(--navy); display:flex; flex-direction:column;
+        align-items:center; justify-content:center; line-height:1; }
+  .dot .d1{ font-size:16.5px; font-weight:800; letter-spacing:-.03em; }
+  .dot .d2{ font-size:7.2px; font-weight:800; letter-spacing:.07em; color:var(--muted); margin-top:1.5px; }
+  .dot.am{ border-color:var(--amber); background:var(--amber); }
+  .dot.am .d1{ color:var(--navy); } .dot.am .d2{ color:#7C5A14; }
+  .dot.gr{ border-color:var(--green); background:var(--green); }
+  .dot.gr .d1{ color:#fff; } .dot.gr .d2{ color:#CFE0D4; }
+
+  .st{ font-size:16.2px; font-weight:800; letter-spacing:-.016em; line-height:1.15; }
+  .st span{ font-size:10px; font-weight:800; letter-spacing:.11em; color:var(--amber); margin-left:8px; }
+  .sd{ font-size:12.7px; line-height:1.55; color:#4A5565; margin-top:6px; }
+  .sd b{ color:var(--navy); font-weight:700; }
+  .pg{ display:inline-block; font-size:9.2px; font-weight:800; letter-spacing:.07em;
+       background:#EDEFF3; color:#5C6676; border-radius:4px; padding:2.5px 6px; margin-top:6px; }
+
+  .foot{ margin-top:18px; border-top:1.5px solid var(--navy); padding-top:16px;
+         display:flex; align-items:center; gap:16px; }
+  .ft1{ font-size:17.4px; font-weight:800; letter-spacing:-.016em; line-height:1.28; }
+  .ft2{ font-size:12.2px; color:var(--muted); line-height:1.5; margin-top:6px; }
+  .ft2 b{ color:var(--navy); font-weight:700; }
+  .chk{ flex:none; width:52px; height:52px; border-radius:50%; background:var(--green);
+        color:#fff; font-size:23px; font-weight:800; display:flex; align-items:center; justify-content:center; }
+</style></head><body>
+
+  <div class="hdr"><span>BEFORE YOU START &nbsp;&middot;&nbsp; 03</span><span>THE WHOLE ROUTE, ONE PAGE</span></div>
+
+  <h1>From where you are now,<br>to a month from now.</h1>
+  <div class="sub">Six moments. That is the entire system.</div>
+
+  <div class="ends">
+    <div class="end a">
+      <div class="el">WHERE YOU START</div>
+      <div class="et">A prescription, a vague protein target, and <b>no idea what
+        tomorrow morning looks like.</b></div>
+    </div>
+    <div class="arrow">&rarr;</div>
+    <div class="end b">
+      <div class="el">WHERE THIS PUTS YOU</div>
+      <div class="et">Your own two numbers, a <b>thirty-second morning</b>, and four
+        weeks of filled-in sheets to hand your prescriber.</div>
+    </div>
+  </div>
+
+  <div class="rail">
+    <div class="spine"></div>
+
+    <div class="stop">
+      <div class="dot am"><div class="d1">10</div><div class="d2">MIN</div></div>
+      <div class="st">Today, once<span>DO THIS FIRST</span></div>
+      <div class="sd">Run the safety check. Read your protein target off the table.
+        Measure your capacity with a kitchen cup. <b>Write both numbers down.</b>
+        You never do this part again.</div>
+      <div class="pg">PAGES 4&ndash;5</div>
+    </div>
+
+    <div class="stop">
+      <div class="dot"><div class="d1">30</div><div class="d2">SEC</div></div>
+      <div class="st">Tomorrow morning, and every morning</div>
+      <div class="sd">Open one page. Tick the line that sounds like today &mdash;
+        a good day, full after a few bites, queasy, or can&rsquo;t face food &mdash;
+        and <b>eat from that row.</b> Nothing to calculate, nothing to remember.</div>
+      <div class="pg">PAGE 6 &mdash; THE ONE YOU LIVE ON</div>
+    </div>
+
+    <div class="stop">
+      <div class="dot"><div class="d1">1&times;</div><div class="d2">WEEK</div></div>
+      <div class="st">Once a week, at the shop</div>
+      <div class="sd">Shop from the list, which is sorted by protein per 100 ml
+        rather than by aisle. Keep the <b>dose-day shelf</b> stocked &mdash;
+        because nobody goes shopping on day one.</div>
+      <div class="pg">PAGES 9&ndash;11 &amp; 20</div>
+    </div>
+
+    <div class="stop">
+      <div class="dot am"><div class="d1">&#9888;</div><div class="d2">DOSE</div></div>
+      <div class="st">Every time the dose goes up</div>
+      <div class="sd">Switch to Dose Week Mode for seven days. Targets step down
+        and back up on a dial, so <b>a hard week is planned for instead of
+        survived.</b></div>
+      <div class="pg">PAGE 12</div>
+    </div>
+
+    <div class="stop">
+      <div class="dot"><div class="d1">&#8595;</div><div class="d2">BAD DAY</div></div>
+      <div class="st">On a morning when food is impossible</div>
+      <div class="sd">Drop one rung down the texture ladder. Each rung shows
+        <b>how much of your target it can still reach</b> &mdash; so a bad day
+        becomes a smaller number, not a lost one.</div>
+      <div class="pg">PAGE 13 &nbsp;&middot;&nbsp; RED FLAGS ON 17</div>
+    </div>
+
+    <div class="stop">
+      <div class="dot gr"><div class="d1">30</div><div class="d2">DAYS</div></div>
+      <div class="st">At your next appointment</div>
+      <div class="sd">You arrive with four weeks of filled sheets instead of
+        &ldquo;I think it&rsquo;s been going alright.&rdquo; <b>Your prescriber gets
+        data. You get a better ten minutes.</b></div>
+      <div class="pg">PAGES 21&ndash;24</div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <div class="chk">&#10003;</div>
+    <div>
+      <div class="ft1">Plan it. Do it. Build something that holds.</div>
+      <div class="ft2">You will not read this book. You will <b>use six of its pages</b>
+        and leave the rest for the days you need them. That is how it was built.</div>
+    </div>
+  </div>
+
+</body></html>
