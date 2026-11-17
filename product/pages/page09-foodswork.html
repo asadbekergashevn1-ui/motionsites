@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Foods That Work</title>
+<style>
+  :root{ --navy:#1B2A41; --amber:#E09F3E; --green:#4A7C59; --red:#C0453A;
+         --muted:#7A8599; --line:#DDE1E8; --wash:#F6F7F9; }
+  @page{ size:A4; margin:0; }
+  html,body{overflow:hidden}
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{ width:794px; height:1123px; background:#fff; color:var(--navy);
+        font-family:"Inter","Inter Display",sans-serif; -webkit-font-smoothing:antialiased;
+        padding:38px 46px 30px; display:flex; flex-direction:column; }
+  .hdr{ display:flex; justify-content:space-between; font-size:9px; font-weight:700;
+        letter-spacing:.14em; color:var(--muted); padding-bottom:8px; border-bottom:1.5px solid var(--navy); }
+  h1{ font-size:34px; font-weight:800; letter-spacing:-.022em; margin-top:13px; line-height:1.03; }
+  h1 em{ font-style:normal; color:var(--green); }
+  .sub{ font-size:13.8px; font-weight:600; color:var(--muted); margin-top:8px; line-height:1.45; }
+  .sub b{ color:var(--navy); }
+
+  .tier{ margin-top:18px; border:1.5px solid var(--line); border-radius:12px; overflow:hidden; }
+  .tbar{ display:flex; align-items:center; gap:10px; padding:10px 16px; }
+  .tier.t1 .tbar{ background:var(--green); color:#fff; }
+  .tier.t2 .tbar{ background:#EAF1EC; color:var(--green); }
+  .tt{ font-size:11.5px; font-weight:800; letter-spacing:.14em; }
+  .tr{ margin-left:auto; font-size:10px; font-weight:700; opacity:.85; letter-spacing:.06em; }
+  .rows{ padding:6px 16px 10px; }
+  .row{ display:flex; align-items:center; gap:12px; padding:9px 0; border-bottom:1px solid #EEF0F4; }
+  .row:last-child{ border-bottom:0; }
+  .fn{ width:150px; flex:none; font-size:12.8px; font-weight:800; letter-spacing:-.01em; }
+  .note{ flex:1; font-size:10.8px; color:#5C6676; line-height:1.4; padding-right:8px; }
+  .note b{ color:var(--navy); }
+  .barwrap{ width:150px; flex:none; height:11px; background:#EEF0F4; border-radius:6px; overflow:hidden; display:block; }
+  .bar{ height:100%; display:block; border-radius:6px; background:var(--green); }
+  .t2 .bar{ background:#8FB49B; }
+  .val{ width:34px; flex:none; text-align:right; font-size:14px; font-weight:800; }
+  .t2 .val{ color:#55795F; }
+
+  .how{ margin-top:18px; background:var(--wash); border-radius:11px; padding:17px 20px 18px; display:flex; gap:18px; align-items:flex-start; }
+  .hn{ flex:none; width:40px; height:40px; border-radius:50%; background:var(--navy); color:#fff;
+       display:flex; align-items:center; justify-content:center; font-size:19px; font-weight:800; }
+  .ht{ font-size:13px; line-height:1.6; }
+  .ht b{ font-weight:800; }
+
+  .foot{ margin-top:auto; border-top:1.5px solid var(--navy); padding-top:13px;
+         font-size:10px; color:var(--muted); line-height:1.5; }
+  .foot b{ color:var(--navy); }
+</style></head><body>
+
+  <div class="hdr"><span>THE FOOD PAGES &nbsp;&middot;&nbsp; 08</span><span>G / 100 ML = GRAMS OF PROTEIN PER 100 ML OF STOMACH SPACE</span></div>
+
+  <h1>Foods that <em>earn</em> their space.</h1>
+  <div class="sub">Ranked by the only number that matters here: <b>protein per 100 ml of room.</b>
+    Calculated from USDA FoodData Central. The bar shows how hard each food works.</div>
+
+  <div class="tier t1">
+    <div class="tbar"><span class="tt">THE ANCHORS &mdash; BUILD EVERY MEAL ON ONE OF THESE</span><span class="tr">10&ndash;18 g / 100 ml</span></div>
+    <div class="rows">
+      <div class="row"><span class="fn">Chicken breast</span><span class="note">Cook once, keep cold in the fridge. <b>Cold works on queasy days.</b></span><span class="barwrap"><span class="bar" style="width:100%"></span></span><span class="val">18</span></div>
+      <div class="row"><span class="fn">Firm tofu</span><span class="note">Same density as chicken. No cooking smell &mdash; matters when smells turn you.</span><span class="barwrap"><span class="bar" style="width:100%"></span></span><span class="val">18</span></div>
+      <div class="row"><span class="fn">Tinned tuna</span><span class="note">Open, fork, done. <b>The zero-effort anchor</b> for a no-energy day.</span><span class="barwrap"><span class="bar" style="width:100%"></span></span><span class="val">18</span></div>
+      <div class="row"><span class="fn">Prawns / shrimp</span><span class="note">Small, cold, mild. Eat three, stop, come back &mdash; they keep.</span><span class="barwrap"><span class="bar" style="width:78%"></span></span><span class="val">14</span></div>
+      <div class="row"><span class="fn">Salmon or cod</span><span class="note">Softer than chicken &mdash; drops one rung down the texture ladder.</span><span class="barwrap"><span class="bar" style="width:72%"></span></span><span class="val">13</span></div>
+      <div class="row"><span class="fn">Cottage cheese</span><span class="note">Spoonable protein. Salt it, pepper it, or blend it smooth.</span><span class="barwrap"><span class="bar" style="width:67%"></span></span><span class="val">12</span></div>
+      <div class="row"><span class="fn">Egg whites</span><span class="note">2 whites = 7 g in very little room. Carton whites scramble in a minute.</span><span class="barwrap"><span class="bar" style="width:61%"></span></span><span class="val">11</span></div>
+      <div class="row"><span class="fn">Greek yogurt, 0%</span><span class="note">The breakfast anchor. <b>Strained = denser</b> &mdash; regular yogurt is half this.</span><span class="barwrap"><span class="bar" style="width:56%"></span></span><span class="val">10</span></div>
+    </div>
+  </div>
+
+  <div class="tier t2">
+    <div class="tbar"><span class="tt">THE SUPPORT &mdash; GOOD BESIDE AN ANCHOR, SLOW ALONE</span><span class="tr">6&ndash;8 g / 100 ml</span></div>
+    <div class="rows">
+      <div class="row"><span class="fn">Edamame</span><span class="note">Protein and fibre together &mdash; go gently in week one and dose week.</span><span class="barwrap"><span class="bar" style="width:44%"></span></span><span class="val">8</span></div>
+      <div class="row"><span class="fn">Lentils</span><span class="note">A cup gives 18 g &mdash; <b>but a cup is more than you may finish.</b> Half-cup beside an anchor.</span><span class="barwrap"><span class="bar" style="width:39%"></span></span><span class="val">7</span></div>
+      <div class="row"><span class="fn">Whole egg</span><span class="note">Boiled, it travels, keeps, and sits light. The fat-problem page explains why boiled.</span><span class="barwrap"><span class="bar" style="width:39%"></span></span><span class="val">7</span></div>
+      <div class="row"><span class="fn">Protein shake</span><span class="note">1 scoop in 350 ml. Make it <b>smaller and stronger</b>: same scoop, half the liquid, density doubles.</span><span class="barwrap"><span class="bar" style="width:39%"></span></span><span class="val">7</span></div>
+      <div class="row"><span class="fn">Black beans</span><span class="note">Mash into anything. Fibre note applies here too.</span><span class="barwrap"><span class="bar" style="width:33%"></span></span><span class="val">6</span></div>
+    </div>
+  </div>
+
+  <div class="how">
+    <div class="hn">&#8594;</div>
+    <div class="ht"><b>The one rule this page asks of you:</b> protein first, always. Whatever is on the
+      plate, the anchor goes in before anything else touches your room. If you stop early &mdash;
+      and some days you will &mdash; <b>you stopped after the part that mattered.</b></div>
+  </div>
+
+  <div class="foot"><b>Where these numbers come from:</b> protein per 100 g from USDA FoodData Central (SR Legacy),
+    converted to per-100 ml using USDA cup weights for each food. Four values (turkey, prawns, cod, salmon)
+    are derived from measured packing density rather than direct cup weights &mdash; marked in the method notes.</div>
+
+</body></html>

@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>The Gut Page</title>
+<style>
+  :root{ --navy:#1B2A41; --amber:#E09F3E; --green:#4A7C59; --red:#C0453A;
+         --muted:#7A8599; --line:#DDE1E8; --wash:#F6F7F9; }
+  @page{ size:A4; margin:0; }
+  html,body{overflow:hidden}
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{ width:794px; height:1123px; background:#fff; color:var(--navy);
+        font-family:"Inter","Inter Display",sans-serif; -webkit-font-smoothing:antialiased;
+        padding:38px 46px 30px; display:flex; flex-direction:column; }
+  .hdr{ display:flex; justify-content:space-between; font-size:9px; font-weight:700;
+        letter-spacing:.14em; color:var(--muted); padding-bottom:8px; border-bottom:1.5px solid var(--navy); }
+  h1{ font-size:36px; font-weight:800; letter-spacing:-.022em; margin-top:13px; line-height:1.05; }
+  .sub{ font-size:14.2px; color:#4A5565; margin-top:8px; line-height:1.55; }
+  .sub b{ font-weight:800; color:var(--navy); }
+
+  .cols{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; margin-top:17px; flex:1; }
+  .c{ border:1.5px solid var(--line); border-radius:12px; overflow:hidden; display:flex; flex-direction:column; }
+  .ch{ padding:15px 16px 16px; color:#fff; }
+  .c1 .ch{ background:#8A6A3B; } .c2 .ch{ background:var(--navy); } .c3 .ch{ background:#5E7391; }
+  .ct{ font-size:18px; font-weight:800; letter-spacing:-.012em; }
+  .cw{ font-size:11.2px; line-height:1.5; margin-top:7px; opacity:.85; }
+  .cb{ padding:15px 16px 15px; flex:1; display:flex; flex-direction:column; }
+  .lb{ font-size:9.2px; font-weight:800; letter-spacing:.15em; color:var(--muted); margin:13px 0 9px; }
+  .lb:first-child{ margin-top:0; }
+  .do{ display:flex; gap:8px; font-size:12.2px; line-height:1.55; color:#3C4556; }
+  .do + .do{ margin-top:10px; }
+  .dm{ flex:none; font-weight:800; color:var(--green); font-size:10px; margin-top:1px; }
+  .do b{ color:var(--navy); font-weight:800; }
+  .avoid .dm{ color:var(--red); }
+  .call{ margin-top:auto; padding-top:12px; border-top:1px dashed var(--line);
+         font-size:10.8px; line-height:1.5; color:#7A4A44; }
+  .call b{ color:var(--red); font-weight:800; }
+
+  .thread{ margin-top:16px; background:var(--wash); border-radius:11px; padding:16px 19px 17px;
+           display:flex; gap:14px; align-items:center; }
+  .ti{ flex:none; width:38px; height:38px; border-radius:50%; background:var(--navy); color:#fff;
+       display:flex; align-items:center; justify-content:center; font-size:17px; font-weight:800; }
+  .tt{ font-size:12.8px; line-height:1.6; color:#3C4556; }
+  .tt b{ color:var(--navy); font-weight:800; }
+</style></head><body>
+
+  <div class="hdr"><span>KEEPING IT RUNNING &nbsp;&middot;&nbsp; 13</span><span>ONE SLOWED STOMACH, THREE COMPLAINTS</span></div>
+
+  <h1>Constipation. Nausea. Diarrhoea.<br>Same cause &mdash; three different fixes.</h1>
+  <div class="sub">All three trace back to the same thing: <b>the medicine changed the speed of your gut.</b>
+    Which complaint you get decides what to do &mdash; find your column, do the top thing first.</div>
+
+  <div class="cols">
+    <div class="c c1">
+      <div class="ch"><div class="ct">Constipation</div><div class="cw">Everything is moving slower &mdash; and you're eating less fibre and drinking less than you used to, without noticing.</div></div>
+      <div class="cb">
+        <div class="lb">DO FIRST</div>
+        <div class="do"><span class="dm">1</span><span><b>Water before fibre.</b> Fibre without fluid sets like cement. 8&ndash;10 glasses across the day.</span></div>
+        <div class="do"><span class="dm">2</span><span><b>Add fibre gradually</b> &mdash; oats, kiwi, berries, a spoon of ground flax in yogurt. Sudden fibre = bloating.</span></div>
+        <div class="do"><span class="dm">3</span><span><b>Walk 20&ndash;30 minutes daily.</b> Movement outside moves things inside.</span></div>
+        <div class="lb">GO EASY ON</div>
+        <div class="do avoid"><span class="dm">&#10007;</span><span>Big raw-vegetable piles &mdash; fibre, yes, but they also spend your protein room.</span></div>
+        <div class="call"><b>Call today if:</b> no movement for several days with pain, swelling, or vomiting.</div>
+      </div>
+    </div>
+    <div class="c c2">
+      <div class="ch"><div class="ct">Nausea</div><div class="cw">A full-feeling stomach reporting in &mdash; loudest in your first weeks and the days after each dose rise.</div></div>
+      <div class="cb">
+        <div class="lb">DO FIRST</div>
+        <div class="do"><span class="dm">1</span><span><b>Go smaller, not never.</b> Half portions, twice as often. An overfull sitting echoes for hours.</span></div>
+        <div class="do"><span class="dm">2</span><span><b>Go cold and bland.</b> Cold chicken, yogurt, boiled eggs &mdash; smell is half the trigger and cold food barely has one.</span></div>
+        <div class="do"><span class="dm">3</span><span><b>Ginger or peppermint tea</b>, small sips. Old remedies, decent evidence, zero downside.</span></div>
+        <div class="lb">GO EASY ON</div>
+        <div class="do avoid"><span class="dm">&#10007;</span><span>Fried, greasy, rich &mdash; the fat page exists for exactly these days.</span></div>
+        <div class="call"><b>Call today if:</b> you can't keep fluids down for 24 hours, or vomiting is repeated.</div>
+      </div>
+    </div>
+    <div class="c c3">
+      <div class="ch"><div class="ct">Diarrhoea</div><div class="cw">The other direction &mdash; for some people the gut answers the medicine by emptying fast, especially early on.</div></div>
+      <div class="cb">
+        <div class="lb">DO FIRST</div>
+        <div class="do"><span class="dm">1</span><span><b>Replace what's leaving:</b> water plus an electrolyte sachet or salty broth &mdash; not water alone.</span></div>
+        <div class="do"><span class="dm">2</span><span><b>Soluble fibre firms things up</b> &mdash; oats, banana, apple without the skin. It absorbs water on the way through.</span></div>
+        <div class="do"><span class="dm">3</span><span><b>Keep protein gentle:</b> eggs, yogurt, poached chicken &mdash; the target still stands on these days.</span></div>
+        <div class="lb">GO EASY ON</div>
+        <div class="do avoid"><span class="dm">&#10007;</span><span>Greasy, spicy, and sugar-free sweeteners ending in &ldquo;-ol&rdquo; &mdash; all three speed things up.</span></div>
+        <div class="call"><b>Call today if:</b> it lasts beyond a couple of days, or with blood, fever, or dizziness.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="thread">
+    <div class="ti">&#8644;</div>
+    <div class="tt"><b>They can alternate &mdash; that's normal with this medicine.</b> Constipated on dose week, loose the
+      week after. Treat whichever column is true <b>today</b>, keep fluids running through both, and log it on the
+      dose-week tracker &mdash; your prescriber will want the pattern, not the adjectives.</div>
+  </div>
+
+</body></html>

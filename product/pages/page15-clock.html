@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Eating by the Clock</title>
+<style>
+  :root{ --navy:#1B2A41; --amber:#E09F3E; --green:#4A7C59; --red:#C0453A;
+         --muted:#7A8599; --line:#DDE1E8; --wash:#F6F7F9; }
+  @page{ size:A4; margin:0; }
+  html,body{overflow:hidden}
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{ width:794px; height:1123px; background:#fff; color:var(--navy);
+        font-family:"Inter","Inter Display",sans-serif; -webkit-font-smoothing:antialiased;
+        padding:38px 46px 30px; display:flex; flex-direction:column; }
+  .hdr{ display:flex; justify-content:space-between; font-size:9px; font-weight:700;
+        letter-spacing:.14em; color:var(--muted); padding-bottom:8px; border-bottom:1.5px solid var(--navy); }
+  h1{ font-size:34px; font-weight:800; letter-spacing:-.022em; margin-top:13px; line-height:1.04; }
+  h1 em{ font-style:normal; color:var(--amber); }
+  .sub{ font-size:13.8px; color:#4A5565; margin-top:9px; line-height:1.58; max-width:680px; }
+  .sub b{ font-weight:800; color:var(--navy); }
+
+  .big{ margin-top:16px; background:var(--navy); color:#fff; border-radius:12px; padding:16px 20px 17px;
+        display:flex; align-items:center; gap:20px; }
+  .bq{ font-size:16.5px; font-weight:800; line-height:1.35; letter-spacing:-.015em; flex:1; }
+  .bq em{ font-style:normal; color:var(--amber); }
+  .bn{ flex:none; text-align:center; border-left:2px solid rgba(255,255,255,.25); padding-left:20px; }
+  .bn .n1{ font-size:34px; font-weight:800; letter-spacing:-.03em; color:var(--amber); line-height:1; }
+  .bn .n2{ font-size:8.6px; font-weight:800; letter-spacing:.13em; color:#8A94A6; margin-top:4px; }
+
+  .sched{ margin-top:18px; }
+  .sl{ font-size:9.5px; font-weight:800; letter-spacing:.18em; color:var(--muted); margin-bottom:10px; }
+  .meal{ display:flex; align-items:center; gap:14px; padding:9.5px 0; border-bottom:1px solid #EEF0F4; }
+  .meal:last-child{ border-bottom:0; }
+  .clock{ flex:none; width:64px; text-align:center; }
+  .clock .c1{ font-size:16px; font-weight:800; letter-spacing:-.02em; }
+  .clock .c2{ font-size:7.8px; font-weight:800; letter-spacing:.1em; color:var(--muted); margin-top:2px; }
+  .mbar{ flex:none; width:3px; height:34px; border-radius:2px; }
+  .m1 .mbar{ background:var(--amber); } .m2 .mbar{ background:var(--green); }
+  .m3 .mbar{ background:var(--green); } .m4 .mbar{ background:var(--green); }
+  .m5 .mbar{ background:var(--amber); }
+  .mwhat{ flex:1; }
+  .mw1{ font-size:13.2px; font-weight:800; letter-spacing:-.012em; }
+  .mw2{ font-size:10.8px; color:#5C6676; margin-top:3px; line-height:1.4; }
+  .mw2 b{ color:var(--navy); }
+  .mg{ flex:none; width:58px; text-align:right; font-size:15px; font-weight:800; color:var(--green); }
+  .mg span{ display:block; font-size:7.8px; font-weight:800; letter-spacing:.1em; color:var(--muted); margin-top:2px; }
+
+  .total{ display:flex; justify-content:flex-end; align-items:baseline; gap:10px; padding:10px 0 0;
+          border-top:2px solid var(--navy); margin-top:4px; }
+  .tl{ font-size:9.5px; font-weight:800; letter-spacing:.16em; color:var(--muted); }
+  .tv{ font-size:21px; font-weight:800; color:var(--green); letter-spacing:-.02em; }
+
+  .tips{ margin-top:16px; display:grid; grid-template-columns:1fr 1fr; gap:11px; }
+  .tip{ background:var(--wash); border-radius:10px; padding:12px 15px 13px; font-size:11.6px;
+        line-height:1.5; color:#3C4556; }
+  .tip b{ color:var(--navy); font-weight:800; }
+
+  .foot{ margin-top:auto; border-top:1.5px solid var(--navy); padding-top:11px;
+         font-size:9.8px; color:var(--muted); line-height:1.55; }
+  .foot b{ color:var(--navy); }
+</style></head><body>
+
+  <div class="hdr"><span>KEEPING IT RUNNING &nbsp;&middot;&nbsp; 15</span><span>WHEN HUNGER STOPS REMINDING YOU</span></div>
+
+  <h1>Your appetite quit its job.<br><em>The clock takes over.</em></h1>
+  <div class="sub">Hunger used to be your scheduler &mdash; it told you when, and roughly how much. The medicine
+    has silenced it. Nothing replaces it by itself, which is how whole afternoons disappear and you
+    reach evening at 20 grams. <b>So you stop eating by feel and start eating by time.</b></div>
+
+  <div class="big">
+    <div class="bq">Small and often beats big and rare:<br><em>four to six small meals</em> &mdash;
+      not two or three large ones you can no longer finish.</div>
+    <div class="bn"><div class="n1">5</div><div class="n2">EATING MOMENTS<br>IN THE DAY BELOW</div></div>
+  </div>
+
+  <div class="sched">
+    <div class="sl">A WORKED DAY &mdash; 90 G, NO SINGLE SITTING OVER A CUP &nbsp;&middot;&nbsp; SHIFT EVERY TIME TO FIT YOUR LIFE</div>
+    <div class="meal m1">
+      <div class="clock"><div class="c1">7:30</div><div class="c2">ALARM 1</div></div><div class="mbar"></div>
+      <div class="mwhat"><div class="mw1">Greek yogurt, 1 pot</div><div class="mw2">The breakfast anchor. <b>Protein before coffee</b> &mdash; the day starts counted.</div></div>
+      <div class="mg">14 g<span>RUNNING: 14</span></div>
+    </div>
+    <div class="meal m2">
+      <div class="clock"><div class="c1">10:30</div><div class="c2">ALARM 2</div></div><div class="mbar"></div>
+      <div class="mwhat"><div class="mw1">2 boiled eggs</div><div class="mw2">From the fridge, made Sunday. No cooking, no decision.</div></div>
+      <div class="mg">12 g<span>RUNNING: 26</span></div>
+    </div>
+    <div class="meal m3">
+      <div class="clock"><div class="c1">13:00</div><div class="c2">ALARM 3</div></div><div class="mbar"></div>
+      <div class="mwhat"><div class="mw1">Tinned tuna + half cup lentils</div><div class="mw2">The biggest sitting of the day &mdash; and still inside a cup.</div></div>
+      <div class="mg">34 g<span>RUNNING: 60</span></div>
+    </div>
+    <div class="meal m4">
+      <div class="clock"><div class="c1">16:00</div><div class="c2">ALARM 4</div></div><div class="mbar"></div>
+      <div class="mwhat"><div class="mw1">Cottage cheese, small tub</div><div class="mw2">Spoon, done. If queasy: swap for a half-liquid shake.</div></div>
+      <div class="mg">12 g<span>RUNNING: 72</span></div>
+    </div>
+    <div class="meal m5">
+      <div class="clock"><div class="c1">18:30</div><div class="c2">ALARM 5</div></div><div class="mbar"></div>
+      <div class="mwhat"><div class="mw1">Salmon, 1 small fillet &mdash; eaten first</div><div class="mw2">80 g is enough. Whatever else dinner holds <b>comes after the anchor.</b></div></div>
+      <div class="mg">+18 g<span>RUNNING: 90</span></div>
+    </div>
+    <div class="total"><span class="tl">DAY TOTAL, WITHOUT ONE LARGE MEAL</span><span class="tv">90 g &#10003;</span></div>
+  </div>
+
+  <div class="tips">
+    <div class="tip"><b>Set five phone alarms, once.</b> Label them with the food, not &ldquo;eat&rdquo; &mdash;
+      &ldquo;eggs&rdquo; at 10:30 removes the decision, which on this medicine is the hard part.</div>
+    <div class="tip"><b>An alarm you can't face</b> is information, not failure: drop that sitting one texture
+      rung (page 12) instead of skipping it. Skipped sittings don't come back &mdash; the room doesn't carry over.</div>
+  </div>
+
+  <div class="foot"><b>Why this works:</b> clinical guidance for GLP-1 patients favours 4&ndash;6 small meals over
+    2&ndash;3 large ones &mdash; less pressure per sitting on a slowed stomach, steadier intake across the day.
+    The times and foods above are an example to copy or shift, not a prescription.</div>
+
+</body></html>

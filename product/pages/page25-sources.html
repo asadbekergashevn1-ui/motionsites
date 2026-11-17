@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Sources</title>
+<style>
+  :root{ --navy:#1B2A41; --amber:#E09F3E; --green:#4A7C59; --red:#C0453A;
+         --muted:#7A8599; --line:#DDE1E8; --wash:#F6F7F9; }
+  @page{ size:A4; margin:0; }
+  html,body{overflow:hidden}
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{ width:794px; height:1123px; background:#fff; color:var(--navy);
+        font-family:"Inter","Inter Display",sans-serif; -webkit-font-smoothing:antialiased;
+        padding:38px 46px 30px; display:flex; flex-direction:column; }
+  .hdr{ display:flex; justify-content:space-between; font-size:9px; font-weight:700;
+        letter-spacing:.14em; color:var(--muted); padding-bottom:8px; border-bottom:1.5px solid var(--navy); }
+  h1{ font-size:33px; font-weight:800; letter-spacing:-.022em; margin-top:13px; line-height:1.05; }
+  .sub{ font-size:13.2px; color:#4A5565; margin-top:8px; line-height:1.55; max-width:680px; }
+  .sub b{ font-weight:800; color:var(--navy); }
+
+  .sec{ margin-top:15px; }
+  .sl{ font-size:9.3px; font-weight:800; letter-spacing:.17em; color:var(--amber); margin-bottom:8px; }
+  .src{ display:flex; gap:12px; padding:8px 0; border-bottom:1px solid #EEF0F4; }
+  .src:last-child{ border-bottom:0; }
+  .sn{ flex:none; width:22px; font-size:11px; font-weight:800; color:var(--muted); padding-top:1px; }
+  .sb{ flex:1; }
+  .st{ font-size:11.8px; font-weight:700; line-height:1.4; }
+  .sd{ font-size:10.2px; color:var(--muted); line-height:1.45; margin-top:2px; }
+  .sd b{ color:#4A5565; }
+  .used{ font-size:9.4px; color:var(--green); font-weight:700; margin-top:3px; }
+
+  .ours{ margin-top:16px; border:2px solid var(--amber); border-radius:12px; overflow:hidden; }
+  .oh{ background:var(--amber); color:var(--navy); padding:9px 16px; font-size:10.5px; font-weight:800; letter-spacing:.15em; }
+  .ob{ padding:12px 16px 13px; }
+  .oi{ display:flex; gap:10px; font-size:11.4px; line-height:1.5; color:#3C4556; }
+  .oi + .oi{ margin-top:8px; }
+  .om{ flex:none; font-weight:800; color:var(--amber); }
+  .oi b{ color:var(--navy); font-weight:800; }
+
+  .disc{ margin-top:auto; background:var(--wash); border-radius:11px; padding:13px 17px 14px;
+         font-size:10.2px; color:#4A5565; line-height:1.6; }
+  .disc b{ color:var(--navy); font-weight:800; }
+</style></head><body>
+
+  <div class="hdr"><span>CLOSING &nbsp;&middot;&nbsp; 25</span><span>EVERY CLAIM, TRACEABLE &mdash; DATED</span></div>
+
+  <h1>Where every number comes from.</h1>
+  <div class="sub">Most guides in this niche don't print a sources page. This one does, because you are
+    making food decisions on these numbers &mdash; <b>and because the parts that are our own design
+    deserve to be labelled, not dressed up as science.</b></div>
+
+  <div class="sec">
+    <div class="sl">CLINICAL FRAMING</div>
+    <div class="src"><span class="sn">1</span><div class="sb">
+      <div class="st">Joint Advisory: Nutritional priorities to support GLP-1 therapy for obesity (2025)</div>
+      <div class="sd">American College of Lifestyle Medicine &middot; American Society for Nutrition &middot; Obesity Medicine
+        Association &middot; The Obesity Society. <b>Obesity 33(8):1475&ndash;1503. doi:10.1002/oby.24336.</b></div>
+      <div class="used">USED FOR: protein range &middot; side-effect timing around dose steps &middot; early fatty/high-fibre food triggers &middot; hydration &middot; safety themes</div>
+    </div></div>
+    <div class="src"><span class="sn">2</span><div class="sb">
+      <div class="st">Sargeant JA et al. GLP-1 receptor agonists, SGLT2 inhibitors and lean body mass (2019)</div>
+      <div class="sd">Review. <b>Endocrinology and Metabolism (Seoul) 34(3):247&ndash;262. doi:10.3803/EnM.2019.34.3.247.</b></div>
+      <div class="used">USED FOR: the 20&ndash;50% lean-mass share of weight loss on page 16</div>
+    </div></div>
+    <div class="src"><span class="sn">3</span><div class="sb">
+      <div class="st">Protein intake consensus for adults on GLP-1 therapy</div>
+      <div class="sd">General GLP-1 patient guidance clusters at <b>1.0&ndash;1.5 g per kg per day, 20&ndash;30 g per sitting</b>;
+        the 2025 Advisory proposes <b>1.2&ndash;1.6 g/kg during active weight reduction</b> &mdash; the range this guide's lookup table prints.</div>
+      <div class="used">USED FOR: the target table on page 5 and every daily total in the examples</div>
+    </div></div>
+  </div>
+
+  <div class="sec">
+    <div class="sl">FOOD DATA</div>
+    <div class="src"><span class="sn">4</span><div class="sb">
+      <div class="st">USDA FoodData Central &mdash; SR Legacy dataset</div>
+      <div class="sd">U.S. Department of Agriculture, <b>fdc.nal.usda.gov</b>, accessed November 2026. Protein per
+        100 g converted to protein per 100 ml using USDA household-measure cup weights for each food.
+        Four values (turkey, prawns, cod, salmon) are derived from the measured packing density of
+        comparable foods rather than direct cup weights, and are marked as estimates in our records.</div>
+      <div class="used">USED FOR: every g/100 ml figure on pages 7&ndash;10 and the grocery list on page 20</div>
+    </div></div>
+  </div>
+
+  <div class="ours">
+    <div class="oh">&#9888; &nbsp;OUR OWN DESIGN &mdash; PLANNING STRUCTURES, NOT CLINICAL PROTOCOLS</div>
+    <div class="ob">
+      <div class="oi"><span class="om">&rarr;</span><span><b>The dose-week dial</b> (60&ndash;80&ndash;90&ndash;100%): the <i>pattern</i> &mdash; symptoms cluster
+        after dose steps and ease within days to weeks &mdash; is from the Advisory. The specific percentages are our
+        planning scaffold so a hard week has numbers instead of guilt.</span></div>
+      <div class="oi"><span class="om">&rarr;</span><span><b>The texture ladder</b> (L1&ndash;L4): our organisation of commonly tolerated food
+        textures into rungs with reachable targets. It is not a dysphagia or medical texture scale.</span></div>
+      <div class="oi"><span class="om">&rarr;</span><span><b>The capacity measurement and target-&divide;-capacity arithmetic:</b> our method,
+        built on the uncontroversial fact that a GLP-1 stomach holds less per sitting. Nobody has clinically
+        validated measuring it with a kitchen cup &mdash; which is why the system asks you to re-measure and
+        adjust rather than trust it blindly.</span></div>
+    </div>
+  </div>
+
+  <div class="disc"><b>The standing disclaimer, one last time:</b> this is an educational planning tool written from
+    published sources and careful arithmetic. It is not medical advice, it does not know your history, and it
+    never overrides your prescriber, your pharmacist, or the patient information that came with your
+    medicine. <b>Where this guide and your clinician disagree, your clinician wins &mdash; every time.</b></div>
+
+</body></html>

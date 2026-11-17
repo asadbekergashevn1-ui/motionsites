@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Day 30</title>
+<style>
+  :root{ --navy:#1B2A41; --amber:#E09F3E; --green:#4A7C59; --red:#C0453A;
+         --muted:#7A8599; --line:#DDE1E8; --wash:#F6F7F9; }
+  @page{ size:A4; margin:0; }
+  html,body{overflow:hidden}
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{ width:794px; height:1123px; background:#fff; color:var(--navy);
+        font-family:"Inter","Inter Display",sans-serif; -webkit-font-smoothing:antialiased;
+        padding:38px 46px 30px; display:flex; flex-direction:column; }
+  .hdr{ display:flex; justify-content:space-between; font-size:9px; font-weight:700;
+        letter-spacing:.14em; color:var(--muted); padding-bottom:8px; border-bottom:1.5px solid var(--navy); }
+  h1{ font-size:34px; font-weight:800; letter-spacing:-.022em; margin-top:13px; line-height:1.04; }
+  h1 em{ font-style:normal; color:var(--green); }
+  .sub{ font-size:13.4px; color:#4A5565; margin-top:9px; line-height:1.55; max-width:660px; }
+  .sub b{ font-weight:800; color:var(--navy); }
+
+  .tally{ margin-top:18px; border:1.5px solid var(--line); border-radius:12px; padding:16px 20px 17px; }
+  .tl{ font-size:9.3px; font-weight:800; letter-spacing:.17em; color:var(--amber); margin-bottom:10px; }
+  .trow{ display:flex; align-items:baseline; gap:12px; padding:9.5px 0; border-bottom:1px solid #EEF0F4; }
+  .trow:last-child{ border-bottom:0; }
+  .tq{ flex:1; font-size:13.4px; font-weight:600; }
+  .tq small{ display:block; font-size:9.8px; color:var(--muted); font-weight:600; margin-top:2px; }
+  .tline{ flex:none; width:110px; border-bottom:2px solid var(--navy); height:21px; }
+  .tu{ flex:none; font-size:9.6px; font-weight:800; color:var(--muted); width:64px; }
+
+  .fork{ margin-top:16px; display:flex; gap:12px; }
+  .f{ flex:1; border-radius:11px; padding:17px 19px 18px; }
+  .f.good{ background:#EAF1EC; }
+  .f.hard{ background:var(--wash); border:1.5px solid var(--line); }
+  .fl{ font-size:9px; font-weight:800; letter-spacing:.16em; }
+  .good .fl{ color:var(--green); } .hard .fl{ color:var(--muted); }
+  .ft{ font-size:12.8px; line-height:1.58; margin-top:8px; color:#3C4556; }
+  .ft b{ color:var(--navy); font-weight:800; }
+
+  .appt{ margin-top:18px; background:var(--navy); color:#fff; border-radius:12px; padding:18px 21px 19px; }
+  .al{ font-size:9px; font-weight:800; letter-spacing:.17em; color:var(--amber); }
+  .aq{ display:flex; gap:10px; margin-top:9px; }
+  .ai{ flex:1; background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.15);
+       border-radius:8px; padding:12px 14px 13px; font-size:11.6px; line-height:1.5; color:#D4D9E2; }
+  .ai b{ color:#fff; font-weight:800; }
+
+  .next{ margin-top:auto; border-top:2px solid var(--navy); padding-top:14px; display:flex; align-items:center; gap:18px; }
+  .nx{ flex:1; }
+  .n1{ font-size:19px; font-weight:800; letter-spacing:-.018em; line-height:1.3; }
+  .n1 em{ font-style:normal; color:var(--amber); }
+  .n2{ font-size:12.2px; color:var(--muted); margin-top:6px; line-height:1.5; }
+  .n2 b{ color:var(--navy); font-weight:700; }
+  .stamp{ flex:none; width:84px; height:84px; border:3px solid var(--green); border-radius:50%;
+          display:flex; flex-direction:column; align-items:center; justify-content:center; transform:rotate(-7deg); }
+  .s1{ font-size:20px; font-weight:800; color:var(--green); letter-spacing:-.02em; }
+  .s2{ font-size:7px; font-weight:800; letter-spacing:.14em; color:var(--green); margin-top:2px; }
+</style></head><body>
+
+  <div class="hdr"><span>CLOSING &nbsp;&middot;&nbsp; 24</span><span>FOUR WEEKS IN &mdash; READ THE SHEETS, NOT THE FEELINGS</span></div>
+
+  <h1>Day 30. <em>Count what happened.</em></h1>
+  <div class="sub">Thirty days ago this was a prescription and a vague instruction. Now it is four weeks of
+    filled-in sheets &mdash; <b>which means the next decisions get made on numbers, not impressions.</b>
+    Sit down with the trackers and total six things.</div>
+
+  <div class="tally">
+    <div class="tl">THE SIX TOTALS &mdash; TEN MINUTES WITH YOUR FILLED SHEETS</div>
+    <div class="trow"><span class="tq">Days you ticked a row and ate from it<small>any row counts &mdash; the queasy row is still the system working</small></span><span class="tline"></span><span class="tu">/ 30 DAYS</span></div>
+    <div class="trow"><span class="tq">Average grams on good days<small>from the daily cards &mdash; add them up, divide by the count</small></span><span class="tline"></span><span class="tu">G / DAY</span></div>
+    <div class="trow"><span class="tq">Average grams on dose-week days<small>lower is expected &mdash; the dial plans for it. How much lower?</small></span><span class="tline"></span><span class="tu">G / DAY</span></div>
+    <div class="trow"><span class="tq">Days below half your target<small>count them &mdash; this is the number your prescriber will care about</small></span><span class="tline"></span><span class="tu">DAYS</span></div>
+    <div class="trow"><span class="tq">Strength sessions completed<small>any counts &mdash; even one sit-to-stand round. The signal matters more than the volume</small></span><span class="tline"></span><span class="tu">/ 8&ndash;12</span></div>
+    <div class="trow"><span class="tq">Capacity now, re-measured with the cup<small>two minutes, same method as day 0 &mdash; it often shifts over a month</small></span><span class="tline"></span><span class="tu">ML</span></div>
+  </div>
+
+  <div class="fork">
+    <div class="f good">
+      <div class="fl">IF THE NUMBERS MOSTLY HELD</div>
+      <div class="ft"><b>The system fits you.</b> Keep the morning page and the trackers running, re-measure
+        capacity after each dose change, and let the rest of this guide go back on the shelf until a
+        hard week pulls it down.</div>
+    </div>
+    <div class="f hard">
+      <div class="fl">IF THEY MOSTLY DIDN'T</div>
+      <div class="ft"><b>The sheets now show you exactly where.</b> Low every morning &rarr; page 15's clock.
+        Low on dose weeks only &rarr; that is what the dial predicted &mdash; stock the shelf earlier.
+        Low everywhere and falling &rarr; <b>that is a prescriber conversation, and you're
+        bringing the evidence.</b></div>
+    </div>
+  </div>
+
+  <div class="appt">
+    <div class="al">THREE QUESTIONS WORTH ASKING AT THE APPOINTMENT &mdash; NOW THAT YOU HAVE DATA</div>
+    <div class="aq">
+      <div class="ai">&ldquo;My intake on dose weeks drops to <b>___ grams</b>. Is that drop acceptable,
+        or should we talk about the titration pace?&rdquo;</div>
+      <div class="ai">&ldquo;I had <b>___ days</b> under half my protein target. At what number would
+        you want to hear from me sooner?&rdquo;</div>
+      <div class="ai">&ldquo;Here's my strength routine &mdash; <b>twice a week, three moves.</b>
+        Anything you'd add or stop, given my history?&rdquo;</div>
+    </div>
+  </div>
+
+  <div class="next">
+    <div class="nx">
+      <div class="n1">Month two is the same system &mdash; <em>minus the learning curve.</em></div>
+      <div class="n2">Print fresh trackers (pages 21&ndash;23), carry your two numbers forward &mdash;
+        <b>re-measured, not remembered</b> &mdash; and keep the fridge card up. That's it. That's maintenance.</div>
+    </div>
+    <div class="stamp"><div class="s1">30</div><div class="s2">DAYS DONE</div></div>
+  </div>
+
+</body></html>
