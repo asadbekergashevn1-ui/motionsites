@@ -153,3 +153,63 @@ Yoki yumshoqroq variant:
 ## Yakuniy baho
 PurePathPrintables — **raqobatchi emas, pozitsiya oynasi**.
 Ular "tabiiy GLP-1" segmentini egallagan. **"Dori ichayotgan + ishtaha yo'q" segmenti bo'sh.**
+
+---
+
+## ADDENDUM — PurePathPrintables shop-level data (2026-11-17)
+
+Source: user screenshot of the shop page. Directly observed, not estimated.
+
+| Field | Value |
+|---|---|
+| Location | Morocco |
+| Rating | 4.8 (100 reviews) |
+| Sales | 1,700 |
+| Age | 10 months on Etsy |
+| **Listings** | **732** |
+
+### Category breakdown (as shown in shop sidebar)
+
+| Category | Listings |
+|---|---|
+| Printable Diet Bundles | 330 |
+| Hormone Health Diets | 39 |
+| Gut Health Diets | 27 |
+| Diabetic Diet Bundles | 16 |
+| Brain & Mood Diets | 10 |
+| **Muscle & Weight Gain** | **6** |
+| Heart Healthy Diets | 5 |
+| Autoimmune & Allergies | 1 |
+
+### Derived metrics
+
+- **Sales per listing: 1,700 / 732 = 2.3**
+- Sales per month: 170
+- **Review rate: 100 / 1,700 = 5.9%** ← use this to calibrate every
+  "X reviews" figure seen on any other shop in this niche
+- Listing fee burden: 732 × $0.20 ≈ $146 per 4-month cycle
+
+### Revenue estimate — ESTIMATE, NOT OBSERVED
+
+Listed bundles $21.11–$23.46; the cart pop-up showed one item at $3.42
+(from $6.84, 50% off), so the catalogue spans roughly $3–$23 at sale price.
+Assuming an $8–$15 average realised sale:
+
+- 1,700 × $8 = $13,600 over 10 months ≈ **$1,360/mo**
+- 1,700 × $15 = $25,500 over 10 months ≈ **$2,550/mo**
+
+Marked 🔴 C — the average sale price is unknown and this spread is wide.
+
+### What this actually proves
+
+1. **It is a coverage strategy, not a quality strategy.** 732 listings at
+   2.3 sales each. Each condition name (POTS, hemorrhoids, atherosclerosis,
+   fibromyalgia, cortisol, low glycemic…) is a search term, and each listing
+   is a $0.20 lottery ticket on that term.
+2. **The distribution is almost certainly extremely skewed.** 2.3 is a mean,
+   not a mode. A handful of listings carry the shop; most sell near zero.
+3. **It cannot be copied by us.** Their marginal cost per listing is a
+   template fill. Ours is weeks. Competing on volume is not available.
+4. **Non-Western sellers do fine on Etsy.** Morocco, 10 months, 1.7k sales.
+5. **Weight GAIN is thin even in a 732-listing diet shop** — 6 listings.
+   Weak evidence, but it points the same way as the elderly/sarcopenia idea.
